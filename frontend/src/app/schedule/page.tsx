@@ -14,10 +14,10 @@ export default function SchedulePage() {
   const monthKey = `${current.getFullYear()}-${String(current.getMonth() + 1).padStart(2, '0')}`;
 
   useEffect(() => {
-    setLoading(true);
     api.schedules
       .list(monthKey)
       .then(setSchedules)
+      .catch(() => setSchedules([]))
       .finally(() => setLoading(false));
   }, [monthKey]);
 
@@ -42,8 +42,14 @@ export default function SchedulePage() {
     return map;
   }, [schedules]);
 
-  const prevMonth = () => setCurrent(new Date(current.getFullYear(), current.getMonth() - 1));
-  const nextMonth = () => setCurrent(new Date(current.getFullYear(), current.getMonth() + 1));
+  const prevMonth = () => {
+    setLoading(true);
+    setCurrent(new Date(current.getFullYear(), current.getMonth() - 1));
+  };
+  const nextMonth = () => {
+    setLoading(true);
+    setCurrent(new Date(current.getFullYear(), current.getMonth() + 1));
+  };
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-16 lg:px-8">
