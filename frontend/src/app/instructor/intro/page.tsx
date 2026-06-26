@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { CareerSection } from '@/components/instructor/CareerSection';
 import { ReadableText } from '@/components/ui/ReadableText';
+import { oceanImages } from '@/lib/marketing-images';
 
 export default function InstructorIntroPage() {
   const differentiators = [
@@ -43,13 +44,12 @@ export default function InstructorIntroPage() {
       <section className="py-24 md:py-36">
         <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:px-8">
           <div className="photo-card rounded-[2.25rem] p-5">
-            <div className="flex min-h-[28rem] flex-col justify-end rounded-[1.75rem] bg-white/40 p-7 ring-1 ring-white/60 backdrop-blur-xl md:min-h-[36rem]">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-zinc-400">
-                Profile Photo
-              </p>
-              <p className="mt-3 max-w-sm text-sm leading-7 text-zinc-600">
-                김혜미 강사 프로필 사진 영역
-              </p>
+            <div className="relative min-h-[28rem] overflow-hidden rounded-[1.75rem] ring-1 ring-white/60 md:min-h-[36rem]">
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-cover bg-[center_35%]"
+                style={{ backgroundImage: `url(${oceanImages.instructor})` }}
+              />
             </div>
           </div>
 
@@ -58,12 +58,16 @@ export default function InstructorIntroPage() {
               Instructor
             </p>
             <h1 className="mt-6 max-w-3xl text-5xl font-extrabold leading-[0.98] tracking-[-0.06em] text-zinc-900 md:text-7xl">
-              대한민국 노핀 국가대표 선수
+              대한민국 /
               <br />
-              김혜미
+              AIDA CMAS 국가 대표
+              <br />
+              김혜미 선수/ 강사 트레이너
             </h1>
             <p className="mt-7 text-xl font-semibold leading-8 text-zinc-800 md:text-2xl">
-              아시아 신기록 보유
+              노핀 아시아 신기록 보유
+              <br />
+              한국 여자 노핀 1등
               <br />
               한국 신기록 12회 수립
             </p>

@@ -20,9 +20,9 @@ export function CareerSection() {
               <button
                 type="button"
                 onClick={() => setModalOpen(true)}
-                className="mt-5 text-sm font-semibold text-[#5F7C8A] underline decoration-[#5F7C8A]/35 underline-offset-8 transition hover:text-[#4f6e7c]"
+                className="mt-5 inline-flex items-center rounded-full bg-[#5F7C8A] px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-[#4f6e7c] hover:shadow-md"
               >
-                전체 대회 경력 보기
+                대회 경력 자세히보기
               </button>
             )}
           </article>

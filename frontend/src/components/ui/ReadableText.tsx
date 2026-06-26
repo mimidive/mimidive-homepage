@@ -42,7 +42,7 @@ export function ReadableText({
           return (
             <motion.p
               key={key}
-              className={sentenceClassName}
+              className={`break-keep text-pretty [overflow-wrap:anywhere] ${sentenceClassName}`.trim()}
               initial={{ opacity: 0, y: 18, filter: 'blur(8px)' }}
               whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               viewport={{ once: true, margin: '-10% 0px' }}
@@ -54,7 +54,7 @@ export function ReadableText({
         }
 
         return (
-          <p key={key} className={sentenceClassName}>
+          <p key={key} className={`break-keep text-pretty [overflow-wrap:anywhere] ${sentenceClassName}`.trim()}>
             {renderHighlightedText(sentence)}
           </p>
         );

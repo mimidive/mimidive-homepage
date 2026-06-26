@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import Link from 'next/link';
+import { ResponsiveText } from '@/components/ui/ResponsiveText';
 import { gettingStarted } from '@/lib/content';
 import { reveal, softEase } from '@/lib/motion-variants';
 
@@ -49,7 +50,6 @@ type PathData = {
   index: string;
   href: string;
   intent: string;
-  intentMobile: readonly string[];
   cta: string;
   title: string;
   image: string;
@@ -78,22 +78,17 @@ function PathCardContent({
           </span>
         ) : null}
       </div>
-      <p
+      <ResponsiveText
+        as="p"
+        softBreaks
         className={`mt-2 font-serif font-semibold tracking-[-0.01em] text-[#FAFAF8] sm:mt-3 md:mt-4 md:text-xl md:leading-snug lg:text-2xl ${
           isWide
             ? 'text-base leading-snug sm:text-lg'
             : 'text-sm leading-snug sm:text-[15px] sm:leading-[1.4]'
         }`}
       >
-        <span className="md:hidden">
-          {path.intentMobile.map((line) => (
-            <span key={line} className="block">
-              {line}
-            </span>
-          ))}
-        </span>
-        <span className="hidden md:inline">{path.intent}</span>
-      </p>
+        {path.intent}
+      </ResponsiveText>
       <p
         className={`mt-1.5 font-semibold text-[#FAFAF8]/70 transition group-hover:text-[#7FA6B8] sm:mt-2 md:mt-2 md:text-sm ${
           isWide ? 'text-xs sm:text-sm' : 'text-[11px] sm:text-xs'
@@ -206,7 +201,6 @@ function useGettingStartedPaths(): { startPaths: PathData[]; advancedPaths: Path
       index: '01',
       href: packagePath.href,
       intent: packagePath.intent,
-      intentMobile: packagePath.intentMobile,
       cta: packagePath.cta,
       title: packagePath.title,
       image: packagePath.image,
@@ -217,7 +211,6 @@ function useGettingStartedPaths(): { startPaths: PathData[]; advancedPaths: Path
       index: '02',
       href: experiencePath.href,
       intent: experiencePath.intent,
-      intentMobile: experiencePath.intentMobile,
       cta: experiencePath.cta,
       title: experiencePath.title,
       image: experiencePath.image,
@@ -226,7 +219,6 @@ function useGettingStartedPaths(): { startPaths: PathData[]; advancedPaths: Path
       index: '03',
       href: funPath.href,
       intent: funPath.intent,
-      intentMobile: funPath.intentMobile,
       cta: funPath.cta,
       title: funPath.title,
       image: funPath.image,
@@ -235,7 +227,6 @@ function useGettingStartedPaths(): { startPaths: PathData[]; advancedPaths: Path
       index: '04',
       href: trainingPath.href,
       intent: trainingPath.intent,
-      intentMobile: trainingPath.intentMobile,
       cta: trainingPath.cta,
       title: trainingPath.title,
       image: trainingPath.image,
@@ -244,7 +235,6 @@ function useGettingStartedPaths(): { startPaths: PathData[]; advancedPaths: Path
       index: '05',
       href: nofinPath.href,
       intent: nofinPath.intent,
-      intentMobile: nofinPath.intentMobile,
       cta: nofinPath.cta,
       title: nofinPath.title,
       image: nofinPath.image,

@@ -51,10 +51,10 @@ export function CompetitionHistoryModal({ open, onClose }: Props) {
               id="competition-history-title"
               className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-[#1A1A1A] md:text-3xl"
             >
-              전체 대회 경력
+              대회 경력
             </h2>
             <p className="mt-2 text-sm leading-7 text-[#6B7280] md:text-base">
-              2017년 첫 국제대회부터 최근 대회까지의 활동 이력입니다.
+              2017년 첫 국제대회부터 최근 대회까지, 연도별 활동 이력입니다.
             </p>
           </div>
           <button
@@ -67,7 +67,7 @@ export function CompetitionHistoryModal({ open, onClose }: Props) {
           </button>
         </div>
         <div className="overflow-y-auto px-6 py-6 md:px-8 md:py-8">
-          <CompetitionHistory years={competitionHistory} defaultOpenCount={3} />
+          <CompetitionHistory years={competitionHistory} collapsible={false} />
         </div>
       </div>
     </div>

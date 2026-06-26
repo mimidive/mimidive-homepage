@@ -361,7 +361,7 @@ export const homeCta = {
     href: '/programs',
   },
   freeConsultation: {
-    label: '무료 교육상담하기',
+    label: '무료 교육 상담하기',
     href: '/booking',
   },
 } as const;
@@ -429,7 +429,6 @@ export const gettingStarted = {
   scrollEyebrow: '심화 과정',
   experiencePath: {
     intent: '제주 바다를 가볍게 경험해보고 싶다',
-    intentMobile: ['제주 바다를 가볍게', '경험해보고 싶다'],
     title: '체험다이빙',
     href: '/courses/intro-dive',
     cta: '체험다이빙 보기',
@@ -437,7 +436,6 @@ export const gettingStarted = {
   },
   packagePath: {
     intent: '프리다이빙을 체계적으로 배워보고 싶다',
-    intentMobile: ['프리다이빙을 체계적으로', '배워보고 싶다'],
     badge: '추천',
     title: '자격증 입문 코스',
     href: PROGRAMS_CERT_ANCHOR,
@@ -447,7 +445,6 @@ export const gettingStarted = {
   },
   funPath: {
     intent: '이미 자격증이 있는데 제주 바다를 즐기고 싶다',
-    intentMobile: ['이미 자격증이 있는데', '제주 바다를 즐기고 싶다'],
     title: '펀다이빙',
     href: '/courses/fun',
     cta: '펀다이빙 보기',
@@ -455,7 +452,6 @@ export const gettingStarted = {
   },
   trainingPath: {
     intent: '수심과 기술을 체계적으로 끌어올리고 싶다',
-    intentMobile: ['수심과 기술을', '체계적으로 끌어올리고 싶다'],
     title: '인도어*수심 트레이닝',
     href: '/courses/training/depth',
     cta: '인도어·수심 트레이닝 보기',
@@ -463,7 +459,6 @@ export const gettingStarted = {
   },
   nofinPath: {
     intent: '아시아 기록 보유자의 노핀 기술을 배우고 싶다',
-    intentMobile: ['아시아 기록 보유자의', '노핀 기술을 배우고 싶다'],
     title: '노핀 코스',
     href: '/courses/training/nofin',
     cta: '노핀 코스 보기',

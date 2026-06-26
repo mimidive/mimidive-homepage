@@ -6,9 +6,62 @@ import { useState } from 'react';
 type Props = {
   years: readonly CompetitionYear[];
   defaultOpenCount?: number;
+  collapsible?: boolean;
 };
 
-export function CompetitionHistory({ years, defaultOpenCount = 2 }: Props) {
+function EntryList({ year, entries }: { year: number; entries: CompetitionYear['entries'] }) {
+  return (
+    <ul className="space-y-3.5">
+      {entries.map((entry) => (
+        <li
+          key={`${year}-${entry.event}`}
+          className="grid gap-1.5 md:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] md:gap-x-8 md:gap-y-1"
+        >
+          <p
+            className={`text-sm leading-7 md:text-[15px] md:leading-8 ${
+              entry.highlight ? 'font-semibold text-[#1A1A1A]' : 'text-[#1A1A1A]'
+            }`}
+          >
+            {entry.event}
+          </p>
+          <p
+            className={`text-sm leading-7 md:text-[15px] md:leading-8 ${
+              entry.highlight ? 'font-medium text-[#5F7C8A]' : 'text-[#6B7280]'
+            }`}
+          >
+            {entry.result}
+          </p>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function YearBlock({ item }: { item: CompetitionYear }) {
+  return (
+    <section>
+      <div className="border-b border-[#5F7C8A]/14 pb-4">
+        <p className="text-2xl font-bold tracking-[-0.04em] text-[#1A1A1A] md:text-3xl">
+          {item.year}
+        </p>
+        {item.summary && (
+          <p className="mt-2 max-w-2xl text-sm leading-7 text-[#6B7280] md:text-[15px] md:leading-8">
+            {item.summary}
+          </p>
+        )}
+      </div>
+      <div className="mt-5">
+        <EntryList year={item.year} entries={item.entries} />
+      </div>
+    </section>
+  );
+}
+
+export function CompetitionHistory({
+  years,
+  defaultOpenCount = 2,
+  collapsible = true,
+}: Props) {
   const [openYears, setOpenYears] = useState<Set<number>>(
     () => new Set(years.slice(0, defaultOpenCount).map((item) => item.year)),
   );
@@ -21,6 +74,16 @@ export function CompetitionHistory({ years, defaultOpenCount = 2 }: Props) {
       return next;
     });
   };
+
+  if (!collapsible) {
+    return (
+      <div className="space-y-10 md:space-y-12">
+        {years.map((item) => (
+          <YearBlock key={item.year} item={item} />
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-3">
@@ -56,29 +119,7 @@ export function CompetitionHistory({ years, defaultOpenCount = 2 }: Props) {
             </button>
             {isOpen && (
               <div className="border-t border-[#5F7C8A]/12 px-6 pb-6 pt-2 md:px-8 md:pb-8">
-                <ul className="space-y-4">
-                  {item.entries.map((entry) => (
-                    <li
-                      key={`${item.year}-${entry.event}`}
-                      className="grid gap-2 border-b border-[#5F7C8A]/10 pb-4 last:border-0 last:pb-0 md:grid-cols-[1.1fr_1fr] md:gap-6"
-                    >
-                      <p
-                        className={`text-sm leading-7 md:text-base md:leading-8 ${
-                          entry.highlight ? 'font-semibold text-[#1A1A1A]' : 'text-[#1A1A1A]'
-                        }`}
-                      >
-                        {entry.event}
-                      </p>
-                      <p
-                        className={`text-sm leading-7 md:text-base md:leading-8 ${
-                          entry.highlight ? 'font-medium text-[#5F7C8A]' : 'text-[#6B7280]'
-                        }`}
-                      >
-                        {entry.result}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
+                <EntryList year={item.year} entries={item.entries} />
               </div>
             )}
           </div>
