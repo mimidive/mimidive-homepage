@@ -14,6 +14,9 @@ const geistSans = Geist({
 export const metadata: Metadata = {
   title: `${BRAND.name} | ${BRAND.nameEn} 프리다이빙 스쿨`,
   description: BRAND.subTagline,
+  other: {
+    'naver-site-verification': '36fb89103df4adb95eda33fa94b2487e91edf341',
+  },
 };
 
 export default function RootLayout({

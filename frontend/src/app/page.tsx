@@ -4,6 +4,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion
 import type { Transition, Variants } from 'framer-motion';
 import Link from 'next/link';
 import { SmoothHorizontalScroll } from '@/components/motion/SmoothHorizontalScroll';
+import { SocialLinks } from '@/components/marketing/SocialLinks';
 import { ReadableText } from '@/components/ui/ReadableText';
 import { concernsBridge, homeCta, homeMoments } from '@/lib/content';
 import { oceanImages } from '@/lib/marketing-images';
@@ -192,6 +193,7 @@ export default function HomePage() {
           <p className="mt-5 text-sm font-medium leading-7 text-[#6B7280] md:text-base">
             제주 프리다이빙 전문 교육센터
           </p>
+          <SocialLinks className="mt-4" />
           <div className="mt-11 flex justify-center">
             <Link
               href={homeCta.programsEntry.href}

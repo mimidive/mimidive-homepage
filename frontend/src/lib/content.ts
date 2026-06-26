@@ -7,6 +7,11 @@ export const BRAND = {
   email: 'mmimi@kakao.com',
   phone: '010-0000-0000',
   kakao: '미미다이브',
+  instagram: 'mimidive',
+  instagramUrl: 'https://www.instagram.com/mimidive',
+  youtube: 'mimidive',
+  youtubeUrl: 'https://www.youtube.com/@mimidive',
+  blogUrl: 'https://m.blog.naver.com/mimidive',
   tagline: '제주 프리다이빙 교육',
   subTagline:
     '대한민국 노핀 국가대표 김혜미 트레이너의 소수정예 교육. 입문, 자격증, 트레이닝 과정 운영.',
