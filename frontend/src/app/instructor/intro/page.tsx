@@ -1,7 +1,10 @@
 import Link from 'next/link';
 import { CareerSection } from '@/components/instructor/CareerSection';
+import { SocialLinks } from '@/components/marketing/SocialLinks';
+import { ResponsiveText } from '@/components/ui/ResponsiveText';
 import { ReadableText } from '@/components/ui/ReadableText';
 import { oceanImages } from '@/lib/marketing-images';
+import { instructorIntroCopy } from '@/lib/responsiveCopy';
 
 export default function InstructorIntroPage() {
   const differentiators = [
@@ -48,7 +51,7 @@ export default function InstructorIntroPage() {
               <div
                 aria-hidden="true"
                 className="absolute inset-0 bg-cover bg-[center_35%]"
-                style={{ backgroundImage: `url(${oceanImages.instructor})` }}
+                style={{ backgroundImage: `url(${oceanImages.instructorRecord})` }}
               />
             </div>
           </div>
@@ -58,18 +61,11 @@ export default function InstructorIntroPage() {
               Instructor
             </p>
             <h1 className="mt-6 max-w-3xl text-5xl font-extrabold leading-[0.98] tracking-[-0.06em] text-zinc-900 md:text-7xl">
-              대한민국 /
-              <br />
-              AIDA CMAS 국가 대표
-              <br />
-              김혜미 선수/ 강사 트레이너
+              <ResponsiveText copy={instructorIntroCopy.title} />
             </h1>
+            <SocialLinks className="mt-6" align="start" />
             <p className="mt-7 text-xl font-semibold leading-8 text-zinc-800 md:text-2xl">
-              노핀 아시아 신기록 보유
-              <br />
-              한국 여자 노핀 1등
-              <br />
-              한국 신기록 12회 수립
+              <ResponsiveText copy={instructorIntroCopy.subtitle} />
             </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -100,7 +96,7 @@ export default function InstructorIntroPage() {
             “
           </p>
           <h2 className="mx-auto -mt-6 max-w-4xl text-4xl font-extrabold leading-[1.05] tracking-[-0.06em] text-zinc-900 md:text-6xl">
-            기록보다 안전이 먼저입니다.
+            <ResponsiveText copy={instructorIntroCopy.quote} />
           </h2>
           <ReadableText
             text={`프리다이빙은 더 깊이 내려가는 스포츠이기도 하지만, 동시에 자신의 몸과 마음을 이해하는 과정이기도 합니다.\n\n미미다이브는 경쟁보다 성장,\n기록보다 안전,\n결과보다 과정을 중요하게 생각합니다.`}
@@ -179,9 +175,7 @@ export default function InstructorIntroPage() {
       <section className="py-24 md:py-36">
         <div className="mx-auto max-w-4xl px-5 text-center lg:px-8">
           <h2 className="text-5xl font-extrabold leading-[0.98] tracking-[-0.07em] text-zinc-900 md:text-7xl">
-            더 깊이보다,
-            <br />
-            더 안전하게.
+            <ResponsiveText copy={instructorIntroCopy.closing} />
           </h2>
           <ReadableText
             text={`기록은 언제든 따라올 수 있습니다. 하지만 안전은 한 번도 타협할 수 없습니다.\n\n프리다이빙이 처음인 분부터, 선수와 강사를 목표로 하는 분까지. 안전하게 성장할 수 있도록 함께하겠습니다.`}

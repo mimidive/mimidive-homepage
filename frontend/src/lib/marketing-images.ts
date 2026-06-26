@@ -2,7 +2,8 @@ const marketingBase = '/marketing' as const;
 
 export const marketingImages = {
   heroSharkDive: '/hero-shark-dive.png',
-  instructorCompetition: '/instructor-portrait.png',
+  instructorPortrait: '/instructor-portrait.png',
+  instructorRecord: '/instructor-record.png',
   programTraining: '/program-training.png',
   programIntro: `${marketingBase}/program-intro.svg`,
   momentTrainee: `${marketingBase}/moment-review-1.svg`,
@@ -18,7 +19,8 @@ export const marketingImages = {
 
 export const oceanImages = {
   hero: marketingImages.heroSharkDive,
-  instructor: marketingImages.instructorCompetition,
+  instructor: marketingImages.instructorPortrait,
+  instructorRecord: marketingImages.instructorRecord,
   breathing: marketingImages.programTraining,
   intro: marketingImages.programIntro,
   trainee: marketingImages.momentTrainee,

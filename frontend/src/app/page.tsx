@@ -5,7 +5,7 @@ import type { Transition, Variants } from 'framer-motion';
 import Link from 'next/link';
 import { SmoothHorizontalScroll } from '@/components/motion/SmoothHorizontalScroll';
 import { SocialLinks } from '@/components/marketing/SocialLinks';
-import { ResponsiveText } from '@/components/ui/ResponsiveText';
+import { ResponsiveText, type ResponsiveLine } from '@/components/ui/ResponsiveText';
 import { homeCta } from '@/lib/content';
 import {
   homeClosingCopy,
@@ -20,7 +20,7 @@ import { oceanImages } from '@/lib/marketing-images';
 
 type Moment = {
   image: string;
-  quote: string;
+  quote: ResponsiveLine;
 };
 
 function MomentCard({ moment }: { moment: Moment }) {
@@ -42,7 +42,7 @@ function MomentCard({ moment }: { moment: Moment }) {
           Review
         </p>
         <p className="mt-3 text-[15px] font-medium leading-7 tracking-[-0.01em] text-[#FAFAF8] md:text-base md:leading-8">
-          <ResponsiveText as="span">&ldquo;{moment.quote}&rdquo;</ResponsiveText>
+          &ldquo;<ResponsiveText as="span" copy={moment.quote} />&rdquo;
         </p>
       </figcaption>
     </figure>
@@ -59,7 +59,7 @@ function MomentsAutoScroll({ moments }: { moments: Moment[] }) {
       className="mt-12 md:mt-16"
     >
       {loopMoments.map((moment, index) => (
-        <MomentCard key={`${moment.quote}-${index}`} moment={moment} />
+        <MomentCard key={`${moment.quote.desktop}-${index}`} moment={moment} />
       ))}
     </SmoothHorizontalScroll>
   );
@@ -165,17 +165,15 @@ export default function HomePage() {
             {homeHeroCopy.eyebrow}
           </p>
           <h1 className="mt-8 text-[2.75rem] font-semibold leading-[1.05] tracking-[-0.06em] text-[#1A1A1A] md:text-7xl lg:text-[5.5rem]">
-            <ResponsiveText balance softBreaks>
-              {homeHeroCopy.title}
-            </ResponsiveText>
+            <ResponsiveText balance copy={homeHeroCopy.title} />
           </h1>
           <p className="mx-auto mt-10 max-w-3xl font-serif text-[clamp(1.25rem,3.2vw,2rem)] font-semibold leading-snug tracking-[-0.03em] md:mt-12 md:leading-tight">
             <span className="box-decoration-clone bg-white/30 px-2.5 py-1 text-[#1A1A1A] [box-decoration-break:clone]">
-              <ResponsiveText softBreaks>{homeHeroCopy.lead}</ResponsiveText>
+              <ResponsiveText copy={homeHeroCopy.lead} />
             </span>
           </p>
           <p className="mt-5 text-sm font-medium leading-7 text-[#6B7280] md:text-base">
-            <ResponsiveText>{homeHeroCopy.tagline}</ResponsiveText>
+            <ResponsiveText copy={homeHeroCopy.tagline} />
           </p>
           <SocialLinks className="mt-4" />
           <div className="mt-11 flex justify-center">
@@ -183,7 +181,7 @@ export default function HomePage() {
               href={homeCta.programsEntry.href}
               className="rounded-full bg-[#5F7C8A] px-8 py-4 text-center text-sm font-semibold leading-snug text-[#FAFAF8] transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-[#4f6e7c]"
             >
-              <ResponsiveText>{homeCtaCopy.programsEntry}</ResponsiveText>
+              <ResponsiveText copy={homeCtaCopy.programsEntry} />
             </Link>
           </div>
         </motion.div>
@@ -201,15 +199,13 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <motion.div {...reveal} className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end lg:gap-6">
             <h2 className="text-4xl font-semibold leading-[1.08] tracking-[-0.055em] text-[#1A1A1A] md:text-6xl lg:text-7xl">
-              <ResponsiveText balance>{homeTruthCopy.title}</ResponsiveText>
+              <ResponsiveText balance copy={homeTruthCopy.title} />
             </h2>
             <ResponsiveText
               as="p"
               className="text-base leading-7 text-[#6B7280] md:text-lg md:leading-8"
-              softBreaks
-            >
-              {homeTruthCopy.body}
-            </ResponsiveText>
+              copy={homeTruthCopy.body}
+            />
           </motion.div>
         </div>
       </section>
@@ -218,7 +214,7 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-7xl gap-16 px-5 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:px-8">
           <motion.div {...reveal} className="relative aspect-[4/5] overflow-hidden">
             <motion.div
-              className="h-full w-full bg-cover bg-[center_22%]"
+              className="h-full w-full bg-cover bg-center"
               style={{ backgroundImage: `url(${oceanImages.instructor})` }}
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 1, ease: softEase }}
@@ -241,17 +237,14 @@ export default function HomePage() {
               variants={instructorHeadingStagger}
               className="mt-6 text-4xl font-semibold leading-[1.06] tracking-[-0.055em] text-[#1A1A1A] md:text-6xl"
             >
-              <ResponsiveText balance as="span">
-                {homeInstructorCopy.title}
-              </ResponsiveText>
+              <ResponsiveText balance as="span" copy={homeInstructorCopy.title} />
             </motion.h2>
             <motion.div variants={instructorLine} className="mt-9 max-w-2xl">
               <ResponsiveText
                 as="p"
                 className="text-base leading-8 text-[#6B7280] md:text-lg md:leading-9"
-              >
-                {homeInstructorCopy.body}
-              </ResponsiveText>
+                copy={homeInstructorCopy.body}
+              />
             </motion.div>
             <div className="mt-12 space-y-8">
               {homeInstructorCopy.storyMarks.map((mark) => (
@@ -272,10 +265,8 @@ export default function HomePage() {
                     <ResponsiveText
                       as="p"
                       className="max-w-xl font-serif text-lg font-semibold leading-snug tracking-[-0.02em] text-[#1A1A1A] md:text-xl md:leading-snug"
-                      softBreaks
-                    >
-                      {mark.text}
-                    </ResponsiveText>
+                      copy={mark.text}
+                    />
                   </motion.div>
                 </motion.div>
               ))}
@@ -285,7 +276,7 @@ export default function HomePage() {
                 href="/instructor/intro"
                 className="inline-block break-keep text-sm font-bold text-[#1A1A1A] underline decoration-[#5F7C8A]/35 underline-offset-8 transition hover:text-[#5F7C8A]"
               >
-                {homeInstructorCopy.link}
+                <ResponsiveText copy={homeInstructorCopy.link} />
               </Link>
             </motion.div>
           </motion.div>
@@ -299,7 +290,7 @@ export default function HomePage() {
               Before the depth
             </p>
             <h2 className="mt-6 text-4xl font-semibold leading-[1.06] tracking-[-0.055em] text-[#1A1A1A] md:text-6xl">
-              <ResponsiveText balance>{homeConcernsCopy.title}</ResponsiveText>
+              <ResponsiveText balance copy={homeConcernsCopy.title} />
             </h2>
           </motion.div>
           <motion.div
@@ -310,7 +301,7 @@ export default function HomePage() {
             className="mt-16 grid gap-x-12 gap-y-7 md:grid-cols-2 lg:mt-24"
           >
             {homeConcernsCopy.items.map((item) => (
-              <motion.div key={item} variants={instructorRow} className="relative pb-7">
+              <motion.div key={item.desktop} variants={instructorRow} className="relative pb-7">
                 <motion.div
                   variants={instructorRule}
                   className="absolute inset-x-0 bottom-0 h-px origin-left bg-[#5F7C8A]/18"
@@ -320,7 +311,7 @@ export default function HomePage() {
                   variants={instructorLine}
                   className="text-2xl font-semibold leading-tight tracking-[-0.045em] text-[#1A1A1A] md:text-4xl"
                 >
-                  <ResponsiveText balance>{item}</ResponsiveText>
+                  <ResponsiveText balance copy={item} />
                 </motion.p>
               </motion.div>
             ))}
@@ -340,9 +331,7 @@ export default function HomePage() {
               transition={{ duration: 1, delay: 0.25, ease: softEase }}
               aria-hidden="true"
             />
-            <ResponsiveText as="div" softBreaks>
-              {homeConcernsCopy.bridge}
-            </ResponsiveText>
+            <ResponsiveText as="div" copy={homeConcernsCopy.bridge} />
           </motion.div>
         </div>
       </section>
@@ -354,14 +343,13 @@ export default function HomePage() {
               {homeMomentsCopy.eyebrow}
             </p>
             <h2 className="mt-6 text-4xl font-semibold leading-[1.06] tracking-[-0.055em] text-[#1A1A1A] md:text-6xl">
-              <ResponsiveText balance>{homeMomentsCopy.title}</ResponsiveText>
+              <ResponsiveText balance copy={homeMomentsCopy.title} />
             </h2>
             <ResponsiveText
               as="p"
               className="mt-5 text-base leading-8 text-[#6B7280] md:text-lg md:leading-9"
-            >
-              {homeMomentsCopy.subtitle}
-            </ResponsiveText>
+              copy={homeMomentsCopy.subtitle}
+            />
           </motion.div>
         </div>
         <MomentsAutoScroll moments={moments} />
@@ -375,13 +363,11 @@ export default function HomePage() {
         />
         <motion.div {...reveal} className="relative z-10 mx-auto max-w-[780px] px-5 text-center">
           <h2 className="text-4xl font-semibold leading-[1.06] tracking-[-0.055em] text-[#1A1A1A] md:text-6xl">
-            <ResponsiveText balance>{homeClosingCopy.title}</ResponsiveText>
+            <ResponsiveText balance copy={homeClosingCopy.title} />
           </h2>
           <div className="mx-auto mt-9 max-w-[640px] space-y-2 text-base leading-8 text-[#6B7280] md:mt-9 md:text-lg md:leading-9">
             {homeClosingCopy.lines.map((line) => (
-              <ResponsiveText key={line} as="p">
-                {line}
-              </ResponsiveText>
+              <ResponsiveText key={line.desktop} as="p" copy={line} />
             ))}
           </div>
           <div className="mt-10 flex flex-col items-center gap-4 md:mt-12">
@@ -389,22 +375,20 @@ export default function HomePage() {
               href={homeCta.freeConsultation.href}
               className="inline-block rounded-full bg-[#5F7C8A] px-9 py-4 text-center text-sm font-semibold leading-snug text-[#FAFAF8] transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-[#4f6e7c]"
             >
-              <ResponsiveText>{homeCtaCopy.freeConsultation}</ResponsiveText>
+              <ResponsiveText copy={homeCtaCopy.freeConsultation} />
             </Link>
             <Link
               href={homeCta.packageInquiry.href}
               className="text-center text-sm font-semibold leading-snug text-[#5F7C8A] underline decoration-[#5F7C8A]/35 underline-offset-8 transition hover:text-[#4f6e7c]"
             >
-              <ResponsiveText>{homeCtaCopy.packageInquiry}</ResponsiveText>
+              <ResponsiveText copy={homeCtaCopy.packageInquiry} />
             </Link>
           </div>
           <ResponsiveText
             as="p"
             className="mx-auto mt-10 max-w-[640px] text-sm leading-7 text-[#6B7280] md:mt-12 md:text-base md:leading-8"
-            softBreaks
-          >
-            {homeClosingCopy.footnote}
-          </ResponsiveText>
+            copy={homeClosingCopy.footnote}
+          />
         </motion.div>
       </section>
     </>
