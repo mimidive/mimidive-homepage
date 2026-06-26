@@ -17,11 +17,11 @@ export function MobileMenu({
 
   return (
     <div className="fixed inset-0 z-[60] lg:hidden">
-      <div className="absolute inset-0 bg-navy-800/40" onClick={onClose} />
-      <div className="absolute right-0 top-0 flex h-full w-full max-w-sm flex-col bg-white shadow-2xl">
-        <div className="flex items-center justify-between border-b border-gray-200 px-6 py-4">
+      <div className="absolute inset-0 bg-white/40 backdrop-blur-sm" onClick={onClose} />
+      <div className="absolute right-3 top-3 flex h-[calc(100%-1.5rem)] w-[calc(100%-1.5rem)] max-w-sm flex-col rounded-[2rem] bg-white/70 shadow-[0_30px_90px_rgba(15,23,42,0.14)] backdrop-blur-2xl ring-1 ring-white/60">
+        <div className="flex items-center justify-between px-7 py-6">
           <span className="text-sm font-semibold text-gray-900">메뉴</span>
-          <button onClick={onClose} aria-label="메뉴 닫기" className="text-gray-500">
+          <button onClick={onClose} aria-label="메뉴 닫기" className="rounded-full bg-white/50 p-2 text-zinc-500">
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path
                 strokeLinecap="round"
@@ -32,7 +32,7 @@ export function MobileMenu({
             </svg>
           </button>
         </div>
-        <nav className="flex-1 overflow-y-auto">
+        <nav className="flex-1 space-y-2 overflow-y-auto px-4">
           {navigation.map((item) => {
             const isActive = pathname === item.href;
             return (
@@ -40,8 +40,8 @@ export function MobileMenu({
                 key={item.label}
                 href={item.href}
                 onClick={onClose}
-                className={`block border-b border-gray-100 px-6 py-4 text-sm font-medium ${
-                  isActive ? 'text-coral-600' : 'text-gray-700'
+                className={`block rounded-2xl px-4 py-4 text-sm font-medium transition ${
+                  isActive ? 'bg-white/70 text-zinc-900' : 'text-zinc-600 hover:bg-white/50'
                 }`}
               >
                 {item.label}
@@ -49,13 +49,13 @@ export function MobileMenu({
             );
           })}
         </nav>
-        <div className="border-t border-gray-200 p-6">
+        <div className="p-6">
           <Link
             href="/booking"
             onClick={onClose}
-            className="cta-button block rounded-full py-3 text-center text-sm font-semibold text-white"
+            className="cta-button block rounded-full py-3 text-center text-sm font-semibold"
           >
-            무료 상담 신청하기
+            교육 문의
           </Link>
         </div>
       </div>

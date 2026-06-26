@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ReadableText } from '@/components/ui/ReadableText';
 
 type Cta = {
   label: string;
@@ -17,31 +18,35 @@ type Props = {
 export function PageHero({ eyebrow, title, description, ctas, compact }: Props) {
   return (
     <section
-      className={`ocean-hero border-b border-navy-100 ${compact ? 'py-16 md:py-20' : 'py-20 md:py-28'}`}
+      className={`ocean-hero ${compact ? 'py-20 md:py-28' : 'py-24 md:py-36'}`}
     >
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8">
         <div>
           {eyebrow && (
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-navy-600">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-700">
               {eyebrow}
             </p>
           )}
-          <h1 className="mt-4 max-w-4xl text-3xl font-semibold leading-tight text-gray-900 md:text-5xl">
+          <h1 className="mt-6 max-w-4xl text-4xl font-semibold leading-[1.12] tracking-[-0.04em] text-gray-900 md:text-6xl">
             {title}
           </h1>
           {description && (
-            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-gray-600">{description}</p>
+            <ReadableText
+              text={description}
+              className="mt-7 max-w-3xl"
+              sentenceClassName="text-[15px] leading-8 text-gray-600 md:text-lg md:leading-9"
+            />
           )}
           {ctas && ctas.length > 0 && (
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               {ctas.map((cta) => (
                 <Link
                   key={cta.label}
                   href={cta.href}
                   className={
                     cta.variant === 'secondary'
-                      ? 'rounded-full border border-navy-200 bg-white/70 px-8 py-4 text-center text-sm font-semibold text-gray-900 transition hover:border-navy-600 hover:text-navy-600'
-                      : 'cta-button rounded-full px-8 py-4 text-center text-sm font-semibold text-white transition'
+                      ? 'rounded-full bg-white/40 px-8 py-4 text-center text-sm font-semibold text-zinc-800 shadow-sm ring-1 ring-white/60 backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:scale-[1.018] hover:bg-white/70'
+                      : 'cta-button rounded-full px-8 py-4 text-center text-sm font-semibold transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]'
                   }
                 >
                   {cta.label}
@@ -50,14 +55,14 @@ export function PageHero({ eyebrow, title, description, ctas, compact }: Props) 
             </div>
           )}
         </div>
-        <div className="photo-card relative hidden rounded-[2rem] p-6 text-white lg:block">
-          <div className="absolute inset-x-8 top-8 h-24 rounded-full bg-white/15 blur-2xl" />
-          <div className="relative flex h-full min-h-72 flex-col justify-between rounded-[1.5rem] border border-white/25 bg-white/10 p-6 backdrop-blur-sm">
-            <p className="text-sm font-medium text-white/80">Jeju Freediving Moment</p>
+        <div className="photo-card relative hidden rounded-[2.25rem] p-6 text-zinc-900 lg:block">
+          <div className="absolute inset-x-8 top-8 h-24 rounded-full bg-white/70 blur-2xl" />
+          <div className="relative flex h-full min-h-80 flex-col justify-between rounded-[1.75rem] bg-white/40 p-7 backdrop-blur-xl ring-1 ring-white/60">
+            <p className="text-sm font-medium tracking-[0.08em] text-zinc-500">A quiet beginning</p>
             <div>
-              <p className="text-4xl font-semibold leading-tight">Lawhwan Port</p>
-              <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/78">
-                코랄빛 노을과 투명한 바다 위에서 시작하는 안전한 첫 호흡.
+              <p className="text-4xl font-semibold leading-tight tracking-[-0.03em]">Lawhwan Port</p>
+              <p className="mt-4 max-w-sm text-sm leading-7 text-zinc-600">
+                제주 법환포구 프리다이빙 교육.
               </p>
             </div>
           </div>

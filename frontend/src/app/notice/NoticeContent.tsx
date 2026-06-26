@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { api } from '@/lib/api';
+import { ReadableText } from '@/components/ui/ReadableText';
 import type { Notice } from '@/lib/types';
 
 export default function NoticePage() {
@@ -67,9 +68,11 @@ export default function NoticePage() {
                 <p className="mt-2 text-xs text-white/40">
                   {new Date(selected.createdAt).toLocaleDateString('ko-KR')}
                 </p>
-                <div className="mt-8 whitespace-pre-line leading-relaxed text-white/80">
-                  {selected.content}
-                </div>
+                <ReadableText
+                  text={selected.content}
+                  className="mt-8"
+                  sentenceClassName="leading-relaxed text-white/80"
+                />
               </article>
             ) : (
               <div className="glass-card flex h-64 items-center justify-center rounded-2xl">

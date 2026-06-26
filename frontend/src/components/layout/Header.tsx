@@ -2,24 +2,39 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { navigation } from '@/lib/navigation';
 import { MobileMenu } from './MobileMenu';
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 24);
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
-      <header className="fixed top-0 z-50 w-full border-b border-navy-100 bg-white/88 backdrop-blur-xl">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 lg:px-8">
-          <Link href="/" className="shrink-0">
-            <span className="text-lg font-semibold tracking-tight text-gray-900">
-              미미<span className="text-coral-600">다이브</span>
-            </span>
-            <span className="mt-0.5 block text-[10px] font-medium uppercase tracking-[0.2em] text-navy-600">
-              Jeju Freediving
+      <header
+        id="site-header"
+        className={`fixed top-0 z-50 w-full border-b transition-colors duration-300 ${
+          scrolled
+            ? 'border-[#5F7C8A]/12 bg-[#FAFAF8] shadow-sm'
+            : 'border-transparent bg-[#FAFAF8] shadow-none'
+        }`}
+      >
+        <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between gap-4 px-5 lg:px-8">
+          <Link href="/" className="min-w-0 shrink">
+            <span className="block text-sm font-semibold leading-tight tracking-[-0.03em] transition-colors duration-700 sm:text-base lg:text-lg">
+              <span className="text-[#5F7C8A]">미미다이브</span>
+              <span className="text-[#1A1A1A]"> 프리다이빙</span>
             </span>
           </Link>
 
@@ -31,9 +46,7 @@ export function Header() {
                   key={item.label}
                   href={item.href}
                   className={`px-3 py-2 text-sm font-medium transition ${
-                    isActive
-                      ? 'text-coral-600'
-                      : 'text-gray-600 hover:text-gray-900'
+                    isActive ? 'text-[#5F7C8A]' : 'text-[#6B7280] hover:text-[#5F7C8A]'
                   }`}
                 >
                   {item.label}
@@ -45,12 +58,12 @@ export function Header() {
           <div className="flex items-center gap-2">
             <Link
               href="/booking"
-              className="cta-button hidden rounded-full px-5 py-2.5 text-sm font-semibold text-white transition sm:inline-block"
+              className="hidden rounded-full bg-[#5F7C8A] px-5 py-2.5 text-sm font-semibold text-[#FAFAF8] shadow-[0_12px_32px_rgba(95,124,138,0.2)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:scale-[1.018] hover:bg-[#4f6e7c] sm:inline-block"
             >
-              무료 상담
+              교육 문의
             </Link>
             <button
-              className="rounded-lg p-2 text-gray-700 lg:hidden"
+              className="rounded-full bg-white/70 p-2 text-[#1A1A1A] shadow-sm ring-1 ring-[#5F7C8A]/15 transition-colors duration-700 lg:hidden"
               onClick={() => setMobileOpen(true)}
               aria-label="메뉴 열기"
             >

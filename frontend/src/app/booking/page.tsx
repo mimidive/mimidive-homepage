@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { PageHero } from '@/components/ui/PageHero';
+import { ReadableText } from '@/components/ui/ReadableText';
 import { SectionTitle } from '@/components/ui/SectionTitle';
 import { faqs, policies, processSteps, programOptions } from '@/lib/content';
 import { api } from '@/lib/api';
@@ -61,57 +62,64 @@ export default function BookingPage() {
     <>
       <PageHero
         eyebrow="FAQ & Booking"
-        title="예약 전 불안을 먼저 해결해 드립니다"
-        description="수영 실력, 물 공포, 일정, 날씨, 환불 규정까지. 궁금한 점을 남기면 24시간 이내에 가장 적합한 과정을 안내합니다."
+        title="교육 문의"
+        description="수영 실력, 물 공포 여부, 희망 일정, 목표 과정을 남겨 주세요."
         ctas={[
-          { label: '예약 양식 작성하기', href: '#booking-form' },
-          { label: 'FAQ 먼저 보기', href: '#faq', variant: 'secondary' },
+          { label: '문의 작성', href: '#booking-form' },
+          { label: 'FAQ 확인', href: '#faq', variant: 'secondary' },
         ]}
         compact
       />
 
-      <section className="section-bridge bg-surface py-16">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+      <section className="section-bridge bg-surface py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <SectionTitle
-            title="상담부터 사후 케어까지 이렇게 진행됩니다"
-            description="처음 오시는 분도 다음 단계가 명확하도록 모든 과정을 짧고 선명하게 안내합니다."
+            title="진행 절차"
+            description="상담, 사전 안내, 교육, 피드백, 사후 안내 순서."
             align="center"
           />
-          <div className="mt-12 grid gap-4 md:grid-cols-5">
+          <div className="mt-14 grid gap-5 md:grid-cols-5">
             {processSteps.map((step, index) => (
-              <article key={step.title} className="content-card rounded-2xl p-5">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-coral-500 text-sm font-bold text-white">
+              <article key={step.title} className="content-card rounded-[1.75rem] p-6">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-sky-500 text-sm font-bold text-white">
                   {index + 1}
                 </span>
-                <h3 className="mt-5 text-lg font-semibold text-gray-900">{step.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-gray-600">{step.body}</p>
+                <h3 className="mt-6 text-lg font-semibold tracking-[-0.03em] text-gray-900">{step.title}</h3>
+                <ReadableText
+                  text={step.body}
+                  className="mt-4"
+                  gap="sm"
+                  sentenceClassName="text-sm leading-7 text-gray-600"
+                />
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="faq" className="py-20 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+      <section id="faq" className="py-24 md:py-32">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <SectionTitle
-            title="자주 묻는 질문"
-            description="결정 전 가장 많이 망설이는 부분을 먼저 정리했습니다."
+            title="FAQ"
+            description="교육 전 자주 묻는 질문입니다."
           />
-          <div className="mt-10 space-y-4">
+          <div className="mt-12 space-y-4">
             {faqs.map((faq) => (
-              <details key={faq.question} className="content-card group rounded-2xl">
-                <summary className="cursor-pointer list-none p-6 font-medium text-gray-900 md:p-8">
+              <details key={faq.question} className="content-card group rounded-[1.75rem]">
+                <summary className="cursor-pointer list-none p-6 font-medium leading-7 text-gray-900 md:p-8">
                   <span className="flex items-start justify-between gap-4">
                     <span>{faq.question}</span>
-                    <span className="shrink-0 text-coral-600 transition group-open:rotate-45">
+                    <span className="shrink-0 text-sky-700 transition group-open:rotate-45">
                       +
                     </span>
                   </span>
                 </summary>
-                <div className="border-t border-gray-100 px-6 pb-6 pt-4 md:px-8 md:pb-8">
-                  <p className="text-sm leading-relaxed text-gray-600 md:text-base">
-                    {faq.answer}
-                  </p>
+                <div className="px-6 pb-6 pt-1 md:px-8 md:pb-8">
+                  <ReadableText
+                    text={faq.answer}
+                    gap="sm"
+                    sentenceClassName="text-sm leading-7 text-gray-600 md:text-base md:leading-8"
+                  />
                 </div>
               </details>
             ))}
@@ -119,40 +127,44 @@ export default function BookingPage() {
         </div>
       </section>
 
-      <section className="border-y border-navy-100 bg-navy-800 py-16 text-white">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="grid gap-4 md:grid-cols-4">
+      <section className="bg-white py-20 text-zinc-900 md:py-24">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="grid gap-5 md:grid-cols-4">
             {policies.map((policy) => (
-              <div key={policy} className="rounded-2xl border border-white/10 bg-white/[0.06] p-5">
-                <p className="text-sm leading-relaxed text-white/74">{policy}</p>
+              <div key={policy} className="rounded-[1.5rem] bg-white/40 p-6 shadow-[0_18px_60px_rgba(15,23,42,0.07)] ring-1 ring-white/60 backdrop-blur-xl">
+                <ReadableText
+                  text={policy}
+                  gap="sm"
+                  sentenceClassName="text-sm leading-7 text-zinc-600"
+                />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="booking-form" className="border-t border-gray-200 bg-surface py-20 md:py-24">
-        <div className="mx-auto max-w-2xl px-4 lg:px-8">
+      <section id="booking-form" className="bg-surface py-24 md:py-32">
+        <div className="mx-auto max-w-2xl px-5 lg:px-8">
           <SectionTitle
-            title="무료 상담 및 예약 신청"
-            description="지금 바로 결제하지 않아도 괜찮습니다. 먼저 현재 상태와 목표를 알려주시면 가장 안전한 시작점을 제안해 드립니다."
+            title="문의 작성"
+            description="현재 상태와 희망 과정 입력. 확인 후 연락."
             align="center"
           />
 
           {status === 'success' && (
-            <div className="mt-8 rounded-xl border border-navy-200 bg-navy-50 px-4 py-3 text-sm text-navy-700">
-              예약 신청이 완료되었습니다. 24시간 이내에 연락드리겠습니다.
+            <div className="mt-8 rounded-[1.25rem] bg-sky-50 px-5 py-4 text-sm leading-6 text-navy-700 shadow-sm">
+              문의 접수 완료. 24시간 이내 연락.
             </div>
           )}
 
           {status === 'error' && (
-            <div className="mt-8 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+            <div className="mt-8 rounded-[1.25rem] bg-white/10 px-5 py-4 text-sm leading-6 text-gray-700 shadow-sm ring-1 ring-white/10">
               {errorMsg}
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="content-card mt-10 rounded-2xl p-6 md:p-8">
-            <div className="space-y-6">
+          <form onSubmit={handleSubmit} className="content-card mt-12 rounded-[2rem] p-7 md:p-10">
+            <div className="space-y-7">
               <Field label="이름" required>
                 <input
                   required
@@ -208,9 +220,9 @@ export default function BookingPage() {
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="cta-button mt-8 w-full rounded-full py-4 text-sm font-semibold text-white transition disabled:opacity-50"
+              className="cta-button mt-8 w-full rounded-full py-4 text-sm font-semibold transition disabled:opacity-50"
             >
-              {status === 'loading' ? '제출 중...' : '무료 상담 신청하기'}
+              {status === 'loading' ? '전송 중...' : '교육 문의'}
             </button>
           </form>
 
@@ -220,14 +232,14 @@ export default function BookingPage() {
                 href={KAKAO_CHAT_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-[#FEE500] px-6 py-3 text-sm font-semibold text-[#191919] transition hover:bg-[#f6dc00]"
+                className="inline-flex items-center gap-2 rounded-full bg-white/40 px-6 py-3 text-sm font-semibold text-zinc-800 shadow-sm ring-1 ring-white/60 backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:scale-[1.018] hover:bg-white/70"
               >
-                  예약 전, 국가대표 트레이너와 실시간 1:1 카카오톡 무료 상담하기
+                  카카오톡 문의
               </a>
             ) : (
               <p className="text-sm text-gray-600">
-                급하신 경우 화면 우측 하단{' '}
-                <span className="font-semibold text-coral-600">카카오톡 상담</span> 버튼을
+                빠른 문의는 화면 우측 하단{' '}
+                <span className="font-semibold text-zinc-800">카카오톡 상담</span> 버튼을
                 이용해 주세요.
               </p>
             )}

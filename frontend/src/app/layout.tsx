@@ -3,6 +3,8 @@ import { Geist } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { FloatingKakaoButton } from '@/components/layout/FloatingKakaoButton';
+import { BRAND } from '@/lib/content';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -10,8 +12,8 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: 'Deep Blue Freediving | 프리다이빙 교육',
-  description: '프리다이빙 교육 전문 브랜드. AIDA 레벨 과정, 트레이닝, 체험다이빙.',
+  title: `${BRAND.name} | ${BRAND.nameEn} 프리다이빙 스쿨`,
+  description: BRAND.subTagline,
 };
 
 export default function RootLayout({
@@ -21,9 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className={`${geistSans.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-ocean-950 text-white">
+      <body className="flex min-h-full flex-col bg-background text-gray-900">
         <Header />
-        <main className="flex-1 pt-16">{children}</main>
+        <main className="flex-1">{children}</main>
+        <FloatingKakaoButton />
         <Footer />
       </body>
     </html>

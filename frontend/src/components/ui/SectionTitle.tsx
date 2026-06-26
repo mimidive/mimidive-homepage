@@ -1,3 +1,5 @@
+import { ReadableText } from '@/components/ui/ReadableText';
+
 type Props = {
   title: string;
   description?: string;
@@ -9,9 +11,13 @@ export function SectionTitle({ title, description, align = 'left' }: Props) {
 
   return (
     <div className={`max-w-3xl ${alignClass}`}>
-      <h2 className="text-2xl font-semibold leading-tight text-gray-900 md:text-4xl">{title}</h2>
+      <h2 className="text-3xl font-semibold leading-[1.16] tracking-[-0.035em] text-gray-900 md:text-5xl">{title}</h2>
       {description && (
-        <p className="mt-4 text-base leading-relaxed text-gray-600 md:text-lg">{description}</p>
+        <ReadableText
+          text={description}
+          className="mt-5"
+          sentenceClassName="text-[15px] leading-8 text-gray-600 md:text-lg md:leading-9"
+        />
       )}
     </div>
   );

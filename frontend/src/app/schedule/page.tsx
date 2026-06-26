@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useMemo } from 'react';
 import { api } from '@/lib/api';
+import { ReadableText } from '@/components/ui/ReadableText';
 import type { Schedule } from '@/lib/types';
 
 const WEEKDAYS = ['일', '월', '화', '수', '목', '금', '토'];
@@ -52,49 +53,56 @@ export default function SchedulePage() {
   };
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-16 lg:px-8">
-      <p className="text-sm uppercase tracking-[0.2em] text-cyan-400">Schedule</p>
-      <h1 className="mt-2 text-3xl font-light text-white">교육일정</h1>
+    <div className="mx-auto max-w-5xl px-5 py-24 lg:px-8">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-700">Schedule</p>
+      <h1 className="mt-5 text-4xl font-semibold leading-[1.12] tracking-[-0.04em] text-gray-900 md:text-6xl">
+        교육 일정
+      </h1>
+      <ReadableText
+        text="월별 교육 일정을 확인할 수 있습니다."
+        className="mt-6 max-w-2xl"
+        sentenceClassName="text-[15px] leading-8 text-gray-600 md:text-lg md:leading-9"
+      />
 
-      <div className="mt-12 glass-card rounded-2xl p-6 md:p-8">
-        <div className="mb-6 flex items-center justify-between">
-          <button onClick={prevMonth} className="text-white/60 hover:text-cyan-400">
+      <div className="content-card mt-14 rounded-[2rem] p-6 md:p-9">
+        <div className="mb-8 flex items-center justify-between">
+          <button onClick={prevMonth} className="rounded-full bg-sky-50 px-4 py-2 text-gray-600 transition hover:text-sky-700">
             ←
           </button>
-          <h2 className="text-lg font-medium text-white">
+          <h2 className="text-lg font-semibold tracking-[-0.03em] text-gray-900">
             {current.getFullYear()}년 {current.getMonth() + 1}월
           </h2>
-          <button onClick={nextMonth} className="text-white/60 hover:text-cyan-400">
+          <button onClick={nextMonth} className="rounded-full bg-sky-50 px-4 py-2 text-gray-600 transition hover:text-sky-700">
             →
           </button>
         </div>
 
-        <div className="grid grid-cols-7 gap-1 text-center text-xs text-white/50">
+        <div className="grid grid-cols-7 gap-2 text-center text-xs font-medium text-gray-400">
           {WEEKDAYS.map((d) => (
-            <div key={d} className="py-2">
+            <div key={d} className="py-3">
               {d}
             </div>
           ))}
         </div>
 
         {loading ? (
-          <p className="py-12 text-center text-white/50">불러오는 중...</p>
+          <p className="py-12 text-center text-gray-400">불러오는 중...</p>
         ) : (
-          <div className="grid grid-cols-7 gap-1">
+          <div className="grid grid-cols-7 gap-2">
             {calendarDays.map((day, i) => (
               <div
                 key={i}
-                className={`min-h-[80px] rounded-lg border border-white/5 p-1 ${
-                  day ? 'bg-white/5' : ''
+                className={`min-h-[88px] rounded-[1.25rem] p-2 ${
+                  day ? 'bg-white/[0.07] shadow-sm ring-1 ring-white/10' : ''
                 }`}
               >
                 {day && (
                   <>
-                    <span className="text-xs text-white/60">{day}</span>
+                    <span className="text-xs font-medium text-gray-500">{day}</span>
                     {schedulesByDay[day]?.map((s) => (
                       <div
                         key={s.id}
-                        className="mt-1 truncate rounded bg-cyan-500/20 px-1 py-0.5 text-[10px] text-cyan-300"
+                        className="mt-2 truncate rounded-full bg-sky-50 px-2 py-1 text-[10px] font-medium text-sky-700"
                         title={s.title}
                       >
                         {s.title}
@@ -108,21 +116,26 @@ export default function SchedulePage() {
         )}
       </div>
 
-      <div className="mt-8 space-y-3">
-        <h3 className="text-sm font-medium text-white/70">이번 달 일정 목록</h3>
+      <div className="mt-10 space-y-4">
+        <h3 className="text-sm font-semibold text-gray-700">이번 달 일정</h3>
         {schedules.length === 0 ? (
-          <p className="text-white/40">등록된 일정이 없습니다.</p>
+          <p className="text-sm text-gray-400">등록된 일정이 없습니다.</p>
         ) : (
           schedules.map((s) => (
-            <div key={s.id} className="glass-card rounded-xl px-6 py-4">
+            <div key={s.id} className="content-card rounded-[1.5rem] px-6 py-5">
               <div className="flex items-center gap-4">
-                <span className="text-cyan-400">
+                <span className="text-sm font-semibold text-sky-700">
                   {new Date(s.date).toLocaleDateString('ko-KR')}
                 </span>
-                <span className="font-medium text-white">{s.title}</span>
+                <span className="font-medium text-gray-900">{s.title}</span>
               </div>
               {s.description && (
-                <p className="mt-2 text-sm text-white/60">{s.description}</p>
+                <ReadableText
+                  text={s.description}
+                  className="mt-3"
+                  gap="sm"
+                  sentenceClassName="text-sm leading-7 text-gray-600"
+                />
               )}
             </div>
           ))
