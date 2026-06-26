@@ -12,7 +12,7 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: `${BRAND.name} | ${BRAND.nameEn} 국가대표 프리다이빙 센터`,
+  title: `${BRAND.name} | ${BRAND.nameEn} 국가대표가 운영하는 제주 프리다이빙 센터`,
   description: BRAND.subTagline,
   other: {
     'naver-site-verification': '36fb89103df4adb95eda33fa94b2487e91edf341',
