@@ -160,12 +160,12 @@ export const homeCtaCopy = {
 
 export const instructorIntroCopy = {
   title: {
-    mobile: ['대한민국 /', 'AIDA CMAS 국가 대표', '김혜미 선수/ 강사 트레이너'],
-    desktop: '대한민국 / AIDA CMAS 국가 대표 · 김혜미 선수/ 강사 트레이너',
+    mobile: ['대한민국 ', 'AIDA CMAS 국가 대표', '김혜미 선수 · 강사 트레이너'],
+    desktop: '대한민국 · AIDA CMAS 국가 대표 · 김혜미 선수 · 강사 트레이너',
   } satisfies ResponsiveLine,
   subtitle: {
     mobile: ['노핀 아시아 신기록 보유', '한국 여자 노핀 1등', '한국 신기록 12회 수립'],
-    desktop: '노핀 아시아 신기록 보유 · 한국 여자 노핀 1등 · 한국 신기록 12회 수립',
+    desktop: '노핀 아시아 신기록 보유 ·', '한국 여자 노핀 1등 ·', '한국 신기록 12회 수립',
   } satisfies ResponsiveLine,
   quote: {
     mobile: ['기록보다', '안전이 먼저입니다.'],

@@ -214,7 +214,7 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-7xl gap-16 px-5 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:px-8">
           <motion.div {...reveal} className="relative aspect-[4/5] overflow-hidden">
             <motion.div
-              className="h-full w-full bg-cover bg-center"
+              className="h-full w-full bg-cover bg-[center_22%]"
               style={{ backgroundImage: `url(${oceanImages.instructor})` }}
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 1, ease: softEase }}

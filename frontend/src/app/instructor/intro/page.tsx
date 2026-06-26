@@ -51,7 +51,7 @@ export default function InstructorIntroPage() {
               <div
                 aria-hidden="true"
                 className="absolute inset-0 bg-cover bg-[center_35%]"
-                style={{ backgroundImage: `url(${oceanImages.instructorRecord})` }}
+                style={{ backgroundImage: `url(${oceanImages.instructor})` }}
               />
             </div>
           </div>
@@ -60,7 +60,7 @@ export default function InstructorIntroPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-400">
               Instructor
             </p>
-            <h1 className="mt-6 max-w-3xl text-5xl font-extrabold leading-[0.98] tracking-[-0.06em] text-zinc-900 md:text-7xl">
+            <h1 className="mt-6 max-w-3xl text-5xl font-extrabold leading-[0.959] tracking-[-0.0625em] text-zinc-900 md:text-7xl">
               <ResponsiveText copy={instructorIntroCopy.title} />
             </h1>
             <SocialLinks className="mt-6" align="start" />
