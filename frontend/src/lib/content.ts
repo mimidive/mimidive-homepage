@@ -2,10 +2,10 @@ import { marketingImages } from '@/lib/marketing-images';
 
 export const BRAND = {
   name: '미미다이브',
-  nameEn: 'Mimi Dive',
-  location: '제주특별자치도 서귀포시 강정동 법환포구',
-  email: 'mmimi@kakao.com',
-  phone: '010-0000-0000',
+  nameEn: 'MIMIDIVE',
+  location: '제주특별자치도 서귀포시 강정마을 ',
+  email: 'mimifreediving@gmail.com',
+  phone: '010-3111-4140',
   kakao: '미미다이브',
   instagram: 'mimidive',
   instagramUrl: 'https://www.instagram.com/mimidive',
@@ -50,7 +50,7 @@ export const coreBenefits = [
 
 export const trainerProfile = {
   name: '김혜미',
-  title: '대표 트레이너 · AIDA Instructor Trainer',
+  title: '대표 강사 트레이너 · AIDA Instructor Trainer',
   credentials: [
     '대한민국 노핀 국가대표 선수',
     '프리다이빙 아시아 신기록 보유',
