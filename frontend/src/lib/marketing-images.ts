@@ -53,7 +53,7 @@ export const imageAlt = {
   gettingStartedExperience: '제주 체험다이빙 프로그램',
   programsCertHero: '미미다이브 AIDA 자격증 풀 교육',
   programsAdvancedHero: '인도어 수심 프리다이빙 트레이닝',
-  programsExperienceHero: '제주 바다 체험·펀다이빙 보트 세션',
+  programsExperienceHero: '제주 바다 수중 체험·펀다이빙',
   programsSpecialHero: '제주 프리다이빙 스페셜 프로그램',
 } as const;
 
@@ -71,7 +71,7 @@ export const programSectionHero = {
   'programs-experience': {
     image: marketingImages.programsExperienceHero,
     alt: imageAlt.programsExperienceHero,
-    objectPosition: 'center 42%',
+    objectPosition: 'center 38%',
   },
   'programs-special': {
     image: marketingImages.programsSpecialHero,
