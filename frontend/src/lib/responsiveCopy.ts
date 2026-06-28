@@ -42,21 +42,21 @@ export const homeInstructorCopy = {
     desktop: '선수의 경험과 강사의 책임감으로 가르칩니다.',
   } satisfies ResponsiveLine,
   link: {
-    mobile: ['미미다이브 강사 소개', '더 자세히 보기'],
-    desktop: '미미다이브 강사 소개 더 자세히 보기',
+    mobile: ['-> 미미다이브 강사 소개 더 자세히 보기'],
+    desktop: '-> 미미다이브 강사 소개 더 자세히 보기',
   } satisfies ResponsiveLine,
   storyMarks: [
     {
       year: 'since 2016~',
       text: {
-        mobile: ['10년 이상의', '물 속에서의 경험'],
-        desktop: '10년 이상의 물 속에서의 경험',
+        mobile: ['10년 이상의 물 속  경험'],
+        desktop: '10년 이상의 물 속  경험',
       } satisfies ResponsiveLine,
     },
     {
       year: 'National Team',
       text: {
-        mobile: ['CMAS·AIDA', '대한민국 국가대표 선발'],
+        mobile: ['CMAS·AIDA 대한민국 국가대표 선발'],
         desktop: 'CMAS·AIDA 대한민국 국가대표 선발',
       } satisfies ResponsiveLine,
     },
@@ -70,8 +70,8 @@ export const homeInstructorCopy = {
     {
       year: 'AIDA Instructor Trainer',
       text: {
-        mobile: ['초보자부터 전문가 과정까지', '교육 가능한 센터'],
-        desktop: '초보자부터 전문가 과정까지 교육 가능한 센터',
+        mobile: ['초보자부터 전문가 과정까지', '교육 가능 센터'],
+        desktop: '초보자부터 전문가 과정까지 교육 가능 센터',
       } satisfies ResponsiveLine,
     },
   ] as const,

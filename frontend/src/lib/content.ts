@@ -277,11 +277,11 @@ export const competitionHistory: readonly CompetitionYear[] = [
 export type ProgramCategory = 'intro' | 'cert' | 'training' | 'instructor' | 'special';
 
 export const programNavItems = [
-  { id: 'programs-recommended', label: '시작하기' },
-  { id: 'programs-cert', label: '자격증 코스' },
-  { id: 'programs-advanced', label: '심화 코스' },
-  { id: 'programs-experience', label: '체험·펀다이빙' },
-  { id: 'programs-special', label: '스페셜 코스' },
+  { id: 'programs-recommended', label: '시작하기', shortLabel: '시작하기' },
+  { id: 'programs-cert', label: '자격증 코스', shortLabel: '자격증' },
+  { id: 'programs-advanced', label: '심화 코스', shortLabel: '심화' },
+  { id: 'programs-experience', label: '체험·펀다이빙', shortLabel: '체험·펀' },
+  { id: 'programs-special', label: '스페셜 코스', shortLabel: '스페셜' },
 ] as const;
 
 export type ProgramNavId = (typeof programNavItems)[number]['id'];
