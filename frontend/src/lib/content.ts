@@ -1,7 +1,7 @@
 import { marketingImages } from '@/lib/marketing-images';
 
 export const BRAND = {
-  name: '미미다이브',
+  name: '제주프리다이빙 미미다이브',
   nameEn: 'MIMIDIVE',
   location: '제주특별자치도 서귀포시 강정마을 ',
   email: 'mimifreediving@gmail.com',

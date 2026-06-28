@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { courseDetails, programsPage } from '@/lib/content';
 import { SITE_URL } from '@/lib/site';
 
-export const SITE_NAME = '미미다이브';
+export const SITE_NAME = '제주프리다이빙 미미다이브';
 export const DEFAULT_TITLE =
   '미미다이브 | 제주 프리다이빙 교육센터 · 체험다이빙·AIDA자격증 · 아시아 신기록 선수 운영';
 export const DEFAULT_DESCRIPTION =
