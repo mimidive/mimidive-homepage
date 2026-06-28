@@ -12,16 +12,18 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: '미미다이브 | 국가대표가 직접 운영하는 제주 프리다이빙',
-  description: '처음 프리다이빙을 시작하는 사람을 위한 안전하고 체계적인 제주 소수정예 교육. 입문부터 자격증 과정까지 모두 운영합니다.',
+  title: '미미다이브 | 제주 프리다이빙 전문 교육센터',
+  description:
+    '아시아 신기록 선수가 직접 운영하는 제주 프리다이빙 교육센터. 체험다이빙부터 AIDA 자격증 과정, 강사 과정까지 안전하고 체계적인 소수정예 프리다이빙 교육을 제공합니다.',
   other: {
     'naver-site-verification': '36fb89103df4adb95eda33fa94b2487e91edf341',
     'google-site-verification': 'mVRD9m5ID3hzywitAqSqDF43WnQk-rct5LWitT2xLDk',
   },
-  
+
   openGraph: {
-    title: '미미다이브 | 국가대표가 직접 운영하는 제주 프리다이빙',
-    description: '처음 프리다이빙을 시작하는 사람을 위한 안전하고 체계적인 제주 소수정예 교육. 입문부터 자격증 과정까지 모두 운영합니다.',
+    title: '미미다이브 | 제주 프리다이빙 전문 교육센터',
+    description:
+      '아시아 신기록 선수가 직접 운영하는 제주 프리다이빙 교육센터. 체험다이빙부터 AIDA 자격증 과정, 강사 과정까지 안전하고 체계적인 소수정예 프리다이빙 교육을 제공합니다.',
     url: 'https://www.mimidive.co.kr',
     type: 'website',
     siteName: '미미다이브',
