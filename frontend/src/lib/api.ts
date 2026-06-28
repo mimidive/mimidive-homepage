@@ -87,17 +87,6 @@ export const api = {
   applications: {
     list: (token: string) =>
       request<import('./types').Application[]>('/applications', { token }),
-    create: (data: {
-      name: string;
-      phone: string;
-      email: string;
-      course: string;
-      message?: string;
-    }) =>
-      request<import('./types').Application>('/applications', {
-        method: 'POST',
-        body: data,
-      }),
     delete: (id: number, token: string) =>
       request<void>(`/applications/${id}`, { method: 'DELETE', token }),
   },

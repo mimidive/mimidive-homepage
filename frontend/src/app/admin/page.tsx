@@ -80,9 +80,6 @@ function LoginForm() {
             {loading ? '로그인 중...' : '로그인'}
           </button>
         </form>
-        <p className="mt-6 text-center text-xs text-white/30">
-          기본 계정: admin@freediving.com / admin123456
-        </p>
       </div>
     </div>
   );

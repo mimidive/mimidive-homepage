@@ -310,7 +310,7 @@ export const programSections = [
   {
     id: 'programs-special' as const,
     title: '스페셜 코스',
-    subtitle: '장기 체류 패키지와 정기 회원권 — 일정과 목표에 맞춘 맞춤 프로그램',
+    subtitle: '제주살기 패키지와 정기 회원권 — 일정과 목표에 맞춘 맞춤 프로그램',
     slugs: ['long-stay-package', 'membership'] as const,
   },
 ] as const;
@@ -639,7 +639,7 @@ export const programs = [
   {
     slug: 'long-stay-package',
     category: 'special' as const,
-    title: '장기 체류 패키지',
+    title: '제주살기 패키지',
     summary:
       '제주에 길게 여행 오시는 분들을 위한 패키지 프로그램. 트레이닝과 숙식을 함께 구성합니다.',
     href: '/courses/special/long-stay-package',
@@ -799,7 +799,7 @@ export const courseDetails = {
     includes: ['온라인 피드백', '개인 훈련 과제', '후속 점검'],
   },
   'long-stay-package': {
-    title: '장기 체류 패키지',
+    title: '제주살기 패키지',
     level: 'Special',
     price: '별도 문의',
     duration: '상담 후 확정',
@@ -886,17 +886,17 @@ export const faqs = [
   {
     question: '수영을 전혀 못 하거나 물을 무서워해도 다이빙을 배울 수 있나요?',
     answer:
-      '가능. 수영 실력과 물 공포 여부 확인 후 체험다이빙 또는 입문 과정 배정.',
+      '가능합니다. 수영 실력과 물 공포 여부 확인 후 체험다이빙 또는 입문 과정 배정.',
   },
   {
     question: '제주도 날씨나 바다 상태가 안 좋으면 교육은 취소되나요?',
     answer:
-      '해양 상황과 기상 조건에 따라 제한수역 교육 대체 또는 일정 조정.',
+      '해양 상황과 기상 조건에 따라 제한수역 교육 대체 또는 일정 조정가능합니다.',
   },
   {
-    question: 'AIDA 강사 트레이너에게 직접 교육을 받으면 비용이 훨씬 비싼가요?',
+    question: '트레이너에게 직접 교육을 받으면 비용이 훨씬 비싼가요?',
     answer:
-      '과정별 정찰제. 추가 비용 여부는 예약 전 안내.',
+      '비용은 같습니다',
   },
   {
     question: '준비물은 무엇이 필요한가요?',
@@ -906,7 +906,7 @@ export const faqs = [
   {
     question: '자격증 취득 후에도 계속 케어를 받을 수 있나요?',
     answer:
-      '자격 취득 후 펀다이빙, 트레이닝, 다음 레벨 과정 안내 가능.',
+      '자격 취득 후 단톡방에 초대되며 다양한 프로그램에 참여가능합니다.',
   },
   {
     question: '예약 취소나 환불은 어떻게 진행되나요?',
@@ -1344,7 +1344,7 @@ export type SpecialCourseId = (typeof specialCourseOrder)[number];
 export const specialCourseLandings: Record<SpecialCourseId, ProgramCourseLanding> = {
   'long-stay-package': {
     id: 'long-stay-package',
-    title: '장기 체류 패키지',
+    title: '제주살기 패키지',
     badge: '트레이닝+숙식',
     duration: '상담 후 확정',
     price: '별도 문의',
@@ -1360,7 +1360,7 @@ export const specialCourseLandings: Record<SpecialCourseId, ProgramCourseLanding
       },
       {
         label: '숙식',
-        body: '교육 동선에 맞는 숙소·식사 연계를 상담합니다. 장기 체류에 맞게 일정을 조율합니다.',
+        body: '교육 동선에 맞는 숙소·식사 연계를 상담합니다. 제주살기 일정에 맞게 조율합니다.',
       },
     ],
     href: '/courses/special/long-stay-package',

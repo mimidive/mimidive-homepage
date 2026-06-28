@@ -68,7 +68,6 @@ npm run dev
 | GET | /api/courses/slug/:slug | 과정 상세 | Public |
 | GET | /api/schedules | 일정 목록 | Public |
 | POST/PUT/DELETE | /api/schedules | 일정 CRUD | Admin |
-| POST | /api/applications | 교육 신청 | Public |
 | GET/DELETE | /api/applications | 신청 조회/삭제 | Admin |
 
 ## 주요 페이지
@@ -78,5 +77,5 @@ npm run dev
 - `/instructor/*` — 강사소개
 - `/courses/*` — 수업안내 (DB 연동)
 - `/schedule` — 교육일정 캘린더
-- `/apply` — 교육신청 폼
+- `/booking` — 카카오톡 상담 (`/apply`는 리다이렉트)
 - `/admin` — 관리자 (JWT)
