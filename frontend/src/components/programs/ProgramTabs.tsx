@@ -1,6 +1,5 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { GettingStartedPathGalleries } from '@/components/marketing/GettingStartedPaths';
@@ -79,8 +78,6 @@ function resolveHashTarget(hash: string): { sectionId: string; expandId?: string
 }
 
 export function ProgramTabs() {
-  const searchParams = useSearchParams();
-  const tabFromUrl = searchParams.get('tab');
   const [activeNavId, setActiveNavId] = useState<ProgramNavId | null>(null);
   const [expandedSlug, setExpandedSlug] = useState<string | null>(null);
   const [navHeight, setNavHeight] = useState(0);
@@ -136,6 +133,8 @@ export function ProgramTabs() {
   useEffect(() => {
     if (hasScrolledFromUrl.current) return;
 
+    const params = new URLSearchParams(window.location.search);
+    const tabFromUrl = params.get('tab');
     const hash = window.location.hash.replace('#', '');
     const tabTarget =
       tabFromUrl && programTabs.some((tab) => tab.id === tabFromUrl) && isProgramTabId(tabFromUrl)
@@ -157,7 +156,7 @@ export function ProgramTabs() {
         setActiveNavId(targetId as ProgramNavId);
       }
     });
-  }, [tabFromUrl]);
+  }, []);
 
   useEffect(() => {
     if (!mounted) return;

@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Suspense } from 'react';
 import { ProgramTabs } from '@/components/programs/ProgramTabs';
 import { ReadableText } from '@/components/ui/ReadableText';
 import { programsPage } from '@/lib/content';
@@ -12,9 +11,7 @@ export default function ProgramsPage() {
   return (
     <section className="programs-page pb-24 md:pb-32">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <Suspense fallback={<div className="h-40 animate-pulse rounded-[2rem] bg-white/40" />}>
-          <ProgramTabs />
-        </Suspense>
+        <ProgramTabs />
 
         <div className="mt-8 rounded-[2rem] border border-[#5F7C8A]/12 bg-sky-50 p-9 text-center md:p-12">
           <ReadableText
