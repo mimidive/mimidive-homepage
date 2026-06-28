@@ -17,7 +17,7 @@ export const marketingImages = {
   gettingStartedExperience: '/getting-started-experience.png',
   programsCertHero: '/programs-cert-hero.png',
   programsAdvancedHero: '/programs-advanced-hero.png',
-  programsExperienceHero: '/programs-experience-hero.png',
+  programsExperienceHero: '/programs-experience-hero-v2.png',
   programsSpecialHero: '/programs-special-hero.png',
 } as const;
 
