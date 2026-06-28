@@ -2,7 +2,6 @@
 
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import Link from 'next/link';
-import { CoverImage } from '@/components/ui/CoverImage';
 import { ResponsiveText } from '@/components/ui/ResponsiveText';
 import { gettingStarted } from '@/lib/content';
 import { reveal, softEase } from '@/lib/motion-variants';
@@ -107,33 +106,31 @@ function PathScrollCard({ path, variant = 'portrait' }: { path: PathData; varian
   return (
     <Link
       href={path.href}
+      aria-label={`${path.title} — ${path.intent}`}
       className="group relative block min-w-0 overflow-hidden rounded-2xl bg-[#26353a]"
     >
-      <div
-        className={`relative w-full overflow-hidden ${
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={path.image}
+        alt={`제주 프리다이빙 ${path.title}`}
+        className={`block w-full object-cover object-center transition duration-700 group-hover:scale-[1.03] ${
           isWide
             ? 'aspect-[16/9] min-h-[13.5rem] sm:min-h-[15rem] md:aspect-[21/9] md:min-h-0'
             : 'aspect-[3/4] min-h-[14rem] sm:min-h-0'
         }`}
+        loading="lazy"
+        decoding="async"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-[#1A1A1A]/95 via-[#1A1A1A]/50 to-[#1A1A1A]/10"
+      />
+      <div
+        className={`absolute inset-x-0 bottom-0 z-[2] ${
+          isWide ? 'p-4 sm:p-5 md:p-6 lg:p-7' : 'p-3.5 sm:p-4 md:p-6 lg:p-7'
+        }`}
       >
-        <CoverImage
-          src={path.image}
-          alt={`제주 프리다이빙 ${path.title}`}
-          className="h-full w-full transition duration-700 group-hover:scale-[1.03]"
-          imageClassName="object-cover object-center"
-          sizes={isWide ? '(max-width: 768px) 100vw, 70vw' : '(max-width: 768px) 50vw, 33vw'}
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 z-[1] bg-gradient-to-t from-[#1A1A1A]/95 via-[#1A1A1A]/50 to-[#1A1A1A]/10"
-        />
-        <div
-          className={`absolute inset-x-0 bottom-0 z-[2] ${
-            isWide ? 'p-4 sm:p-5 md:p-6 lg:p-7' : 'p-3.5 sm:p-4 md:p-6 lg:p-7'
-          }`}
-        >
-          <PathCardContent path={path} variant={variant} />
-        </div>
+        <PathCardContent path={path} variant={variant} />
       </div>
     </Link>
   );

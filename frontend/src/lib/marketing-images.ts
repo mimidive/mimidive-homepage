@@ -15,6 +15,10 @@ export const marketingImages = {
   programOnline: `${marketingBase}/program-online.svg`,
   gettingStartedFeatured: '/getting-started-featured.png',
   gettingStartedExperience: '/getting-started-experience.png',
+  programsCertHero: '/programs-cert-hero.png',
+  programsAdvancedHero: '/programs-advanced-hero.png',
+  programsExperienceHero: '/programs-experience-hero.png',
+  programsSpecialHero: '/programs-special-hero.png',
 } as const;
 
 export const oceanImages = {
@@ -47,4 +51,31 @@ export const imageAlt = {
   online: '프리다이빙 온라인 코칭',
   gettingStartedFeatured: '미미다이브 프리다이빙 입문 과정',
   gettingStartedExperience: '제주 체험다이빙 프로그램',
+  programsCertHero: '미미다이브 AIDA 자격증 풀 교육',
+  programsAdvancedHero: '인도어 수심 프리다이빙 트레이닝',
+  programsExperienceHero: '제주 바다 체험·펀다이빙 보트 세션',
+  programsSpecialHero: '제주 프리다이빙 스페셜 프로그램',
+} as const;
+
+export const programSectionHero = {
+  'programs-cert': {
+    image: marketingImages.programsCertHero,
+    alt: imageAlt.programsCertHero,
+    objectPosition: 'center 35%',
+  },
+  'programs-advanced': {
+    image: marketingImages.programsAdvancedHero,
+    alt: imageAlt.programsAdvancedHero,
+    objectPosition: 'center 40%',
+  },
+  'programs-experience': {
+    image: marketingImages.programsExperienceHero,
+    alt: imageAlt.programsExperienceHero,
+    objectPosition: 'center 42%',
+  },
+  'programs-special': {
+    image: marketingImages.programsSpecialHero,
+    alt: imageAlt.programsSpecialHero,
+    objectPosition: 'center center',
+  },
 } as const;

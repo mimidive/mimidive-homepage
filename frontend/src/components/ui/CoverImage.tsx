@@ -9,6 +9,7 @@ type CoverImageProps = {
   sizes?: string;
 };
 
+/** Parent must be `position: relative` with explicit width/height or aspect-ratio. */
 export function CoverImage({
   src,
   alt,
@@ -18,15 +19,13 @@ export function CoverImage({
   sizes = '100vw',
 }: CoverImageProps) {
   return (
-    <div className={`relative overflow-hidden ${className}`}>
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        priority={priority}
-        sizes={sizes}
-        className={imageClassName}
-      />
-    </div>
+    <Image
+      src={src}
+      alt={alt}
+      fill
+      priority={priority}
+      sizes={sizes}
+      className={[imageClassName, className].filter(Boolean).join(' ')}
+    />
   );
 }

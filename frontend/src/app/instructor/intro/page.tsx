@@ -72,13 +72,13 @@ export default function InstructorIntroPage() {
             </p>
             <h1 className="mt-6 max-w-3xl">
               <span className="block text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500 sm:text-sm md:text-base md:tracking-[0.18em]">
-                대한민국 국가대표 선수 · AIDA · CMAS
+              AIDA · CMAS 대한민국 국가대표 선수
               </span>
               <span className="mt-5 block text-5xl font-extrabold leading-[0.959] tracking-[-0.0625em] text-zinc-900 md:mt-6 md:text-7xl">
-                김혜미
+                강사 트레이너
               </span>
               <span className="mt-2 block text-3xl font-extrabold leading-[1.02] tracking-[-0.055em] text-zinc-900 md:text-5xl">
-                강사 트레이너
+                김혜미
               </span>
             </h1>
             <SocialLinks className="mt-6" align="start" />

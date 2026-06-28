@@ -151,13 +151,12 @@ export default function HomePage() {
     <>
       <section className="relative flex min-h-svh items-center justify-center overflow-hidden bg-[#FAFAF8] px-5 text-center">
         <motion.div
-          className="absolute inset-x-0 bottom-0 top-[4.5rem]"
+          className="absolute inset-x-0 bottom-0 top-[4.5rem] relative"
           style={{ y: heroY, scale: heroScale }}
         >
           <CoverImage
             src={oceanImages.hero}
             alt={imageAlt.hero}
-            className="h-full w-full"
             imageClassName="object-cover object-[center_45%]"
             priority
             sizes="100vw"
@@ -225,14 +224,13 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-7xl gap-16 px-5 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:px-8">
           <motion.div {...reveal} className="relative aspect-[4/5] overflow-hidden">
             <motion.div
-              className="h-full w-full"
+              className="relative h-full w-full"
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 1, ease: softEase }}
             >
               <CoverImage
                 src={oceanImages.instructor}
                 alt={imageAlt.instructor}
-                className="h-full w-full"
                 imageClassName="object-cover object-[center_22%]"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
@@ -374,13 +372,14 @@ export default function HomePage() {
       </section>
 
       <section className="relative flex min-h-[72vh] items-center overflow-hidden bg-[#FAFAF8] py-28 md:py-40">
-        <CoverImage
-          src={oceanImages.breathing}
-          alt={imageAlt.breathing}
-          className="absolute inset-y-16 right-0 hidden w-[42vw] opacity-80 lg:block"
-          imageClassName="object-cover object-center"
-          sizes="42vw"
-        />
+        <div className="absolute inset-y-16 right-0 hidden w-[42vw] opacity-80 lg:block relative">
+          <CoverImage
+            src={oceanImages.breathing}
+            alt={imageAlt.breathing}
+            imageClassName="object-cover object-center"
+            sizes="42vw"
+          />
+        </div>
         <motion.div {...reveal} className="relative z-10 mx-auto max-w-[780px] px-5 text-center">
           <h2 className="text-4xl font-semibold leading-[1.06] tracking-[-0.055em] text-[#1A1A1A] md:text-6xl">
             <ResponsiveText balance copy={homeClosingCopy.title} />

@@ -5,6 +5,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { GettingStartedPathGalleries } from '@/components/marketing/GettingStartedPaths';
 import { ProgramCoursesAccordion } from '@/components/programs/ProgramCoursesAccordion';
+import { ProgramSectionHero } from '@/components/programs/ProgramSectionHero';
 import {
   isAccordionCourseId,
   programNavItems,
@@ -15,6 +16,7 @@ import {
   type ProgramNavId,
   type ProgramTabId,
 } from '@/lib/content';
+import { programSectionHero } from '@/lib/marketing-images';
 
 const accordionSectionIds: ProgramAccordionSectionId[] = [
   'programs-cert',
@@ -274,6 +276,7 @@ export function ProgramTabs() {
 
         {programSections.map((section) => {
           const scrollMarginTop = chromeOffset + 12;
+          const hero = programSectionHero[section.id as keyof typeof programSectionHero];
 
           return (
             <section
@@ -282,6 +285,14 @@ export function ProgramTabs() {
               style={{ scrollMarginTop }}
               aria-labelledby={`${section.id}-heading`}
             >
+              {hero ? (
+                <ProgramSectionHero
+                  image={hero.image}
+                  alt={hero.alt}
+                  objectPosition={hero.objectPosition}
+                />
+              ) : null}
+
               <div className="mb-7 max-w-2xl">
                 <h2
                   id={`${section.id}-heading`}
