@@ -52,8 +52,8 @@ export const trainerProfile = {
   name: '김혜미',
   title: '대표 강사 트레이너 · AIDA Instructor Trainer',
   credentials: [
-    '대한민국 노핀 국가대표 선수',
-    '프리다이빙 아시아 신기록 보유',
+    '대한민국 AIDA, CMAS 국가대표 선수',
+    '프리다이빙 노핀 아시아 신기록 보유',
     '한국 신기록 11회 달성',
     'AIDA Instructor Trainer',
     '11년 무사고 교육 운영',

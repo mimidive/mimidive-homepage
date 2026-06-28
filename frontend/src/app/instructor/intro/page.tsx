@@ -82,7 +82,7 @@ export default function InstructorIntroPage() {
               </Link>
             </div>
             <ReadableText
-              text={`안녕하세요. 미미다이브 대표 강사 김혜미입니다.\n\n저는 AIDA·CMAS 국가대표이자 대한민국 노핀 국가대표 선수로 활동하며 아시아 신기록과 한국 신기록을 수립했습니다.\n\n하지만 제가 가장 중요하게 생각하는 것은 기록이 아닙니다.\n\n물속에서 스스로를 알아가고 물에서 편안함을 느낄 수 있도록, 그 경험을 안전하게 전달하는 것이 저의 역할입니다.`}
+              text={`안녕하세요.\n\n미미다이브 대표 강사 김혜미입니다.\n\nAIDA·CMAS 국가대표이자 대한민국 노핀 국가대표 선수로 활동하며 아시아 신기록과 한국 신기록을 경신했습니다. 선수로서 쌓아온 경험을 바탕으로, 물속에서 스스로를 이해하고 편안함을 느낄 수 있도록 안전하고 체계적인 교육을 진행하고 있습니다.`}
               className="mt-12 max-w-3xl"
               sentenceClassName="text-base leading-8 text-zinc-600 md:text-lg md:leading-9"
             />
@@ -99,7 +99,7 @@ export default function InstructorIntroPage() {
             <ResponsiveText copy={instructorIntroCopy.quote} />
           </h2>
           <ReadableText
-            text={`프리다이빙은 더 깊이 내려가는 스포츠이기도 하지만, 동시에 자신의 몸과 마음을 이해하는 과정이기도 합니다.\n\n미미다이브는 경쟁보다 성장,\n기록보다 안전,\n결과보다 과정을 중요하게 생각합니다.`}
+            text={`프리다이빙은 더 깊이 내려가는 스포츠이기도 하지만, 자신의 몸과 마음을 이해하는 과정이기도 합니다.\n\n미미다이브는 경쟁보다 성장, 결과보다 과정, 그리고 무엇보다 안전을 가장 중요하게 생각합니다.`}
             className="mx-auto mt-8 max-w-3xl"
             sentenceClassName="text-base leading-8 text-zinc-600 md:text-xl md:leading-10"
           />
