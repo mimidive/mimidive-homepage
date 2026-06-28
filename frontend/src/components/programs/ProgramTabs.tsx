@@ -285,13 +285,7 @@ export function ProgramTabs() {
               style={{ scrollMarginTop }}
               aria-labelledby={`${section.id}-heading`}
             >
-              {hero ? (
-                <ProgramSectionHero
-                  image={hero.image}
-                  alt={hero.alt}
-                  objectPosition={hero.objectPosition}
-                />
-              ) : null}
+              {hero ? <ProgramSectionHero config={hero} /> : null}
 
               <div className="mb-7 max-w-2xl">
                 <h2

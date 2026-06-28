@@ -3,9 +3,10 @@ import { courseDetails, programsPage } from '@/lib/content';
 import { SITE_URL } from '@/lib/site';
 
 export const SITE_NAME = '미미다이브';
-export const DEFAULT_TITLE = '미미다이브 | 제주 프리다이빙 전문 교육센터';
+export const DEFAULT_TITLE =
+  '미미다이브 | 제주 프리다이빙 교육센터 · 체험다이빙·AIDA자격증 · 아시아 신기록 선수 운영';
 export const DEFAULT_DESCRIPTION =
-  '아시아 신기록 선수가 직접 운영하는 제주 프리다이빙 교육센터. 체험다이빙부터 AIDA 자격증 과정, 강사 과정까지 안전하고 체계적인 소수정예 프리다이빙 교육을 제공합니다.';
+  '아시아 신기록·대한민국 노핀 국가대표 김혜미가 운영하는 제주 프리다이빙 교육센터 미미다이브. 체험다이빙, AIDA 자격증, 심화 트레이닝까지 소수정예·안전 중심 맞춤 교육. 카카오톡으로 상담해 보세요.';
 export const OG_IMAGE = '/og-image.png';
 
 type PageMeta = {
