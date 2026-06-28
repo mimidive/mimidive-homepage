@@ -17,9 +17,11 @@ export type ProgramSectionHeroConfig =
 
 export function ProgramSectionHero({ config }: { config: ProgramSectionHeroConfig }) {
   if ('gallery' in config) {
+    const gridCols = config.gallery.length === 2 ? 'grid-cols-2' : 'grid-cols-3';
+
     return (
       <div className="mb-8 overflow-hidden rounded-[1.75rem] ring-1 ring-[#5F7C8A]/12 md:mb-10">
-        <div className="grid grid-cols-3 gap-1.5 p-1.5 md:gap-2 md:p-2">
+        <div className={`grid ${gridCols} gap-1.5 p-1.5 md:gap-2 md:p-2`}>
           {config.gallery.map((item) => (
             <div key={item.image} className="relative overflow-hidden rounded-[1rem] md:rounded-[1.25rem]">
               {/* eslint-disable-next-line @next/next/no-img-element */}

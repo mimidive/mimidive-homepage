@@ -2,7 +2,7 @@ import { KakaoConsultCard } from '@/components/marketing/KakaoConsultCard';
 import { PageHero } from '@/components/ui/PageHero';
 import { ReadableText } from '@/components/ui/ReadableText';
 import { SectionTitle } from '@/components/ui/SectionTitle';
-import { faqs, policies, processSteps } from '@/lib/content';
+import { faqs, processSteps } from '@/lib/content';
 
 export default function BookingPage() {
   return (
@@ -66,25 +66,6 @@ export default function BookingPage() {
                   />
                 </div>
               </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-20 text-zinc-900 md:py-24">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="grid gap-5 md:grid-cols-4">
-            {policies.map((policy) => (
-              <div
-                key={policy}
-                className="rounded-[1.5rem] bg-white/40 p-6 shadow-[0_18px_60px_rgba(15,23,42,0.07)] ring-1 ring-white/60 backdrop-blur-xl"
-              >
-                <ReadableText
-                  text={policy}
-                  gap="sm"
-                  sentenceClassName="text-sm leading-7 text-zinc-600"
-                />
-              </div>
             ))}
           </div>
         </div>

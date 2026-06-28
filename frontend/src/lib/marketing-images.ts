@@ -65,9 +65,9 @@ export const programSectionHero = {
   'programs-cert': {
     gallery: [
       {
-        image: '/programs-cert-hero-1.png',
+        image: '/programs-cert-hero-1-v2.png',
         alt: '미미다이브 프리다이빙 교육 팀 활동',
-        objectPosition: 'center 35%',
+        objectPosition: 'center 30%',
       },
       {
         image: '/programs-cert-hero-2.png',
@@ -101,10 +101,18 @@ export const programSectionHero = {
     ],
   },
   'programs-experience': {
-    image: marketingImages.programsExperienceHero,
-    alt: imageAlt.programsExperienceHero,
-    objectPosition: 'center center',
-    variant: 'portrait',
+    gallery: [
+      {
+        image: '/programs-experience-hero-1-v4.png',
+        alt: '제주 바다 프리다이빙·펀다이빙 체험',
+        objectPosition: 'center 35%',
+      },
+      {
+        image: '/programs-experience-hero-2-v4.png',
+        alt: '제주 바다 펀다이빙·해양 체험',
+        objectPosition: 'center center',
+      },
+    ],
   },
   'programs-special': {
     image: marketingImages.programsSpecialHero,

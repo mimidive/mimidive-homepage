@@ -935,13 +935,6 @@ export const faqs = [
   },
 ] as const;
 
-export const policies = [
-  '상담 후 과정과 일정 확정',
-  '기상 악화 시 일정 변경 또는 대체 교육',
-  '수심보다 컨디션과 기술 완성도 우선',
-  '수업 후 개인별 연습 방향 안내',
-] as const;
-
 export const certCourseShared = {
   includesTitle: '포함 사항',
   includes: [

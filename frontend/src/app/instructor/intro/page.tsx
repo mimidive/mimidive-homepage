@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { AchievementHighlights } from '@/components/instructor/AchievementHighlights';
+import { InstructorIntroSectionPhoto } from '@/components/instructor/InstructorIntroSectionPhoto';
 import { CareerSection } from '@/components/instructor/CareerSection';
 import { SocialLinks } from '@/components/marketing/SocialLinks';
 import { ResponsiveText } from '@/components/ui/ResponsiveText';
@@ -122,18 +123,10 @@ export default function InstructorIntroPage() {
 
       <section className="py-24 md:py-36">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="overflow-hidden rounded-[1.75rem] ring-1 ring-[#5F7C8A]/12">
-            <div className="relative aspect-[16/9] w-full md:aspect-[21/9]">
-              <Image
-                src={marketingImages.instructorEducationTraining}
-                alt={imageAlt.instructorEducationTraining}
-                fill
-                className="object-cover"
-                style={{ objectPosition: 'center 35%' }}
-                sizes="(max-width: 768px) 100vw, 80rem"
-              />
-            </div>
-          </div>
+          <InstructorIntroSectionPhoto
+            src={marketingImages.instructorEducationTraining}
+            alt={imageAlt.instructorEducationTraining}
+          />
 
           <div className="mt-12 max-w-3xl md:mt-14">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-400">
@@ -169,18 +162,10 @@ export default function InstructorIntroPage() {
 
       <section className="py-24 md:py-36">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="overflow-hidden rounded-[1.75rem] ring-1 ring-[#5F7C8A]/12">
-            <div className="relative aspect-[16/9] w-full md:aspect-[21/9]">
-              <Image
-                src={marketingImages.instructorCareerCompetition}
-                alt={imageAlt.instructorCareerCompetition}
-                fill
-                className="object-cover"
-                style={{ objectPosition: 'center 42%' }}
-                sizes="(max-width: 768px) 100vw, 80rem"
-              />
-            </div>
-          </div>
+          <InstructorIntroSectionPhoto
+            src={marketingImages.instructorCareerCompetition}
+            alt={imageAlt.instructorCareerCompetition}
+          />
 
           <div className="mt-12 max-w-3xl md:mt-14">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-400">
