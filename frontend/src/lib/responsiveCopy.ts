@@ -11,7 +11,7 @@ export const homeHeroCopy = {
     desktop: '대한민국 국가대표와 함께하는 프리다이빙',
   } satisfies ResponsiveLine,
   tagline: {
-    mobile: ['제주 프리다이빙', '전문 교육센터'],
+    mobile: ['제주 프리다이빙 전문 교육센터'],
     desktop: '제주 프리다이빙 전문 교육센터',
   } satisfies ResponsiveLine,
 } as const;
@@ -38,7 +38,7 @@ export const homeInstructorCopy = {
     desktop: '아시아 기록 보유자 김혜미 강사',
   } satisfies ResponsiveLine,
   body: {
-    mobile: ['선수의 경험과 강사의 책임감으로', '가르칩니다.'],
+    mobile: ['선수의 경험과 강사의 책임감으로 가르칩니다.'],
     desktop: '선수의 경험과 강사의 책임감으로 가르칩니다.',
   } satisfies ResponsiveLine,
   link: {
@@ -63,15 +63,15 @@ export const homeInstructorCopy = {
     {
       year: 'Asian Record',
       text: {
-        mobile: ['아시아 신기록과', '한국 신기록 12회 수립'],
-        desktop: '아시아 신기록과 한국 신기록 12회 수립',
+        mobile: ['노핀 DNF 180m 아시아 신기록', '한국 신기록 12회 수립'],
+        desktop: '노핀 DNF 180m 아시아 신기록', '한국 신기록 12회 수립',
       } satisfies ResponsiveLine,
     },
     {
       year: 'AIDA Instructor Trainer',
       text: {
-        mobile: ['초보자부터 전문가 과정까지', '교육 가능 센터'],
-        desktop: '초보자부터 전문가 과정까지 교육 가능 센터',
+        mobile: ['초보자부터 전문가 과정까지 교육 가능한 센터'],
+        desktop: '초보자부터 전문가 과정까지 교육 가능한 센터',
       } satisfies ResponsiveLine,
     },
   ] as const,
