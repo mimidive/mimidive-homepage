@@ -2,9 +2,11 @@
 
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import type { Transition, Variants } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 import { SmoothHorizontalScroll } from '@/components/motion/SmoothHorizontalScroll';
 import { SocialLinks } from '@/components/marketing/SocialLinks';
+import { CoverImage } from '@/components/ui/CoverImage';
 import { ResponsiveText, type ResponsiveLine } from '@/components/ui/ResponsiveText';
 import { homeCta } from '@/lib/content';
 import {
@@ -16,10 +18,11 @@ import {
   homeMomentsCopy,
   homeTruthCopy,
 } from '@/lib/responsiveCopy';
-import { oceanImages } from '@/lib/marketing-images';
+import { imageAlt, oceanImages } from '@/lib/marketing-images';
 
 type Moment = {
   image: string;
+  alt: string;
   quote: ResponsiveLine;
 };
 
@@ -29,10 +32,15 @@ function MomentCard({ moment }: { moment: Moment }) {
       data-story-card
       className="relative w-[calc((100vw-2.5rem-1rem)/1.5)] shrink-0 overflow-hidden rounded-2xl bg-[#1A1A1A] shadow-[0_12px_40px_rgba(26,26,26,0.1)] md:w-[calc((100vw-4rem-1.25rem)/1.5)] lg:w-[calc((min(100vw,80rem)-4rem-1.25rem)/1.5)]"
     >
-      <div
-        className="aspect-[4/5] bg-cover bg-center"
-        style={{ backgroundImage: `url(${moment.image})` }}
-      />
+      <div className="relative aspect-[4/5]">
+        <Image
+          src={moment.image}
+          alt={moment.alt}
+          fill
+          className="object-cover object-center"
+          sizes="(max-width: 768px) 66vw, 40vw"
+        />
+      </div>
       <div
         className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/25 to-[#1A1A1A]/5"
         aria-hidden="true"
@@ -134,9 +142,9 @@ export default function HomePage() {
   const heroScale = useTransform(scrollYProgress, [0, 0.35], [1, 1.08]);
 
   const moments: Moment[] = [
-    { image: oceanImages.trainee, quote: homeMomentsCopy.reviews[0] },
-    { image: oceanImages.momentLevel, quote: homeMomentsCopy.reviews[1] },
-    { image: oceanImages.momentFun, quote: homeMomentsCopy.reviews[2] },
+    { image: oceanImages.trainee, alt: imageAlt.trainee, quote: homeMomentsCopy.reviews[0] },
+    { image: oceanImages.momentLevel, alt: imageAlt.momentLevel, quote: homeMomentsCopy.reviews[1] },
+    { image: oceanImages.momentFun, alt: imageAlt.momentFun, quote: homeMomentsCopy.reviews[2] },
   ];
 
   return (
@@ -145,11 +153,14 @@ export default function HomePage() {
         <motion.div
           className="absolute inset-x-0 bottom-0 top-[4.5rem]"
           style={{ y: heroY, scale: heroScale }}
-          aria-hidden="true"
         >
-          <div
-            className="h-full w-full bg-cover bg-[center_45%]"
-            style={{ backgroundImage: `url(${oceanImages.hero})` }}
+          <CoverImage
+            src={oceanImages.hero}
+            alt={imageAlt.hero}
+            className="h-full w-full"
+            imageClassName="object-cover object-[center_45%]"
+            priority
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-[#FAFAF8]/20" />
           <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#FAFAF8] via-[#FAFAF8]/65 to-transparent" />
@@ -214,11 +225,18 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-7xl gap-16 px-5 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:px-8">
           <motion.div {...reveal} className="relative aspect-[4/5] overflow-hidden">
             <motion.div
-              className="h-full w-full bg-cover bg-[center_22%]"
-              style={{ backgroundImage: `url(${oceanImages.instructor})` }}
+              className="h-full w-full"
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 1, ease: softEase }}
-            />
+            >
+              <CoverImage
+                src={oceanImages.instructor}
+                alt={imageAlt.instructor}
+                className="h-full w-full"
+                imageClassName="object-cover object-[center_22%]"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </motion.div>
           </motion.div>
           <motion.div
             className="lg:pl-10"
@@ -356,10 +374,12 @@ export default function HomePage() {
       </section>
 
       <section className="relative flex min-h-[72vh] items-center overflow-hidden bg-[#FAFAF8] py-28 md:py-40">
-        <div
-          className="absolute inset-y-16 right-0 hidden w-[42vw] bg-cover bg-center opacity-80 lg:block"
-          style={{ backgroundImage: `url(${oceanImages.breathing})` }}
-          aria-hidden="true"
+        <CoverImage
+          src={oceanImages.breathing}
+          alt={imageAlt.breathing}
+          className="absolute inset-y-16 right-0 hidden w-[42vw] opacity-80 lg:block"
+          imageClassName="object-cover object-center"
+          sizes="42vw"
         />
         <motion.div {...reveal} className="relative z-10 mx-auto max-w-[780px] px-5 text-center">
           <h2 className="text-4xl font-semibold leading-[1.06] tracking-[-0.055em] text-[#1A1A1A] md:text-6xl">

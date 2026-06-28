@@ -4,7 +4,13 @@ import './globals.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { FloatingKakaoButton } from '@/components/layout/FloatingKakaoButton';
-import { BRAND } from '@/lib/content';
+import {
+  DEFAULT_DESCRIPTION,
+  DEFAULT_TITLE,
+  OG_IMAGE,
+  SITE_NAME,
+} from '@/lib/seo';
+import { SITE_URL } from '@/lib/site';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -12,21 +18,39 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: '미미다이브 | 제주 프리다이빙 전문 교육센터',
-  description:
-    '아시아 신기록 선수가 직접 운영하는 제주 프리다이빙 교육센터. 체험다이빙부터 AIDA 자격증 과정, 강사 과정까지 안전하고 체계적인 소수정예 프리다이빙 교육을 제공합니다.',
-  other: {
-    'naver-site-verification': '36fb89103df4adb95eda33fa94b2487e91edf341',
-    'google-site-verification': 'mVRD9m5ID3hzywitAqSqDF43WnQk-rct5LWitT2xLDk',
+  metadataBase: new URL(SITE_URL),
+  title: DEFAULT_TITLE,
+  description: DEFAULT_DESCRIPTION,
+  alternates: {
+    canonical: '/',
   },
-
+  verification: {
+    google: 'mVRD9m5ID3hzywitAqSqDF43WnQk-rct5LWitT2xLDk',
+    other: {
+      'naver-site-verification': '36fb89103df4adb95eda33fa94b2487e91edf341',
+    },
+  },
   openGraph: {
-    title: '미미다이브 | 제주 프리다이빙 전문 교육센터',
-    description:
-      '아시아 신기록 선수가 직접 운영하는 제주 프리다이빙 교육센터. 체험다이빙부터 AIDA 자격증 과정, 강사 과정까지 안전하고 체계적인 소수정예 프리다이빙 교육을 제공합니다.',
-    url: 'https://www.mimidive.co.kr',
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    url: '/',
     type: 'website',
-    siteName: '미미다이브',
+    siteName: SITE_NAME,
+    locale: 'ko_KR',
+    images: [
+      {
+        url: OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: DEFAULT_TITLE,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    images: [OG_IMAGE],
   },
 };
 

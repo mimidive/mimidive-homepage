@@ -9,7 +9,7 @@ export function FloatingKakaoButton() {
 
   const content = (
     <>
-      <img src="/kakao-talk-icon.svg" alt="" className="mb-0.5 h-4 w-4" aria-hidden="true" />
+      <img src="/kakao-talk-icon.svg" alt="카카오톡 상담" className="mb-0.5 h-4 w-4" />
       <span className="leading-none">
         무료상담
       </span>

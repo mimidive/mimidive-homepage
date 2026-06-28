@@ -1,1 +1,1 @@
-export const SITE_URL = 'https://mimidive.co.kr';
+export const SITE_URL = 'https://www.mimidive.co.kr';

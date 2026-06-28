@@ -2,6 +2,10 @@ import Link from 'next/link';
 import { ReadableText } from '@/components/ui/ReadableText';
 import { PageHero } from '@/components/ui/PageHero';
 import { BRAND } from '@/lib/content';
+import type { Metadata } from 'next';
+import { staticPageMetadata } from '@/lib/seo';
+
+export const metadata: Metadata = staticPageMetadata.accommodation;
 
 const tips = [
   '법환포구·강정동 인근 숙소 위주로 안내',

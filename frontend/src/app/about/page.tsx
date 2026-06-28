@@ -2,6 +2,10 @@ import { PageHero } from '@/components/ui/PageHero';
 import { ReadableText } from '@/components/ui/ReadableText';
 import { SectionTitle } from '@/components/ui/SectionTitle';
 import { instructorTimeline, proofCards, trainerProfile } from '@/lib/content';
+import type { Metadata } from 'next';
+import { staticPageMetadata } from '@/lib/seo';
+
+export const metadata: Metadata = staticPageMetadata.about;
 
 const brandStory = {
   title: '대표 강사 소개',

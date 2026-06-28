@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { CoursePageView } from '@/components/CoursePageView';
-import { courseDetails } from '@/lib/content';
+import { courseMetadata } from '@/lib/seo';
 
 const slugs = ['long-stay-package', 'membership'] as const;
 
@@ -17,14 +17,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   if (!isSpecialSlug(slug)) {
-    return { title: '스페셜 코스 | 미미다이브' };
+    return courseMetadata('long-stay-package', `/courses/special/${slug}`);
   }
 
-  const detail = courseDetails[slug];
-  return {
-    title: `${detail.title} | 미미다이브`,
-    description: detail.description,
-  };
+  return courseMetadata(slug, `/courses/special/${slug}`);
 }
 
 export default async function SpecialCoursePage({

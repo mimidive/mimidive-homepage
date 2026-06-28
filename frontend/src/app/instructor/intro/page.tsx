@@ -1,10 +1,15 @@
 import Link from 'next/link';
 import { CareerSection } from '@/components/instructor/CareerSection';
 import { SocialLinks } from '@/components/marketing/SocialLinks';
+import { CoverImage } from '@/components/ui/CoverImage';
 import { ResponsiveText } from '@/components/ui/ResponsiveText';
 import { ReadableText } from '@/components/ui/ReadableText';
-import { oceanImages } from '@/lib/marketing-images';
+import { imageAlt, oceanImages } from '@/lib/marketing-images';
 import { instructorIntroCopy } from '@/lib/responsiveCopy';
+import type { Metadata } from 'next';
+import { staticPageMetadata } from '@/lib/seo';
+
+export const metadata: Metadata = staticPageMetadata.instructorIntro;
 
 export default function InstructorIntroPage() {
   const differentiators = [
@@ -48,10 +53,12 @@ export default function InstructorIntroPage() {
         <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:px-8">
           <div className="photo-card rounded-[2.25rem] p-5">
             <div className="relative min-h-[28rem] overflow-hidden rounded-[1.75rem] ring-1 ring-white/60 md:min-h-[36rem]">
-              <div
-                aria-hidden="true"
-                className="absolute inset-0 bg-cover bg-[center_35%]"
-                style={{ backgroundImage: `url(${oceanImages.instructor})` }}
+              <CoverImage
+                src={oceanImages.instructor}
+                alt={imageAlt.instructor}
+                className="absolute inset-0"
+                imageClassName="object-cover object-[center_35%]"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
           </div>

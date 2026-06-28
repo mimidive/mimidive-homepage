@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import Link from 'next/link';
+import { CoverImage } from '@/components/ui/CoverImage';
 import { ResponsiveText } from '@/components/ui/ResponsiveText';
 import { gettingStarted } from '@/lib/content';
 import { reveal, softEase } from '@/lib/motion-variants';
@@ -115,10 +116,12 @@ function PathScrollCard({ path, variant = 'portrait' }: { path: PathData; varian
             : 'aspect-[3/4] min-h-[14rem] sm:min-h-0'
         }`}
       >
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-cover bg-center transition duration-700 group-hover:scale-[1.03]"
-          style={{ backgroundImage: `url(${path.image})` }}
+        <CoverImage
+          src={path.image}
+          alt={`제주 프리다이빙 ${path.title}`}
+          className="absolute inset-0 transition duration-700 group-hover:scale-[1.03]"
+          imageClassName="object-cover object-center"
+          sizes={isWide ? '(max-width: 768px) 100vw, 70vw' : '(max-width: 768px) 50vw, 33vw'}
         />
         <div
           aria-hidden

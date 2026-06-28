@@ -1,4 +1,8 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
+import { staticPageMetadata } from '@/lib/seo';
+
+export const metadata: Metadata = staticPageMetadata.instructor;
 
 export default function InstructorPage() {
   return (

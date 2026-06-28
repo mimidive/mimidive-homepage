@@ -8,6 +8,10 @@ import {
   recordHighlights,
   trainerProfile,
 } from '@/lib/content';
+import type { Metadata } from 'next';
+import { staticPageMetadata } from '@/lib/seo';
+
+export const metadata: Metadata = staticPageMetadata.instructorAchievement;
 
 export default function AchievementPage() {
   return (

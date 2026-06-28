@@ -236,7 +236,7 @@ export function ProgramTabs() {
             style={{ top: headerOffset }}
             className="fixed inset-x-0 z-40 border-b border-[#5F7C8A]/16 bg-[#FAFAF8] py-3"
           >
-            <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-5 scrollbar-none lg:px-8">
+            <div className="mx-auto grid max-w-7xl grid-cols-5 gap-1 px-3 sm:gap-1.5 sm:px-4 md:gap-2 md:px-5 lg:flex lg:gap-2 lg:overflow-x-auto lg:px-8">
               {programNavItems.map((item) => {
                 const selected = activeNavId === item.id;
                 return (
@@ -247,7 +247,7 @@ export function ProgramTabs() {
                       setActiveNavId(item.id);
                       scrollToSection(item.id);
                     }}
-                    className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold tracking-[-0.02em] transition-colors ${
+                    className={`min-w-0 rounded-full px-1.5 py-2 text-center text-[10px] font-semibold leading-tight tracking-[-0.03em] transition-colors sm:px-2.5 sm:text-[11px] md:px-3 md:text-xs lg:shrink-0 lg:px-4 lg:text-sm lg:leading-normal ${
                       selected
                         ? 'bg-[#5F7C8A] text-[#FAFAF8]'
                         : 'border border-[#5F7C8A]/12 bg-white text-gray-500 hover:text-[#5F7C8A]'

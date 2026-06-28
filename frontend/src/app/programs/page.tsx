@@ -4,11 +4,9 @@ import { Suspense } from 'react';
 import { ProgramTabs } from '@/components/programs/ProgramTabs';
 import { ReadableText } from '@/components/ui/ReadableText';
 import { programsPage } from '@/lib/content';
+import { staticPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: `${programsPage.title} | 미미다이브`,
-  description: programsPage.subtitle,
-};
+export const metadata: Metadata = staticPageMetadata.programs;
 
 export default function ProgramsPage() {
   return (
