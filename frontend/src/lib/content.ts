@@ -7,6 +7,8 @@ export const BRAND = {
   email: 'mimifreediving@gmail.com',
   phone: '010-3111-4140',
   kakao: '미미다이브',
+  /** 카카오 비즈니스 채널 홈 URL (예: https://pf.kakao.com/_xxxx/chat) */
+  kakaoChatUrl: '',
   instagram: 'mimidive',
   instagramUrl: 'https://www.instagram.com/mimidive',
   youtube: 'mimidive',
@@ -174,7 +176,7 @@ export const competitionHistory: readonly CompetitionYear[] = [
       { event: 'AIDA Korea National Championship', result: '출전' },
       { event: '2nd AIDA WCS CUP', result: '출전' },
       { event: '2025 JEJU International Freediving Masters', result: '출전' },
-      { event: 'AIDA RAUM Pool Competition 2025', result: '2월~6월 시리즈 참가' },
+      { event: 'AIDA RAUM Pool Competition 2025', result: '2월~6월 시리즈' },
     ],
   },
   {
@@ -186,8 +188,8 @@ export const competitionHistory: readonly CompetitionYear[] = [
       { event: 'DNF 143m', result: '한국 여자 모노핀 신기록 수립', highlight: true },
       { event: 'DYN 209.5m', result: '한국 여자 모노핀 신기록 수립', highlight: true },
       { event: 'JEJU Freediving Masters AIDA Pool Competition', result: 'STA 1위', highlight: true },
-      { event: 'AIDA Panglao Pool Championship Season 4 Finale', result: '참가' },
-      { event: '3rd White Balance Pool Competition', result: '참가' },
+      { event: 'AIDA Panglao Pool Championship Season 4 Finale', result: '' },
+      { event: '3rd White Balance Pool Competition', result: '' },
     ],
   },
   {
@@ -214,9 +216,9 @@ export const competitionHistory: readonly CompetitionYear[] = [
         result: '여자 종합 1위 · DYN 202m 여자 1위 신기록 · DNF 142m 여자 1위 신기록',
         highlight: true,
       },
-      { event: '13th AIDA Panglao Depth Games', result: '참가' },
-      { event: 'AIDA Panglao Depth Championship', result: '참가' },
-      { event: '15th AIDA Panglao Depth Games', result: '참가' },
+      { event: '13th AIDA Panglao Depth Games', result: '' },
+      { event: 'AIDA Panglao Depth Championship', result: '' },
+      { event: '15th AIDA Panglao Depth Games', result: '' },
     ],
   },
   {
@@ -227,9 +229,9 @@ export const competitionHistory: readonly CompetitionYear[] = [
         result: 'DNF 135m 국내 여자 노핀 신기록',
         highlight: true,
       },
-      { event: 'AIDA Panglao Pool Championship', result: '참가' },
-      { event: 'AIDA Panglao Pool Championship S03E04', result: '참가' },
-      { event: 'AIDA Panglao Pool Championship S03 Finale', result: '참가' },
+      { event: 'AIDA Panglao Pool Championship', result: '' },
+      { event: 'AIDA Panglao Pool Championship S03E04', result: '' },
+      { event: 'AIDA Panglao Pool Championship S03 Finale', result: '' },
     ],
   },
   {
@@ -248,7 +250,7 @@ export const competitionHistory: readonly CompetitionYear[] = [
         highlight: true,
       },
       { event: 'Blue Ocean Pool Competition', result: '여자 종합 1위', highlight: true },
-      { event: 'AIDA Dahab Apnea October Competition', result: '참가' },
+      { event: 'AIDA Dahab Apnea October Competition', result: '' },
     ],
   },
   {
@@ -263,12 +265,12 @@ export const competitionHistory: readonly CompetitionYear[] = [
   },
   {
     year: 2018,
-    entries: [{ event: 'Red C Cup (12th Edition)', result: '참가' }],
+    entries: [{ event: 'Red C Cup (12th Edition)', result: '' }],
   },
   {
     year: 2017,
     entries: [
-      { event: 'Red C Cup (9th Edition)', result: '참가' },
+      { event: 'Red C Cup (9th Edition)', result: '' },
       { event: '첫 국제대회 출전', result: '국제 대회 데뷔', highlight: true },
     ],
   },
@@ -344,7 +346,7 @@ export const programsPage = {
   subtitle: '제주 프리다이빙 교육 — 입문부터 심화까지',
   closingConsult:
     '과정 선택이 어렵다면 현재 수영 실력과 일정을 알려주세요. 맞는 과정을 함께 찾아드립니다.',
-  closingCta: '무료 교육 상담하기',
+  closingCta: '카카오톡 상담하기',
 } as const;
 
 export const HOME_GETTING_STARTED_ANCHOR = PROGRAMS_START_ANCHOR;
@@ -361,7 +363,7 @@ export const homeCta = {
     href: '/programs',
   },
   freeConsultation: {
-    label: '무료 교육 상담하기',
+    label: '카카오톡 상담하기',
     href: '/booking',
   },
 } as const;

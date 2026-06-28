@@ -110,7 +110,7 @@ function PathScrollCard({ path, variant = 'portrait' }: { path: PathData; varian
       className="group relative block min-w-0 overflow-hidden rounded-2xl bg-[#26353a]"
     >
       <div
-        className={`relative w-full ${
+        className={`relative w-full overflow-hidden ${
           isWide
             ? 'aspect-[16/9] min-h-[13.5rem] sm:min-h-[15rem] md:aspect-[21/9] md:min-h-0'
             : 'aspect-[3/4] min-h-[14rem] sm:min-h-0'
@@ -119,7 +119,7 @@ function PathScrollCard({ path, variant = 'portrait' }: { path: PathData; varian
         <CoverImage
           src={path.image}
           alt={`제주 프리다이빙 ${path.title}`}
-          className="absolute inset-0 transition duration-700 group-hover:scale-[1.03]"
+          className="h-full w-full transition duration-700 group-hover:scale-[1.03]"
           imageClassName="object-cover object-center"
           sizes={isWide ? '(max-width: 768px) 100vw, 70vw' : '(max-width: 768px) 50vw, 33vw'}
         />

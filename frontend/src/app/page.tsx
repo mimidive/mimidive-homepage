@@ -184,7 +184,7 @@ export default function HomePage() {
             </span>
           </p>
           <p className="mt-5 text-sm font-medium leading-7 text-[#6B7280] md:text-base">
-            <ResponsiveText copy={homeHeroCopy.tagline} />
+            <ResponsiveText copy={homeHeroCopy.tagline} className="whitespace-nowrap" />
           </p>
           <SocialLinks className="mt-4" />
           <div className="mt-11 flex justify-center">
@@ -192,7 +192,7 @@ export default function HomePage() {
               href={homeCta.programsEntry.href}
               className="rounded-full bg-[#5F7C8A] px-8 py-4 text-center text-sm font-semibold leading-snug text-[#FAFAF8] transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-[#4f6e7c]"
             >
-              <ResponsiveText copy={homeCtaCopy.programsEntry} />
+              <ResponsiveText copy={homeCtaCopy.programsEntry} className="whitespace-nowrap" />
             </Link>
           </div>
         </motion.div>
@@ -289,12 +289,12 @@ export default function HomePage() {
                 </motion.div>
               ))}
             </div>
-            <motion.div variants={instructorLine} className="mt-12">
+            <motion.div variants={instructorLine} className="mt-12 pl-6">
               <Link
                 href="/instructor/intro"
-                className="inline-block break-keep text-sm font-bold text-[#1A1A1A] underline decoration-[#5F7C8A]/35 underline-offset-8 transition hover:text-[#5F7C8A]"
+                className="inline-block break-keep text-sm font-semibold text-[#5F7C8A] underline decoration-[#5F7C8A]/35 underline-offset-8 transition hover:text-[#4f6e7c]"
               >
-                <ResponsiveText copy={homeInstructorCopy.link} />
+                <ResponsiveText copy={homeInstructorCopy.link} className="whitespace-nowrap" />
               </Link>
             </motion.div>
           </motion.div>
@@ -329,7 +329,7 @@ export default function HomePage() {
                   variants={instructorLine}
                   className="text-2xl font-semibold leading-tight tracking-[-0.045em] text-[#1A1A1A] md:text-4xl"
                 >
-                  <ResponsiveText balance copy={item} />
+                  <ResponsiveText balance copy={item} className="whitespace-nowrap" />
                 </motion.p>
               </motion.div>
             ))}
@@ -349,7 +349,7 @@ export default function HomePage() {
               transition={{ duration: 1, delay: 0.25, ease: softEase }}
               aria-hidden="true"
             />
-            <ResponsiveText as="div" copy={homeConcernsCopy.bridge} />
+            <ResponsiveText as="div" copy={homeConcernsCopy.bridge} className="whitespace-nowrap" />
           </motion.div>
         </div>
       </section>
@@ -365,7 +365,7 @@ export default function HomePage() {
             </h2>
             <ResponsiveText
               as="p"
-              className="mt-5 text-base leading-8 text-[#6B7280] md:text-lg md:leading-9"
+              className="mt-5 whitespace-nowrap text-base leading-8 text-[#6B7280] md:text-lg md:leading-9"
               copy={homeMomentsCopy.subtitle}
             />
           </motion.div>
@@ -395,18 +395,18 @@ export default function HomePage() {
               href={homeCta.freeConsultation.href}
               className="inline-block rounded-full bg-[#5F7C8A] px-9 py-4 text-center text-sm font-semibold leading-snug text-[#FAFAF8] transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-[#4f6e7c]"
             >
-              <ResponsiveText copy={homeCtaCopy.freeConsultation} />
+              <ResponsiveText copy={homeCtaCopy.freeConsultation} className="whitespace-nowrap" />
             </Link>
             <Link
               href={homeCta.packageInquiry.href}
               className="text-center text-sm font-semibold leading-snug text-[#5F7C8A] underline decoration-[#5F7C8A]/35 underline-offset-8 transition hover:text-[#4f6e7c]"
             >
-              <ResponsiveText copy={homeCtaCopy.packageInquiry} />
+              <ResponsiveText copy={homeCtaCopy.packageInquiry} className="whitespace-nowrap" />
             </Link>
           </div>
           <ResponsiveText
             as="p"
-            className="mx-auto mt-10 max-w-[640px] text-sm leading-7 text-[#6B7280] md:mt-12 md:text-base md:leading-8"
+            className="mx-auto mt-10 max-w-[640px] whitespace-nowrap text-sm leading-7 text-[#6B7280] md:mt-12 md:text-base md:leading-8"
             copy={homeClosingCopy.footnote}
           />
         </motion.div>

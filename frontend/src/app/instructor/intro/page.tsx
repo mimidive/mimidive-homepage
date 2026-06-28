@@ -1,8 +1,10 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import { AchievementHighlights } from '@/components/instructor/AchievementHighlights';
 import { CareerSection } from '@/components/instructor/CareerSection';
 import { SocialLinks } from '@/components/marketing/SocialLinks';
-import { CoverImage } from '@/components/ui/CoverImage';
 import { ResponsiveText } from '@/components/ui/ResponsiveText';
+import { InstructorIntroBio } from '@/components/instructor/InstructorIntroBio';
 import { ReadableText } from '@/components/ui/ReadableText';
 import { imageAlt, oceanImages } from '@/lib/marketing-images';
 import { instructorIntroCopy } from '@/lib/responsiveCopy';
@@ -52,13 +54,14 @@ export default function InstructorIntroPage() {
       <section className="py-24 md:py-36">
         <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:px-8">
           <div className="photo-card rounded-[2.25rem] p-5">
-            <div className="relative min-h-[28rem] overflow-hidden rounded-[1.75rem] ring-1 ring-white/60 md:min-h-[36rem]">
-              <CoverImage
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] ring-1 ring-white/60">
+              <Image
                 src={oceanImages.instructor}
                 alt={imageAlt.instructor}
-                className="absolute inset-0"
-                imageClassName="object-cover object-[center_35%]"
+                fill
+                priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover object-center"
               />
             </div>
           </div>
@@ -67,12 +70,20 @@ export default function InstructorIntroPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-400">
               Instructor
             </p>
-            <h1 className="mt-6 max-w-3xl text-5xl font-extrabold leading-[0.959] tracking-[-0.0625em] text-zinc-900 md:text-7xl">
-              <ResponsiveText copy={instructorIntroCopy.title} />
+            <h1 className="mt-6 max-w-3xl">
+              <span className="block text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500 sm:text-sm md:text-base md:tracking-[0.18em]">
+                대한민국 국가대표 선수 · AIDA · CMAS
+              </span>
+              <span className="mt-5 block text-5xl font-extrabold leading-[0.959] tracking-[-0.0625em] text-zinc-900 md:mt-6 md:text-7xl">
+                김혜미
+              </span>
+              <span className="mt-2 block text-3xl font-extrabold leading-[1.02] tracking-[-0.055em] text-zinc-900 md:text-5xl">
+                강사 트레이너
+              </span>
             </h1>
             <SocialLinks className="mt-6" align="start" />
             <p className="mt-7 text-xl font-semibold leading-8 text-zinc-800 md:text-2xl">
-              <ResponsiveText copy={instructorIntroCopy.subtitle} />
+              <AchievementHighlights />
             </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -88,11 +99,7 @@ export default function InstructorIntroPage() {
                 수업 안내 보기
               </Link>
             </div>
-            <ReadableText
-              text={`안녕하세요.\n\n미미다이브 대표 강사 김혜미입니다.\n\nAIDA·CMAS 국가대표이자 대한민국 노핀 국가대표 선수로 활동하며 아시아 신기록과 한국 신기록을 경신했습니다. 선수로서 쌓아온 경험을 바탕으로, 물속에서 스스로를 이해하고 편안함을 느낄 수 있도록 안전하고 체계적인 교육을 진행하고 있습니다.`}
-              className="mt-12 max-w-3xl"
-              sentenceClassName="text-base leading-8 text-zinc-600 md:text-lg md:leading-9"
-            />
+            <InstructorIntroBio />
           </div>
         </div>
       </section>
@@ -119,7 +126,7 @@ export default function InstructorIntroPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-400">
               Education
             </p>
-            <h2 className="mt-5 text-4xl font-extrabold leading-[1.02] tracking-[-0.06em] text-zinc-900 md:text-6xl">
+            <h2 className="mt-5 whitespace-nowrap text-[clamp(1.25rem,4.6vw,2.25rem)] font-extrabold leading-[1.02] tracking-[-0.06em] text-zinc-900 md:whitespace-normal md:text-6xl">
               왜 미미다이브의 교육이 다른가
             </h2>
           </div>

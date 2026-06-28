@@ -42,8 +42,8 @@ export const homeInstructorCopy = {
     desktop: '선수의 경험과 강사의 책임감으로 가르칩니다.',
   } satisfies ResponsiveLine,
   link: {
-    mobile: ['-> 미미다이브 강사 소개 더 자세히 보기'],
-    desktop: '-> 미미다이브 강사 소개 더 자세히 보기',
+    mobile: ['미미다이브 강사 소개 더 자세히 보기 →'],
+    desktop: '미미다이브 강사 소개 더 자세히 보기 →',
   } satisfies ResponsiveLine,
   storyMarks: [
     {
@@ -64,7 +64,7 @@ export const homeInstructorCopy = {
       year: 'Asian Record',
       text: {
         mobile: ['노핀 DNF 180m 아시아 신기록', '한국 신기록 12회 수립'],
-        desktop: '노핀 DNF 180m 아시아 신기록', '한국 신기록 12회 수립',
+        desktop: '노핀 DNF 180m 아시아 신기록 · 한국 신기록 12회 수립',
       } satisfies ResponsiveLine,
     },
     {
@@ -83,15 +83,15 @@ export const homeConcernsCopy = {
     desktop: '혹시 이런 고민이 있으신가요?',
   } satisfies ResponsiveLine,
   items: [
-    { mobile: ['물이', '무섭다'], desktop: '물이 무섭다' },
-    { mobile: ['이퀄라이징이', '안 된다'], desktop: '이퀄라이징이 안 된다' },
-    { mobile: ['수심이', '늘지 않는다'], desktop: '수심이 늘지 않는다' },
-    { mobile: ['자격증만 따고', '멈춰 있다'], desktop: '자격증만 따고 멈춰 있다' },
-    { mobile: ['무엇을 연습해야 할지', '모르겠다'], desktop: '무엇을 연습해야 할지 모르겠다' },
-    { mobile: ['강사가 될 수 있을지', '자신이 없다'], desktop: '강사가 될 수 있을지 자신이 없다' },
+    { mobile: ['물이 무섭다'], desktop: '물이 무섭다' },
+    { mobile: ['이퀄라이징이 안 된다'], desktop: '이퀄라이징이 안 된다' },
+    { mobile: ['수심이 늘지 않는다'], desktop: '수심이 늘지 않는다' },
+    { mobile: ['자격증만 따고 멈춰 있다'], desktop: '자격증만 따고 멈춰 있다' },
+    { mobile: ['무엇을 연습해야 할지 모르겠다'], desktop: '무엇을 연습해야 할지 모르겠다' },
+    { mobile: ['강사가 될 수 있을지 자신이 없다'], desktop: '강사가 될 수 있을지 자신이 없다' },
   ] as const satisfies readonly ResponsiveLine[],
   bridge: {
-    mobile: ['이 고민, 수준과 관계없이', '누구에게나 올 수 있습니다.'],
+    mobile: ['이 고민, 수준과 관계없이 누구에게나 올 수 있습니다.'],
     desktop: '이 고민, 수준과 관계없이 누구에게나 올 수 있습니다.',
   } satisfies ResponsiveLine,
 } as const;
@@ -103,7 +103,7 @@ export const homeMomentsCopy = {
     desktop: '같은 고민을 나눈 수강생들',
   } satisfies ResponsiveLine,
   subtitle: {
-    mobile: ['수강생들의', '리얼 교육 후기'],
+    mobile: ['수강생들의 리얼 교육 후기'],
     desktop: '수강생들의 리얼 교육 후기',
   } satisfies ResponsiveLine,
   reviews: [
@@ -138,22 +138,22 @@ export const homeClosingCopy = {
     },
   ] as const satisfies readonly ResponsiveLine[],
   footnote: {
-    mobile: ['현재 수준과 목표에 맞는', '교육 과정을 함께 찾아드립니다.'],
+    mobile: ['현재 수준과 목표에 맞는 교육 과정을 함께 찾아드립니다.'],
     desktop: '현재 수준과 목표에 맞는 교육 과정을 함께 찾아드립니다.',
   } satisfies ResponsiveLine,
 } as const;
 
 export const homeCtaCopy = {
   programsEntry: {
-    mobile: ['교육 프로그램', '바로가기'],
+    mobile: ['교육 프로그램 바로가기'],
     desktop: '교육 프로그램 바로가기',
   } satisfies ResponsiveLine,
   freeConsultation: {
-    mobile: ['무료 교육', '상담하기'],
+    mobile: ['무료 교육 상담하기'],
     desktop: '무료 교육 상담하기',
   } satisfies ResponsiveLine,
   packageInquiry: {
-    mobile: ['전체 교육 프로그램', '보기'],
+    mobile: ['전체 교육 프로그램 보기'],
     desktop: '전체 교육 프로그램 보기',
   } satisfies ResponsiveLine,
 } as const;

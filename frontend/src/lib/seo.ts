@@ -96,9 +96,9 @@ export const staticPageMetadata = {
     path: '/programs',
   }),
   booking: createPageMetadata({
-    title: '교육 문의',
+    title: '카카오톡 상담',
     description:
-      '제주 프리다이빙 교육 상담 및 예약. 체험다이빙, AIDA 자격증, 노핀·수심 트레이닝 과정을 맞춤 안내합니다.',
+      '미미다이브 카카오톡 채널로 제주 프리다이빙 교육 상담. 체험다이빙, AIDA 자격증, 트레이닝 과정을 맞춤 안내합니다.',
     path: '/booking',
   }),
   accommodation: createPageMetadata({

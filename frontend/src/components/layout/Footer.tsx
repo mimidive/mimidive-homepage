@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import { BRAND } from '@/lib/content';
+import { getKakaoChatUrl } from '@/lib/kakao';
 
 export function Footer() {
+  const kakaoChatUrl = getKakaoChatUrl();
   return (
     <footer className="bg-white text-zinc-600">
       <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
@@ -24,7 +26,20 @@ export function Footer() {
             <ul className="space-y-3 text-sm">
               <li>{BRAND.location}</li>
               <li>{BRAND.email}</li>
-              <li>카카오톡: {BRAND.kakao}</li>
+              <li>
+                {kakaoChatUrl ? (
+                  <a
+                    href={kakaoChatUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition hover:text-sky-200"
+                  >
+                    카카오톡: {BRAND.kakao}
+                  </a>
+                ) : (
+                  <>카카오톡: {BRAND.kakao}</>
+                )}
+              </li>
             </ul>
           </div>
           <div>
@@ -33,8 +48,18 @@ export function Footer() {
             </p>
             <ul className="space-y-3 text-sm">
               <li>
+                <Link href="/instructor/intro" className="transition hover:text-sky-200">
+                  소개
+                </Link>
+              </li>
+              <li>
                 <Link href="/programs" className="transition hover:text-sky-200">
-                  교육 과정
+                  교육과정
+                </Link>
+              </li>
+              <li>
+                <Link href="/accommodation" className="transition hover:text-sky-200">
+                  숙소안내
                 </Link>
               </li>
               <li>

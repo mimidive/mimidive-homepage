@@ -1,6 +1,7 @@
 'use client';
 
 import type { CompetitionYear } from '@/lib/content';
+import { CompetitionResultText } from '@/components/instructor/CompetitionResultText';
 import { useState } from 'react';
 
 type Props = {
@@ -21,13 +22,16 @@ function EntryList({
 }) {
   return (
     <ul className={compact ? 'space-y-2' : 'space-y-3.5'}>
-      {entries.map((entry) => (
+      {entries.map((entry) => {
+        const hasResult = entry.result.trim().length > 0;
+
+        return (
         <li
           key={`${year}-${entry.event}`}
           className={
             compact
               ? 'space-y-0.5'
-              : 'grid gap-1.5 md:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] md:gap-x-8 md:gap-y-1'
+              : `grid gap-1.5 ${hasResult ? 'md:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] md:gap-x-8 md:gap-y-1' : ''}`
           }
         >
           <p
@@ -35,17 +39,20 @@ function EntryList({
               compact ? 'text-xs leading-5' : 'text-sm leading-7 md:text-[15px] md:leading-8'
             } ${entry.highlight ? 'font-semibold text-[#1A1A1A]' : 'text-[#1A1A1A]'}`}
           >
-            {entry.event}
+            <CompetitionResultText text={entry.event} />
           </p>
-          <p
-            className={`${
-              compact ? 'text-xs leading-5' : 'text-sm leading-7 md:text-[15px] md:leading-8'
-            } ${entry.highlight ? 'font-medium text-[#5F7C8A]' : 'text-[#6B7280]'}`}
-          >
-            {entry.result}
-          </p>
+          {hasResult ? (
+            <p
+              className={`${
+                compact ? 'text-xs leading-5' : 'text-sm leading-7 md:text-[15px] md:leading-8'
+              } ${entry.highlight ? 'font-medium text-[#5F7C8A]' : 'text-[#6B7280]'}`}
+            >
+              <CompetitionResultText text={entry.result} />
+            </p>
+          ) : null}
         </li>
-      ))}
+        );
+      })}
     </ul>
   );
 }
@@ -56,7 +63,9 @@ function YearBlock({ item, compact = false }: { item: CompetitionYear; compact?:
       <section className="content-card h-full rounded-2xl p-4">
         <p className="text-lg font-bold tracking-[-0.04em] text-[#1A1A1A]">{item.year}</p>
         {item.summary && (
-          <p className="mt-1 text-[11px] leading-5 text-[#6B7280]">{item.summary}</p>
+          <p className="mt-1 text-[11px] leading-5 text-[#6B7280]">
+            <CompetitionResultText text={item.summary} />
+          </p>
         )}
         <div className="mt-3">
           <EntryList year={item.year} entries={item.entries} compact />
@@ -73,7 +82,7 @@ function YearBlock({ item, compact = false }: { item: CompetitionYear; compact?:
         </p>
         {item.summary && (
           <p className="mt-2 max-w-2xl text-sm leading-7 text-[#6B7280] md:text-[15px] md:leading-8">
-            {item.summary}
+            <CompetitionResultText text={item.summary} />
           </p>
         )}
       </div>
@@ -142,7 +151,7 @@ export function CompetitionHistory({
                 </p>
                 {item.summary && (
                   <p className="mt-2 text-sm leading-7 text-[#6B7280] md:text-base md:leading-8">
-                    {item.summary}
+                    <CompetitionResultText text={item.summary} />
                   </p>
                 )}
               </div>

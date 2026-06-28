@@ -1,7 +1,9 @@
 import Link from 'next/link';
+import { getKakaoChatUrl } from '@/lib/kakao';
 
-const KAKAO_CHAT_URL = process.env.NEXT_PUBLIC_KAKAO_CHAT_URL || '/booking';
-const isExternal = KAKAO_CHAT_URL.startsWith('http');
+const chatUrl = getKakaoChatUrl();
+const href = chatUrl ?? '/booking#kakao-consult';
+const isExternal = Boolean(chatUrl);
 
 export function FloatingKakaoButton() {
   const className =
@@ -10,18 +12,16 @@ export function FloatingKakaoButton() {
   const content = (
     <>
       <img src="/kakao-talk-icon.svg" alt="카카오톡 상담" className="mb-0.5 h-4 w-4" />
-      <span className="leading-none">
-        무료상담
-      </span>
+      <span className="leading-none">무료상담</span>
     </>
   );
 
   if (isExternal) {
     return (
       <a
-        href={KAKAO_CHAT_URL}
+        href={href}
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
         className={className}
         aria-label="카카오톡 상담 새 창으로 열기"
       >
@@ -31,7 +31,7 @@ export function FloatingKakaoButton() {
   }
 
   return (
-    <Link href={KAKAO_CHAT_URL} className={className} aria-label="카카오톡 상담하기">
+    <Link href={href} className={className} aria-label="카카오톡 상담하기">
       {content}
     </Link>
   );
