@@ -17,7 +17,7 @@ export const marketingImages = {
   gettingStartedExperience: '/getting-started-experience.png',
   programsCertHero: '/programs-cert-hero.png',
   programsAdvancedHero: '/programs-advanced-hero.png',
-  programsExperienceHero: '/programs-experience-hero-v2.png',
+  programsExperienceHero: '/programs-experience-hero-v3.png',
   programsSpecialHero: '/programs-special-hero.png',
 } as const;
 
@@ -53,7 +53,7 @@ export const imageAlt = {
   gettingStartedExperience: '제주 체험다이빙 프로그램',
   programsCertHero: '미미다이브 AIDA 자격증 풀 교육',
   programsAdvancedHero: '인도어 수심 프리다이빙 트레이닝',
-  programsExperienceHero: '제주 바다 수중 체험·펀다이빙',
+  programsExperienceHero: '제주 바다 체험·펀다이빙 수강 세션',
   programsSpecialHero: '제주 프리다이빙 스페셜 프로그램',
 } as const;
 
@@ -71,7 +71,7 @@ export const programSectionHero = {
   'programs-experience': {
     image: marketingImages.programsExperienceHero,
     alt: imageAlt.programsExperienceHero,
-    objectPosition: 'center 38%',
+    objectPosition: 'center 28%',
   },
   'programs-special': {
     image: marketingImages.programsSpecialHero,
