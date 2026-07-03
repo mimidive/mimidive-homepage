@@ -390,12 +390,23 @@ export default function HomePage() {
             ))}
           </div>
           <div className="mt-10 flex flex-col items-center gap-4 md:mt-12">
-            <Link
-              href={homeCta.freeConsultation.href}
-              className="inline-block rounded-full bg-[#5F7C8A] px-9 py-4 text-center text-sm font-semibold leading-snug text-[#FAFAF8] transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-[#4f6e7c]"
-            >
-              <ResponsiveText copy={homeCtaCopy.freeConsultation} className="whitespace-nowrap" />
-            </Link>
+            {homeCta.freeConsultation.href.startsWith('http') ? (
+              <a
+                href={homeCta.freeConsultation.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block rounded-full bg-[#5F7C8A] px-9 py-4 text-center text-sm font-semibold leading-snug text-[#FAFAF8] transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-[#4f6e7c]"
+              >
+                <ResponsiveText copy={homeCtaCopy.freeConsultation} className="whitespace-nowrap" />
+              </a>
+            ) : (
+              <Link
+                href={homeCta.freeConsultation.href}
+                className="inline-block rounded-full bg-[#5F7C8A] px-9 py-4 text-center text-sm font-semibold leading-snug text-[#FAFAF8] transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-[#4f6e7c]"
+              >
+                <ResponsiveText copy={homeCtaCopy.freeConsultation} className="whitespace-nowrap" />
+              </Link>
+            )}
             <Link
               href={homeCta.packageInquiry.href}
               className="text-center text-sm font-semibold leading-snug text-[#5F7C8A] underline decoration-[#5F7C8A]/35 underline-offset-8 transition hover:text-[#4f6e7c]"

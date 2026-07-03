@@ -7,8 +7,8 @@ export const BRAND = {
   email: 'mimifreediving@gmail.com',
   phone: '010-3111-4140',
   kakao: '미미다이브',
-  /** 카카오 비즈니스 채널 홈 URL (예: https://pf.kakao.com/_xxxx/chat) */
-  kakaoChatUrl: '',
+  /** 카카오 비즈니스 채널 1:1 채팅 URL */
+  kakaoChatUrl: 'https://pf.kakao.com/_xkzTMxj/chat',
   instagram: 'mimidive',
   instagramUrl: 'https://www.instagram.com/mimidive',
   youtube: 'mimidive',
@@ -364,7 +364,7 @@ export const homeCta = {
   },
   freeConsultation: {
     label: '카카오톡 상담하기',
-    href: '/booking',
+    href: BRAND.kakaoChatUrl,
   },
 } as const;
 
