@@ -21,11 +21,139 @@ function BlockSection({ label, body }: { label: string; body: string }) {
   );
 }
 
+function extractWonAmount(text: string) {
+  const match = text.match(/[\d,]+원/);
+  return match ? match[0] : text.trim();
+}
+
+function extractTierLabel(text: string, fallback: string) {
+  if (/체크다이빙/.test(text) && /1인/.test(text)) return '1인 / 체크다이빙';
+  if (/크로스오버/.test(text)) return '크로스오버';
+  if (/기존 교육생/.test(text)) return '기존 교육생';
+  if (/1인/.test(text)) return '1인';
+  if (/2인/.test(text)) return '2인 이상';
+  return fallback;
+}
+
+function parseExtraPriceRows(footnote: string) {
+  if (!/원/.test(footnote)) return [];
+
+  return footnote
+    .split('·')
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .map((part) => ({
+      label: extractTierLabel(part, ''),
+      amount: extractWonAmount(part),
+    }));
+}
+
+function buildPriceRows(
+  price: string,
+  priceNote?: string,
+): { rows: { label: string; amount: string }[]; footnote?: string } {
+  if (!priceNote) {
+    return { rows: [{ label: '', amount: extractWonAmount(price) }] };
+  }
+
+  const priceHas1 = /1인/.test(price);
+  const priceHas2 = /2인/.test(price);
+  const noteHas1 = /1인/.test(priceNote);
+  const noteHas2 = /2인/.test(priceNote);
+  const isTiered = (priceHas1 || noteHas1) && (priceHas2 || noteHas2);
+
+  if (!isTiered) {
+    if (priceNote && /원/.test(priceNote)) {
+      return {
+        rows: [
+          { label: '', amount: extractWonAmount(price) },
+          {
+            label: extractTierLabel(priceNote, ''),
+            amount: extractWonAmount(priceNote),
+          },
+        ],
+      };
+    }
+
+    return {
+      rows: [{ label: '', amount: extractWonAmount(price) }],
+      footnote: priceNote,
+    };
+  }
+
+  const onePersonSource = priceHas1 ? price : priceNote;
+  const twoPersonSource = priceHas2 ? price : priceNote;
+  const rows = [
+    {
+      label: extractTierLabel(onePersonSource, '1인'),
+      amount: extractWonAmount(onePersonSource),
+    },
+    {
+      label: extractTierLabel(twoPersonSource, '2인 이상'),
+      amount: extractWonAmount(twoPersonSource),
+    },
+  ];
+
+  const remainder = priceNote
+    .replace(onePersonSource, '')
+    .replace(twoPersonSource, '')
+    .replace(/^[·\s]+|[·\s]+$/g, '')
+    .trim();
+
+  const extraRows = parseExtraPriceRows(remainder);
+  if (extraRows.length > 0) {
+    return { rows: [...rows, ...extraRows] };
+  }
+
+  return { rows, footnote: remainder || undefined };
+}
+
+function StandardPricePanel({ price, priceNote }: { price: string; priceNote?: string }) {
+  const { rows, footnote } = buildPriceRows(price, priceNote);
+  const priceClassName = 'shrink-0 text-right tabular-nums font-semibold text-gray-900';
+
+  return (
+    <>
+      <h4 className="text-lg font-semibold tracking-[-0.03em] text-gray-900 md:text-xl">Price</h4>
+
+      <div className="mt-6 overflow-hidden rounded-[1rem] border border-[#5F7C8A]/10">
+        {rows.map((row, index) => (
+          <div
+            key={`${row.label}-${row.amount}`}
+            className={`flex items-center justify-between gap-4 bg-[#FAFAF8] px-4 py-3.5 md:px-5 ${
+              index > 0 ? 'border-t border-[#5F7C8A]/10' : ''
+            }`}
+          >
+            {row.label ? (
+              <span className="text-sm text-gray-600 md:text-base">{row.label}</span>
+            ) : (
+              <span className="sr-only">수강료</span>
+            )}
+            <span
+              className={`${priceClassName} ${
+                row.label ? 'text-sm md:text-base' : 'text-lg md:text-xl'
+              }`}
+            >
+              {row.amount}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {footnote && (
+        <p className="mt-3 text-sm leading-6 text-gray-500">{footnote}</p>
+      )}
+    </>
+  );
+}
+
 function PackagePricePanel({
   pricing,
 }: {
   pricing: NonNullable<ProgramCourseLanding['packagePricing']>;
 }) {
+  const priceClassName = 'shrink-0 text-right tabular-nums';
+
   return (
     <>
       <h4 className="text-lg font-semibold tracking-[-0.03em] text-gray-900 md:text-xl">Price</h4>
@@ -39,33 +167,41 @@ function PackagePricePanel({
             }`}
           >
             <span className="text-sm text-gray-600 md:text-base">{item.label}</span>
-            <span className="text-sm font-semibold tabular-nums text-gray-900 md:text-base">
+            <span className={`text-sm font-semibold text-gray-900 md:text-base ${priceClassName}`}>
               {item.price}
             </span>
           </div>
         ))}
 
         <div className="flex items-center justify-between gap-4 border-t border-[#5F7C8A]/10 bg-white px-4 py-3.5 md:px-5">
-          <span className="text-sm font-medium text-gray-500 md:text-base">Level 1 + 2 합계</span>
-          <span className="text-base font-semibold tabular-nums text-gray-400 line-through decoration-2 md:text-lg">
+          <span className="text-sm font-medium text-gray-500 md:text-base">합계</span>
+          <span
+            className={`text-base font-semibold text-gray-400 line-through decoration-2 md:text-lg ${priceClassName}`}
+          >
             {pricing.subtotal}
           </span>
         </div>
 
         <div className="relative border-t border-[#5F7C8A]/10 bg-[#DCECEF]/50 px-4 py-5 md:px-6 md:py-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#5F7C8A]">패키지</p>
-          <div className="mt-2 flex flex-wrap items-end gap-3">
-            <p className="text-3xl font-semibold tabular-nums tracking-[-0.04em] text-[#1A1A1A] md:text-4xl">
+          <div className="flex items-end justify-between gap-4">
+            <div className="min-w-0">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#5F7C8A]">
+                레벨 1+2 패키지
+              </p>
+              <div className="mt-2 flex flex-wrap gap-2">
+                <span className="rounded-full bg-[#E8C9A0] px-3 py-1 text-xs font-bold text-[#1A1A1A] md:text-sm">
+                  {pricing.savingsAmount}
+                </span>
+                <span className="rounded-full bg-[#5F7C8A] px-3 py-1 text-xs font-bold text-[#FAFAF8] md:text-sm">
+                  {pricing.savingsPercent}
+                </span>
+              </div>
+            </div>
+            <p
+              className={`text-3xl font-semibold tracking-[-0.04em] text-[#1A1A1A] md:text-4xl ${priceClassName}`}
+            >
               {pricing.packagePrice}
             </p>
-            <div className="flex flex-wrap gap-2 pb-1">
-              <span className="rounded-full bg-[#E8C9A0] px-3 py-1 text-xs font-bold text-[#1A1A1A] md:text-sm">
-                {pricing.savingsAmount}
-              </span>
-              <span className="rounded-full bg-[#5F7C8A] px-3 py-1 text-xs font-bold text-[#FAFAF8] md:text-sm">
-                {pricing.savingsPercent}
-              </span>
-            </div>
           </div>
         </div>
       </div>
@@ -94,16 +230,7 @@ function ExpandedPanel({ course }: { course: ProgramCourseLanding }) {
         {course.packagePricing ? (
           <PackagePricePanel pricing={course.packagePricing} />
         ) : (
-          <>
-            <h4 className="text-lg font-semibold tracking-[-0.03em] text-gray-900 md:text-xl">
-              Price : {course.price}
-            </h4>
-            {course.priceNote && (
-              <p className="mt-2 whitespace-pre-line text-sm leading-6 text-gray-500">
-                {course.priceNote}
-              </p>
-            )}
-          </>
+          <StandardPricePanel price={course.price} priceNote={course.priceNote} />
         )}
       </div>
 
@@ -120,7 +247,9 @@ function ExpandedPanel({ course }: { course: ProgramCourseLanding }) {
                   <p className="mt-1 text-xs leading-5 text-gray-500">{discount.note}</p>
                 )}
               </div>
-              <span className="shrink-0 text-sm font-semibold text-[#5F7C8A]">{discount.value}</span>
+              <span className="shrink-0 text-right text-sm font-semibold text-[#5F7C8A]">
+                {discount.value}
+              </span>
             </div>
           ))}
         </div>

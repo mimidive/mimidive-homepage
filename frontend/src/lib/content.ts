@@ -990,7 +990,6 @@ export const certCourseLandings = {
     badge: '초급',
     duration: '2~3일 과정 · 12m 바다',
     price: '550,000원',
-    priceNote: 'Level 1+2 패키지 600,000원',
     lead: '12미터 바다에서 진행하는 초급 자격 과정입니다. 이론과 수영장 기초를 바탕으로 개방수역에서 자격 요건을 완성합니다.',
     blocks: [
       {
@@ -1008,8 +1007,11 @@ export const certCourseLandings = {
     ],
     includes: ['AIDA 국제공인 자격증 발급', '수중 촬영', '개인 자세 피드백', '온라인 이론교재'],
     discounts: [
-      { label: 'Level 1+2 패키지', value: '600,000원 (15만원 절약)' },
-      { label: 'Level 2 단독 + Level 1 추가', value: '+50,000원', note: '* 레벨1+2 패키지로 선택할 시 적용됩니다.' },
+      {
+        label: 'Level 1 추가 옵션',
+        value: '+50,000원',
+        note: 'Level 2만 신청하셔도, 수강료 5만원을 추가하시면 Level 1 입문 과정도 함께 수강하실 수 있습니다.',
+      },
     ],
     href: '/courses/level/aida2',
     bookingLabel: 'Level 2 문의',
@@ -1128,7 +1130,6 @@ export const certCourseLandings = {
       },
     ],
     includes: ['강사 과정 준비 상담', '모의 티칭 피드백', '체크리스트 제공', '후속 상담'],
-    discounts: [{ label: '크로스오버', value: '1,200,000원' }],
     href: '/courses/level/instructor',
     bookingLabel: '강사과정 문의',
   },
@@ -1237,11 +1238,6 @@ export const advancedCourseLandings: Record<AdvancedCourseId, ProgramCourseLandi
         label: '바다',
         body: '수심 적응과 하강 자세, 이퀄라이징 타이밍을 바다에서 피드백합니다. 수중 영상 분석을 포함합니다.',
       },
-    ],
-    discounts: [
-      { label: '2인 이상', value: '120,000원' },
-      { label: '1인 / 체크다이빙', value: '150,000원' },
-      { label: '기존 교육생', value: '100,000원' },
     ],
     href: '/courses/training/depth',
     bookingLabel: '트레이닝 문의',
