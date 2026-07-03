@@ -113,7 +113,7 @@ export const homeMomentsCopy = {
   reviews: [
     {
       category: '체험다이빙',
-      profile: '입문 수강',
+      profile: '바다는 생애 처음이라',
       quote: {
         mobile: ['처음이라 잘 할 수 있을지 걱정했는데,', '제 속도에 맞춰 알려주셔서 부담이 없었습니다.'],
         desktop: '처음이라 잘 할 수 있을지 걱정했는데, 제 속도에 맞춰 알려주셔서 부담이 없었습니다.',
@@ -121,8 +121,8 @@ export const homeMomentsCopy = {
       highlight: '제 속도에 맞춰 알려주셔서 부담이 없었습니다.',
     },
     {
-      category: '레벨 교육',
-      profile: 'AIDA 1+2 수강',
+      category: '자격증 레벨 교육',
+      profile: '레벨1+2 초보자 입문 코스 수강',
       quote: {
         mobile: [
           '물에 대한 두려움이 있었는데,',
@@ -135,12 +135,26 @@ export const homeMomentsCopy = {
     },
     {
       category: '트레이닝 코칭',
-      profile: '딥트레이닝 코칭 수강',
+      profile: '이퀄라이징(프렌젤,마우스필) 수강',
       quote: {
         mobile: ['깊이 내려가는 것보다', '편안하게 머무르는 방법을 배운 시간이었어요.'],
         desktop: '깊이 내려가는 것보다 편안하게 머무르는 방법을 배운 시간이었어요.',
       },
       highlight: '편안하게 머무르는 방법을 배운 시간이었어요.',
+    },
+    {
+      category: '노핀코스',
+      profile: '취미로 시작해 대회 출전까지',
+      quote: {
+        mobile: [
+          '핀 없이는 앞으로 나가지 못했는데,',
+          '방향을 잡아 주시고 차근차근 알려주셔서',
+          '연습하다가 대회까지 나가게 됐어요.',
+        ],
+        desktop:
+          '핀 없이는 앞으로 나가지 못했는데, 방향을 잡아 주시고 차근차근 알려주셔서 연습하다가 대회까지 나가게 됐어요.',
+      },
+      highlight: '대회까지 나가게 됐어요.',
     },
   ] as const,
 } as const;

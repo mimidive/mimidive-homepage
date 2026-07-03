@@ -120,8 +120,12 @@ export default function HomePage() {
       alt: imageAlt.homeReviewLevel,
     },
     {
-      image: marketingImages.programFun,
-      alt: imageAlt.fun,
+      image: marketingImages.homeReviewFun,
+      alt: imageAlt.homeReviewFun,
+    },
+    {
+      image: marketingImages.homeReviewNofin,
+      alt: imageAlt.homeReviewNofin,
     },
   ] as const;
 
