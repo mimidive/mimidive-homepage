@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { Fragment, type ReactNode } from 'react';
 import { type ResponsiveLine } from '@/components/ui/ResponsiveText';
 
 export type ReviewMoment = {
@@ -22,7 +23,7 @@ function StarRating() {
   );
 }
 
-function renderHighlightedText(text: string, highlight: string) {
+function renderHighlightedText(text: string, highlight: string): ReactNode {
   const index = text.indexOf(highlight);
 
   if (index === -1) {
@@ -38,6 +39,15 @@ function renderHighlightedText(text: string, highlight: string) {
   );
 }
 
+function renderMobileQuote(lines: readonly string[], highlight: string) {
+  return lines.map((line, index) => (
+    <Fragment key={`${line}-${index}`}>
+      {index > 0 ? <br /> : null}
+      {renderHighlightedText(line, highlight)}
+    </Fragment>
+  ));
+}
+
 function HighlightedQuote({
   quote,
   highlight,
@@ -45,16 +55,13 @@ function HighlightedQuote({
   quote: ResponsiveLine;
   highlight: string;
 }) {
-  const desktopText = quote.desktop;
-  const mobileText = quote.mobile.join(' ');
-
   return (
     <>
       <span className="md:hidden">
-        &ldquo;{renderHighlightedText(mobileText, highlight)}&rdquo;
+        &ldquo;{renderMobileQuote(quote.mobile, highlight)}&rdquo;
       </span>
       <span className="hidden md:inline">
-        &ldquo;{renderHighlightedText(desktopText, highlight)}&rdquo;
+        &ldquo;{renderHighlightedText(quote.desktop, highlight)}&rdquo;
       </span>
     </>
   );
@@ -92,7 +99,7 @@ export function ReviewMomentRow({
             {moment.profile}
           </span>
         </div>
-        <blockquote className="mt-6 font-serif text-xl font-semibold leading-[1.55] tracking-[-0.02em] text-[#1A1A1A] md:mt-8 md:text-2xl md:leading-[1.5] lg:text-[1.75rem] lg:leading-[1.55]">
+        <blockquote className="mt-6 break-keep text-pretty font-serif text-xl font-semibold leading-[1.6] tracking-[-0.02em] text-[#1A1A1A] [overflow-wrap:normal] [word-break:keep-all] md:mt-8 md:text-2xl md:leading-[1.5] lg:text-[1.75rem] lg:leading-[1.55]">
           <HighlightedQuote quote={moment.quote} highlight={moment.highlight} />
         </blockquote>
       </figcaption>

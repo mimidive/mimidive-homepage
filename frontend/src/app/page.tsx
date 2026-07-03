@@ -116,8 +116,8 @@ export default function HomePage() {
       alt: imageAlt.homeReviewExperience,
     },
     {
-      image: '/programs-cert-hero-3.png',
-      alt: imageAlt.programsCertHero,
+      image: marketingImages.homeReviewLevel,
+      alt: imageAlt.homeReviewLevel,
     },
     {
       image: marketingImages.programFun,
