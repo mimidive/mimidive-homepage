@@ -7,7 +7,7 @@ export const BRAND = {
   location: '제주특별자치도 서귀포시 말질로170번길 4-1, 1층',
   email: 'mimifreediving@gmail.com',
   phone: '010-3111-4140',
-  kakao: '#미미다이브',
+  kakao: '미미다이브',
   /** 카카오 비즈니스 채널 1:1 채팅 URL */
   kakaoChatUrl: 'https://pf.kakao.com/_xkzTMxj/chat',
   instagram: 'mimidive',
