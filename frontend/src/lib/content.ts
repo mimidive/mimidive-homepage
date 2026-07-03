@@ -1,12 +1,13 @@
 import { marketingImages } from '@/lib/marketing-images';
 
 export const BRAND = {
-  name: '제주프리다이빙 미미다이브',
+  name: '미미다이브 프리다이빙',
   nameEn: 'MIMIDIVE',
-  location: '제주특별자치도 서귀포시 강정마을 ',
+  representative: '김혜미',
+  location: '제주특별자치도 서귀포시 말질로170번길 4-1, 1층',
   email: 'mimifreediving@gmail.com',
   phone: '010-3111-4140',
-  kakao: '미미다이브',
+  kakao: '#미미다이브',
   /** 카카오 비즈니스 채널 1:1 채팅 URL */
   kakaoChatUrl: 'https://pf.kakao.com/_xkzTMxj/chat',
   instagram: 'mimidive',
@@ -16,7 +17,7 @@ export const BRAND = {
   blogUrl: 'https://m.blog.naver.com/mimidive',
   tagline: '제주 프리다이빙 교육',
   subTagline:
-    '대한민국 노핀 국가대표 김혜미 트레이너의 소수정예 교육. 입문, 자격증, 트레이닝 과정 운영.',
+    '대한민국 아시아 신기록·국가대표 김혜미 트레이너의 소수정예 교육. 입문, 자격증, 트레이닝 과정 운영.',
   slogan: 'Breath Better, Dive Deeper.',
 } as const;
 

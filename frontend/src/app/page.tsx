@@ -2,12 +2,15 @@
 
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import type { Transition, Variants } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
-import { SmoothHorizontalScroll } from '@/components/motion/SmoothHorizontalScroll';
+import {
+  ReviewMomentRow,
+  ReviewStarRating,
+  type ReviewMoment,
+} from '@/components/marketing/ReviewMomentCard';
 import { SocialLinks } from '@/components/marketing/SocialLinks';
 import { CoverImage } from '@/components/ui/CoverImage';
-import { ResponsiveText, type ResponsiveLine } from '@/components/ui/ResponsiveText';
+import { ResponsiveText } from '@/components/ui/ResponsiveText';
 import { homeCta } from '@/lib/content';
 import {
   homeClosingCopy,
@@ -18,60 +21,7 @@ import {
   homeMomentsCopy,
   homeTruthCopy,
 } from '@/lib/responsiveCopy';
-import { imageAlt, oceanImages } from '@/lib/marketing-images';
-
-type Moment = {
-  image: string;
-  alt: string;
-  quote: ResponsiveLine;
-};
-
-function MomentCard({ moment }: { moment: Moment }) {
-  return (
-    <figure
-      data-story-card
-      className="relative w-[calc((100vw-2.5rem-1rem)/1.5)] shrink-0 overflow-hidden rounded-2xl bg-[#1A1A1A] shadow-[0_12px_40px_rgba(26,26,26,0.1)] md:w-[calc((100vw-4rem-1.25rem)/1.5)] lg:w-[calc((min(100vw,80rem)-4rem-1.25rem)/1.5)]"
-    >
-      <div className="relative aspect-[4/5]">
-        <Image
-          src={moment.image}
-          alt={moment.alt}
-          fill
-          className="object-cover object-center"
-          sizes="(max-width: 768px) 66vw, 40vw"
-        />
-      </div>
-      <div
-        className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/25 to-[#1A1A1A]/5"
-        aria-hidden="true"
-      />
-      <figcaption className="absolute inset-x-0 bottom-0 p-6 md:p-8">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#FAFAF8]/50">
-          Review
-        </p>
-        <p className="mt-3 text-[15px] font-medium leading-7 tracking-[-0.01em] text-[#FAFAF8] md:text-base md:leading-8">
-          &ldquo;<ResponsiveText as="span" copy={moment.quote} />&rdquo;
-        </p>
-      </figcaption>
-    </figure>
-  );
-}
-
-function MomentsAutoScroll({ moments }: { moments: Moment[] }) {
-  const loopMoments = [...moments, ...moments];
-
-  return (
-    <SmoothHorizontalScroll
-      loopCount={moments.length}
-      ariaLabel="수강생 후기"
-      className="mt-12 md:mt-16"
-    >
-      {loopMoments.map((moment, index) => (
-        <MomentCard key={`${moment.quote.desktop}-${index}`} moment={moment} />
-      ))}
-    </SmoothHorizontalScroll>
-  );
-}
+import { imageAlt, marketingImages, oceanImages } from '@/lib/marketing-images';
 
 const softEase = [0.16, 1, 0.3, 1] as const;
 const slowReveal: Transition = { duration: 0.9, ease: softEase };
@@ -135,17 +85,50 @@ const instructorRule: Variants = {
   },
 };
 
+const reviewStagger: Variants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.18,
+    },
+  },
+};
+
+const reviewRow: Variants = {
+  hidden: { opacity: 0, y: 36, filter: 'blur(10px)' },
+  show: {
+    opacity: 1,
+    y: 0,
+    filter: 'blur(0px)',
+    transition: slowReveal,
+  },
+};
+
 export default function HomePage() {
   const reduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll();
   const heroY = useTransform(scrollYProgress, [0, 0.35], [0, 90]);
   const heroScale = useTransform(scrollYProgress, [0, 0.35], [1, 1.08]);
 
-  const moments: Moment[] = [
-    { image: oceanImages.trainee, alt: imageAlt.trainee, quote: homeMomentsCopy.reviews[0] },
-    { image: oceanImages.momentLevel, alt: imageAlt.momentLevel, quote: homeMomentsCopy.reviews[1] },
-    { image: oceanImages.momentFun, alt: imageAlt.momentFun, quote: homeMomentsCopy.reviews[2] },
-  ];
+  const reviewAssets = [
+    {
+      image: marketingImages.homeReviewExperience,
+      alt: imageAlt.homeReviewExperience,
+    },
+    {
+      image: '/programs-cert-hero-3.png',
+      alt: imageAlt.programsCertHero,
+    },
+    {
+      image: marketingImages.programFun,
+      alt: imageAlt.fun,
+    },
+  ] as const;
+
+  const moments: ReviewMoment[] = homeMomentsCopy.reviews.map((review, index) => ({
+    ...reviewAssets[index],
+    ...review,
+  }));
 
   return (
     <>
@@ -361,14 +344,36 @@ export default function HomePage() {
             <h2 className="mt-6 text-4xl font-semibold leading-[1.06] tracking-[-0.055em] text-[#1A1A1A] md:text-6xl">
               <ResponsiveText balance copy={homeMomentsCopy.title} />
             </h2>
+            <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2">
+              <ReviewStarRating />
+              <ResponsiveText
+                as="p"
+                className="text-base font-semibold leading-8 text-[#1A1A1A] md:text-lg md:leading-9"
+                copy={homeMomentsCopy.subtitle}
+              />
+            </div>
             <ResponsiveText
               as="p"
-              className="mt-5 whitespace-nowrap text-base leading-8 text-[#6B7280] md:text-lg md:leading-9"
-              copy={homeMomentsCopy.subtitle}
+              className="mt-2 text-sm leading-7 text-[#6B7280] md:text-base md:leading-8"
+              copy={homeMomentsCopy.summary}
             />
           </motion.div>
+          <motion.div
+            role="region"
+            aria-label="수강생 후기"
+            initial={reduceMotion ? false : 'hidden'}
+            whileInView={reduceMotion ? undefined : 'show'}
+            viewport={{ once: true, margin: '-10% 0px' }}
+            variants={reviewStagger}
+            className="mt-16 space-y-20 md:mt-24 md:space-y-28"
+          >
+            {moments.map((moment, index) => (
+              <motion.div key={moment.category} variants={reviewRow}>
+                <ReviewMomentRow moment={moment} reverse={index % 2 === 1} />
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
-        <MomentsAutoScroll moments={moments} />
       </section>
 
       <section className="relative flex min-h-[72vh] items-center overflow-hidden bg-[#FAFAF8] py-28 md:py-40">

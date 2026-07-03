@@ -105,7 +105,7 @@ export const staticPageMetadata = {
   accommodation: createPageMetadata({
     title: '숙소안내',
     description:
-      '미미다이브 교육 일정에 맞춘 제주 숙소 안내. 법환포구·강정동 인근 숙소 위주로 상담해 드립니다.',
+      '미미다이브 교육 일정에 맞춘 제주 숙소·한달살기 안내. 연동 숙소 연결 상담. 서귀포 강정·법환포구 인근.',
     path: '/accommodation',
   }),
   about: createPageMetadata({

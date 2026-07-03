@@ -65,6 +65,20 @@ h2,
   font-family: var(--font-maru-buri), Georgia, serif;
 }
 
+.review-quote-highlight {
+  font-family: Gungsuh, "궁서", Batang, var(--font-maru-buri), serif;
+  font-size: 1.15em;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--ocean-soft);
+}
+
+@media (min-width: 768px) {
+  .review-quote-highlight {
+    font-size: 1.22em;
+  }
+}
+
 ::selection {
   background: rgba(95, 124, 138, 0.18);
   color: #1a1a1a;

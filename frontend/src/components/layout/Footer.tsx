@@ -24,8 +24,24 @@ export function Footer() {
               Location
             </p>
             <ul className="space-y-3 text-sm">
+              <li>대표: {BRAND.representative}</li>
               <li>{BRAND.location}</li>
-              <li>{BRAND.email}</li>
+              <li>
+                <a
+                  href={`tel:${BRAND.phone.replace(/-/g, '')}`}
+                  className="transition hover:text-sky-200"
+                >
+                  {BRAND.phone}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`mailto:${BRAND.email}`}
+                  className="transition hover:text-sky-200"
+                >
+                  {BRAND.email}
+                </a>
+              </li>
               <li>
                 {kakaoChatUrl ? (
                   <a

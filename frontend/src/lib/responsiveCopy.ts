@@ -97,7 +97,7 @@ export const homeConcernsCopy = {
 } as const;
 
 export const homeMomentsCopy = {
-  eyebrow: 'Jeju Moments',
+  eyebrow: 'Real Review',
   title: {
     mobile: ['같은 고민을', '나눈 수강생들'],
     desktop: '같은 고민을 나눈 수강생들',
@@ -106,20 +106,39 @@ export const homeMomentsCopy = {
     mobile: ['수강생들의 리얼 교육 후기'],
     desktop: '수강생들의 리얼 교육 후기',
   } satisfies ResponsiveLine,
+  summary: {
+    mobile: ['수강생이 직접 남긴', '실제 교육 후기입니다.'],
+    desktop: '수강생이 직접 남긴 실제 교육 후기입니다.',
+  } satisfies ResponsiveLine,
   reviews: [
     {
-      mobile: ['처음이라 잘 할 수 있을지 걱정했는데,', '제 속도에 맞춰 알려주셔서 부담이 없었습니다.'],
-      desktop: '처음이라 잘 할 수 있을지 걱정했는데, 제 속도에 맞춰 알려주셔서 부담이 없었습니다.',
+      category: '체험다이빙',
+      profile: '입문 수강',
+      quote: {
+        mobile: ['처음이라 잘 할 수 있을지 걱정했는데,', '제 속도에 맞춰 알려주셔서 부담이 없었습니다.'],
+        desktop: '처음이라 잘 할 수 있을지 걱정했는데, 제 속도에 맞춰 알려주셔서 부담이 없었습니다.',
+      },
+      highlight: '제 속도에 맞춰 알려주셔서 부담이 없었습니다.',
     },
     {
-      mobile: ['물에 대한 두려움이 있었는데,', '교육이 끝날 때쯤에는 바다가 편안하게 느껴졌어요.'],
-      desktop: '물에 대한 두려움이 있었는데, 교육이 끝날 때쯤에는 바다가 편안하게 느껴졌어요.',
+      category: '레벨 교육',
+      profile: 'AIDA 2 수강',
+      quote: {
+        mobile: ['물에 대한 두려움이 있었는데,', '교육이 끝날 때쯤에는 바다가 편안하게 느껴졌어요.'],
+        desktop: '물에 대한 두려움이 있었는데, 교육이 끝날 때쯤에는 바다가 편안하게 느껴졌어요.',
+      },
+      highlight: '바다가 편안하게 느껴졌어요.',
     },
     {
-      mobile: ['깊이 내려가는 것보다', '편안하게 머무르는 방법을 배운 시간이었어요.'],
-      desktop: '깊이 내려가는 것보다 편안하게 머무르는 방법을 배운 시간이었어요.',
+      category: '펀다이빙',
+      profile: '바다 체험 수강',
+      quote: {
+        mobile: ['깊이 내려가는 것보다', '편안하게 머무르는 방법을 배운 시간이었어요.'],
+        desktop: '깊이 내려가는 것보다 편안하게 머무르는 방법을 배운 시간이었어요.',
+      },
+      highlight: '편안하게 머무르는 방법을 배운 시간이었어요.',
     },
-  ] as const satisfies readonly ResponsiveLine[],
+  ] as const,
 } as const;
 
 export const homeClosingCopy = {
