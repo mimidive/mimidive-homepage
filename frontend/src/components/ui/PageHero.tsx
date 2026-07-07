@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { ReadableText } from '@/components/ui/ReadableText';
 
@@ -7,15 +8,22 @@ type Cta = {
   variant?: 'primary' | 'secondary';
 };
 
+type HeroImage = {
+  src: string;
+  alt: string;
+  objectPosition?: string;
+};
+
 type Props = {
   eyebrow?: string;
   title: string;
   description?: string;
   ctas?: Cta[];
   compact?: boolean;
+  image?: HeroImage;
 };
 
-export function PageHero({ eyebrow, title, description, ctas, compact }: Props) {
+export function PageHero({ eyebrow, title, description, ctas, compact, image }: Props) {
   return (
     <section
       className={`ocean-hero ${compact ? 'py-20 md:py-28' : 'py-24 md:py-36'}`}
@@ -55,18 +63,34 @@ export function PageHero({ eyebrow, title, description, ctas, compact }: Props) 
             </div>
           )}
         </div>
-        <div className="photo-card relative hidden rounded-[2.25rem] p-6 text-zinc-900 lg:block">
-          <div className="absolute inset-x-8 top-8 h-24 rounded-full bg-white/70 blur-2xl" />
-          <div className="relative flex h-full min-h-80 flex-col justify-between rounded-[1.75rem] bg-white/40 p-7 backdrop-blur-xl ring-1 ring-white/60">
-            <p className="text-sm font-medium tracking-[0.08em] text-zinc-500">A quiet beginning</p>
-            <div>
-              <p className="text-4xl font-semibold leading-tight tracking-[-0.03em]">Lawhwan Port</p>
-              <p className="mt-4 max-w-sm text-sm leading-7 text-zinc-600">
-                제주 법환포구 프리다이빙 교육.
-              </p>
+        {image ? (
+          <div className="photo-card rounded-[2.25rem] p-5">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[1.75rem] ring-1 ring-white/60 lg:aspect-[5/4]">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="object-cover"
+                style={{ objectPosition: image.objectPosition ?? 'center center' }}
+              />
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="photo-card relative hidden rounded-[2.25rem] p-6 text-zinc-900 lg:block">
+            <div className="absolute inset-x-8 top-8 h-24 rounded-full bg-white/70 blur-2xl" />
+            <div className="relative flex h-full min-h-80 flex-col justify-between rounded-[1.75rem] bg-white/40 p-7 backdrop-blur-xl ring-1 ring-white/60">
+              <p className="text-sm font-medium tracking-[0.08em] text-zinc-500">A quiet beginning</p>
+              <div>
+                <p className="text-4xl font-semibold leading-tight tracking-[-0.03em]">Lawhwan Port</p>
+                <p className="mt-4 max-w-sm text-sm leading-7 text-zinc-600">
+                  제주 법환포구 프리다이빙 교육.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -169,10 +169,6 @@ export const homeClosingCopy = {
       mobile: ['상담만 받아봐도 괜찮습니다.'],
       desktop: '상담만 받아봐도 괜찮습니다.',
     },
-    {
-      mobile: ['부담 없이 문의해 주세요.'],
-      desktop: '부담 없이 문의해 주세요.',
-    },
   ] as const satisfies readonly ResponsiveLine[],
   footnote: {
     mobile: ['현재 수준과 목표에 맞는 교육 과정을 함께 찾아드립니다.'],

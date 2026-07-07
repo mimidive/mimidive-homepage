@@ -25,6 +25,7 @@ export const marketingImages = {
   programsAdvancedHero: '/programs-advanced-hero.png',
   programsExperienceHero: '/programs-experience-hero-v3.png',
   programsSpecialHero: '/programs-special-hero-v2.png',
+  accommodationHero: '/accommodation-hero.png',
 } as const;
 
 export const oceanImages = {
@@ -67,6 +68,7 @@ export const imageAlt = {
   programsAdvancedHero: '인도어 수심 프리다이빙 트레이닝',
   programsExperienceHero: '제주 바다 체험·펀다이빙 수강 세션',
   programsSpecialHero: '제주 프리다이빙 스페셜 프로그램 수영장 교육',
+  accommodationHero: '제주 프리다이빙 교육 연동 숙소 공용 라운지',
 } as const;
 
 export const programSectionHero = {

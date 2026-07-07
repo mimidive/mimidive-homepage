@@ -20,11 +20,22 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileOpen]);
+
   return (
     <>
       <header
         id="site-header"
-        className={`fixed top-0 z-50 w-full border-b transition-colors duration-300 ${
+        className={`fixed top-0 z-[70] w-full border-b transition-colors duration-300 ${
           scrolled
             ? 'border-[#5F7C8A]/12 bg-[#FAFAF8] shadow-sm'
             : 'border-transparent bg-[#FAFAF8] shadow-none'
@@ -64,16 +75,26 @@ export function Header() {
             </Link>
             <button
               className="rounded-full bg-white/70 p-2 text-[#1A1A1A] shadow-sm ring-1 ring-[#5F7C8A]/15 transition-colors duration-700 lg:hidden"
-              onClick={() => setMobileOpen(true)}
-              aria-label="메뉴 열기"
+              onClick={() => setMobileOpen((prev) => !prev)}
+              aria-expanded={mobileOpen}
+              aria-label={mobileOpen ? '메뉴 닫기' : '메뉴 열기'}
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+                {mobileOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M4 7h16M4 12h16M4 17h16"
+                  />
+                )}
               </svg>
             </button>
           </div>
