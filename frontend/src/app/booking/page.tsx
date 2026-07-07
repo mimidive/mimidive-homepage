@@ -7,18 +7,7 @@ import { faqs, processSteps } from '@/lib/content';
 export default function BookingPage() {
   return (
     <>
-      <PageHero
-        eyebrow="FAQ & Kakao"
-        title="카카오톡 상담"
-        description="수영 실력, 물 공포 여부, 희망 일정, 목표 과정을 카카오톡으로 남겨 주세요. 맞춤 안내해 드립니다."
-        ctas={[
-          { label: '카카오톡 문의', href: '#kakao-consult' },
-          { label: 'FAQ 확인', href: '#faq', variant: 'secondary' },
-        ]}
-        compact
-      />
-
-      <section className="section-bridge bg-surface py-20 md:py-28">
+      <section className="section-bridge bg-surface pb-20 pt-28 md:pb-28 md:pt-36">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <SectionTitle
             title="진행 절차"
@@ -45,6 +34,17 @@ export default function BookingPage() {
           </div>
         </div>
       </section>
+
+      <PageHero
+        eyebrow="FAQ & Kakao"
+        title="카카오톡 상담"
+        description="수영 실력, 물 공포 여부, 희망 일정, 목표 과정을 카카오톡으로 남겨 주세요. 맞춤 안내해 드립니다."
+        ctas={[
+          { label: '카카오톡 문의', href: '#kakao-consult' },
+          { label: 'FAQ 확인', href: '#faq', variant: 'secondary' },
+        ]}
+        compact
+      />
 
       <section id="faq" className="py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
