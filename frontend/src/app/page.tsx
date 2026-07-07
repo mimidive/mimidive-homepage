@@ -166,7 +166,14 @@ export default function HomePage() {
           </h1>
           <p className="mx-auto mt-10 max-w-3xl font-serif text-[clamp(1.25rem,3.2vw,2rem)] font-semibold leading-snug tracking-[-0.03em] md:mt-12 md:leading-tight">
             <span className="box-decoration-clone bg-white/30 px-2.5 py-1 text-[#1A1A1A] [box-decoration-break:clone]">
-              <ResponsiveText copy={homeHeroCopy.lead} />
+              <span className="break-keep text-pretty [word-break:keep-all] [overflow-wrap:normal] md:hidden">
+                <span className="font-bold text-[#5F7C8A]">대한민국 국가대표</span>와
+                <br />
+                함께하는 프리다이빙
+              </span>
+              <span className="hidden break-keep text-pretty [word-break:keep-all] [overflow-wrap:normal] md:inline">
+                <span className="font-bold text-[#5F7C8A]">대한민국 국가대표</span>와 함께하는 프리다이빙
+              </span>
             </span>
           </p>
           <p className="mt-5 text-sm font-medium leading-7 text-[#6B7280] md:text-base">
@@ -277,7 +284,7 @@ export default function HomePage() {
             <motion.div variants={instructorLine} className="mt-12 pl-6">
               <Link
                 href="/instructor/intro"
-                className="inline-block break-keep text-sm font-semibold text-[#5F7C8A] underline decoration-[#5F7C8A]/35 underline-offset-8 transition hover:text-[#4f6e7c]"
+                className="inline-block break-keep text-sm font-bold text-[#5F7C8A] underline decoration-[#5F7C8A]/35 underline-offset-8 transition hover:text-[#4f6e7c]"
               >
                 <ResponsiveText copy={homeInstructorCopy.link} className="whitespace-nowrap" />
               </Link>
@@ -423,11 +430,6 @@ export default function HomePage() {
               <ResponsiveText copy={homeCtaCopy.packageInquiry} className="whitespace-nowrap" />
             </Link>
           </div>
-          <ResponsiveText
-            as="p"
-            className="mx-auto mt-10 max-w-[640px] whitespace-nowrap text-sm leading-7 text-[#6B7280] md:mt-12 md:text-base md:leading-8"
-            copy={homeClosingCopy.footnote}
-          />
         </motion.div>
       </section>
     </>

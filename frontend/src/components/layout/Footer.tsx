@@ -14,7 +14,7 @@ export function Footer() {
               <span className="ml-2 text-sm font-medium text-sky-200">{BRAND.nameEn}</span>
             </p>
             <p className="mt-4 text-sm leading-relaxed">
-              제주 프리다이빙 교육 센터
+              제주 프리다이빙 전문 교육 센터
               <br />
               입문 · 자격증 · 트레이닝 · 강사 과정
             </p>

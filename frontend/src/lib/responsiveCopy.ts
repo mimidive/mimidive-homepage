@@ -107,8 +107,8 @@ export const homeMomentsCopy = {
     desktop: '입문부터 바다까지',
   } satisfies ResponsiveLine,
   summary: {
-    mobile: ['걱정을 나누고, 편안함을 찾은 순간들입니다.'],
-    desktop: '걱정을 나누고, 편안함을 찾은 순간들입니다.',
+    mobile: ['처음 가지고 있던 걱정을 나누고,', '편안함을 찾아가는 순간들입니다.'],
+    desktop: '처음 가지고 있던 걱정을 나누고, 편안함을 찾아가는 순간들입니다.',
   } satisfies ResponsiveLine,
   reviews: [
     {
@@ -166,14 +166,10 @@ export const homeClosingCopy = {
   } satisfies ResponsiveLine,
   lines: [
     {
-      mobile: ['상담만 받아봐도 괜찮습니다.'],
-      desktop: '상담만 받아봐도 괜찮습니다.',
+      mobile: ['현재 수준과 목표에 맞는 교육 과정을 함께 찾아드립니다.'],
+      desktop: '현재 수준과 목표에 맞는 교육 과정을 함께 찾아드립니다.',
     },
   ] as const satisfies readonly ResponsiveLine[],
-  footnote: {
-    mobile: ['현재 수준과 목표에 맞는 교육 과정을 함께 찾아드립니다.'],
-    desktop: '현재 수준과 목표에 맞는 교육 과정을 함께 찾아드립니다.',
-  } satisfies ResponsiveLine,
 } as const;
 
 export const homeCtaCopy = {
