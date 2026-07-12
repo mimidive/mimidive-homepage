@@ -3,12 +3,12 @@ import type { ResponsiveLine } from '@/components/ui/ResponsiveText';
 export const homeHeroCopy = {
   eyebrow: 'Jeju Ocean · Breath · Trust',
   title: {
-    mobile: ['숨을 참고,', '바다와 마주하는 시간.'],
-    desktop: '숨을 참고, 바다와 마주하는 시간.',
-  } satisfies ResponsiveLine,
-  lead: {
     mobile: ['대한민국 국가대표와', '함께하는 프리다이빙'],
     desktop: '대한민국 국가대표와 함께하는 프리다이빙',
+  } satisfies ResponsiveLine,
+  lead: {
+    mobile: ['숨을 참고,', '바다와 마주하는 시간.'],
+    desktop: '숨을 참고, 바다와 마주하는 시간.',
   } satisfies ResponsiveLine,
   tagline: {
     mobile: ['제주 프리다이빙 전문 교육센터'],
