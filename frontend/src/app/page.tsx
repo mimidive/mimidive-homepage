@@ -161,10 +161,7 @@ export default function HomePage() {
           <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-[#5F7C8A]">
             {homeHeroCopy.eyebrow}
           </p>
-          <h1 className="mt-8 text-[2.75rem] font-semibold leading-[1.05] tracking-[-0.06em] text-[#1A1A1A] md:text-7xl lg:text-[5.5rem]">
-            <ResponsiveText balance copy={homeHeroCopy.title} />
-          </h1>
-          <p className="mx-auto mt-10 max-w-3xl font-serif text-[clamp(1.25rem,3.2vw,2rem)] font-semibold leading-snug tracking-[-0.03em] md:mt-12 md:leading-tight">
+          <p className="mx-auto mt-8 max-w-3xl font-serif text-[clamp(1.25rem,3.2vw,2rem)] font-semibold leading-snug tracking-[-0.03em] md:leading-tight">
             <span className="box-decoration-clone bg-white/30 px-2.5 py-1 text-[#1A1A1A] [box-decoration-break:clone]">
               <span className="break-keep text-pretty [word-break:keep-all] [overflow-wrap:normal] md:hidden">
                 <span className="font-bold text-[#5F7C8A]">대한민국 국가대표</span>와
@@ -176,6 +173,9 @@ export default function HomePage() {
               </span>
             </span>
           </p>
+          <h1 className="mt-8 text-[2.75rem] font-semibold leading-[1.05] tracking-[-0.06em] text-[#1A1A1A] md:mt-10 md:text-7xl lg:text-[5.5rem]">
+            <ResponsiveText balance copy={homeHeroCopy.title} />
+          </h1>
           <p className="mt-5 text-sm font-medium leading-7 text-[#6B7280] md:text-base">
             <ResponsiveText copy={homeHeroCopy.tagline} className="whitespace-nowrap" />
           </p>
