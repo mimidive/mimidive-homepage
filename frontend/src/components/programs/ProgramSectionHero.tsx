@@ -17,20 +17,28 @@ export type ProgramSectionHeroConfig =
 
 export function ProgramSectionHero({ config }: { config: ProgramSectionHeroConfig }) {
   if ('gallery' in config) {
-    const gridCols = config.gallery.length === 2 ? 'grid-cols-2' : 'grid-cols-3';
+    const gridCols =
+      config.gallery.length === 2
+        ? 'grid-cols-2'
+        : config.gallery.length >= 6
+          ? 'grid-cols-2 md:grid-cols-3'
+          : 'grid-cols-3';
 
     return (
-      <div className="mb-8 overflow-hidden rounded-[1.75rem] ring-1 ring-[#5F7C8A]/12 md:mb-10">
+      <div className="mb-8 overflow-hidden rounded-[1.75rem] bg-[#FAFAF8] ring-1 ring-[#5F7C8A]/12 md:mb-10">
         <div className={`grid ${gridCols} gap-1.5 p-1.5 md:gap-2 md:p-2`}>
           {config.gallery.map((item) => (
-            <div key={item.image} className="relative overflow-hidden rounded-[1rem] md:rounded-[1.25rem]">
+            <div
+              key={item.image}
+              className="relative aspect-[3/4] overflow-hidden rounded-[1rem] bg-[#E8EEF1] md:rounded-[1.25rem]"
+            >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={item.image}
                 alt={item.alt}
-                className="block aspect-[3/4] w-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover"
                 style={{ objectPosition: item.objectPosition ?? 'center center' }}
-                loading="lazy"
+                loading="eager"
                 decoding="async"
               />
             </div>
@@ -56,7 +64,7 @@ export function ProgramSectionHero({ config }: { config: ProgramSectionHeroConfi
               : 'block aspect-[16/9] w-full object-cover md:aspect-[21/9]'
           }
           style={{ objectPosition }}
-          loading="lazy"
+          loading="eager"
           decoding="async"
         />
         {!isPortrait && (

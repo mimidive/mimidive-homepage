@@ -11,10 +11,11 @@ type Props = {
   className?: string;
   sentenceClassName?: string;
   animate?: boolean;
-  gap?: 'sm' | 'md' | 'lg';
+  gap?: 'xs' | 'sm' | 'md' | 'lg';
 };
 
 const gapClass = {
+  xs: 'space-y-2',
   sm: 'space-y-3',
   md: 'space-y-5',
   lg: 'space-y-6',

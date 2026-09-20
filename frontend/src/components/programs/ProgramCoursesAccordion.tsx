@@ -76,68 +76,191 @@ function parseBlockKeywords(body: string) {
     .filter(Boolean);
 }
 
-function CourseBlocksGrid({ blocks }: { blocks: ProgramCourseLanding['blocks'] }) {
-  const columns =
-    blocks.length >= 3 ? 'md:grid-cols-3' : blocks.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-1';
+function CourseBlocksGrid({
+  blocks,
+  layout = 'stack',
+}: {
+  blocks: ProgramCourseLanding['blocks'];
+  layout?: 'stack' | 'row' | 'row-end';
+}) {
+  if (layout === 'row') {
+    const pair = blocks.slice(0, 2);
+    const rest = blocks.slice(2);
+
+    return (
+      <div className="mt-5 space-y-2.5 md:mt-6 md:space-y-3">
+        <div className="grid grid-cols-2 gap-2.5 md:gap-3">
+          {pair.map((block, index) => (
+            <CourseBlockCard key={block.label} block={block} index={index} />
+          ))}
+        </div>
+        {rest.map((block, index) => (
+          <CourseBlockCard key={block.label} block={block} index={index + 2} />
+        ))}
+      </div>
+    );
+  }
+
+  if (layout === 'row-end') {
+    const head = blocks.slice(0, -2);
+    const pair = blocks.slice(-2);
+    const pairStartIndex = Math.max(blocks.length - 2, 0);
+
+    return (
+      <div className="mt-5 space-y-2.5 md:mt-6 md:space-y-3">
+        {head.map((block, index) => (
+          <CourseBlockCard key={block.label} block={block} index={index} />
+        ))}
+        <div className="grid grid-cols-2 gap-2.5 md:gap-3">
+          {pair.map((block, index) => (
+            <CourseBlockCard
+              key={block.label}
+              block={block}
+              index={pairStartIndex + index}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className={`mt-8 grid gap-3 md:mt-10 md:gap-4 ${columns}`}>
-      {blocks.map((block, index) => {
-        const keywords = parseBlockKeywords(block.body);
-
-        return (
-          <article
-            key={block.label}
-            className="rounded-[1.25rem] border border-[#5F7C8A]/12 bg-[#FAFAF8] p-5 md:p-6"
-          >
-            <div className="flex items-center gap-3">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#5F7C8A]/10 text-[#5F7C8A]">
-                <BlockIcon label={block.label} />
-              </span>
-              <div className="min-w-0">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#5F7C8A]/70">
-                  {String(index + 1).padStart(2, '0')}
-                </p>
-                <h4 className="mt-0.5 text-base font-semibold tracking-[-0.02em] text-gray-900 md:text-lg">
-                  {block.label}
-                </h4>
-              </div>
-            </div>
-            <ul className="mt-4 space-y-1.5">
-              {keywords.map((keyword) => (
-                <li
-                  key={`${block.label}-${keyword}`}
-                  className="text-sm leading-7 text-gray-600 md:text-[15px] md:leading-8"
-                >
-                  - {keyword.replace(/\s+/g, '')}
-                </li>
-              ))}
-            </ul>
-          </article>
-        );
-      })}
+    <div className="mt-5 grid gap-2.5 md:mt-6 md:gap-3">
+      {blocks.map((block, index) => (
+        <CourseBlockCard key={block.label} block={block} index={index} />
+      ))}
     </div>
+  );
+}
+
+function CourseBlockCard({
+  block,
+  index,
+}: {
+  block: ProgramCourseLanding['blocks'][number];
+  index: number;
+}) {
+  const keywords = parseBlockKeywords(block.body);
+
+  return (
+    <article className="rounded-[1.25rem] border border-[#5F7C8A]/12 bg-[#FAFAF8] p-4 md:p-5">
+      <div className="flex items-center gap-2.5">
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#5F7C8A]/10 text-[#5F7C8A]">
+          <BlockIcon label={block.label} />
+        </span>
+        <div className="min-w-0">
+          <p
+            className={
+              block.stepLabel
+                ? 'text-[11px] font-semibold tracking-[0.04em] text-[#5F7C8A]/70'
+                : 'text-[11px] font-semibold uppercase tracking-[0.18em] text-[#5F7C8A]/70'
+            }
+          >
+            {block.stepLabel ?? String(index + 1).padStart(2, '0')}
+          </p>
+          <h4 className="mt-0.5 text-base font-semibold tracking-[-0.02em] text-gray-900 md:text-lg">
+            {block.label}
+          </h4>
+        </div>
+      </div>
+      {block.steps && block.steps.length > 0 ? (
+        <div
+          className={`mt-3 grid gap-2 md:gap-2.5 ${
+            block.steps.length === 3 ? 'grid-cols-3' : 'grid-cols-2 md:grid-cols-4'
+          }`}
+        >
+          {block.steps.map((step, stepIndex) => {
+            const details =
+              step.details ??
+              (step.detail
+                ? step.detail.split(/\s*,\s*/).map((part) => part.trim()).filter(Boolean)
+                : []);
+
+            return (
+              <div
+                key={`${block.label}-${step.title}`}
+                className="rounded-xl border border-[#5F7C8A]/12 bg-white px-3 py-3 md:px-3.5 md:py-3.5"
+              >
+                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#5F7C8A]/60">
+                  {String(stepIndex + 1).padStart(2, '0')}
+                </p>
+                <p className="mt-1.5 text-sm font-semibold leading-6 tracking-[-0.01em] text-gray-900 md:text-[15px] md:leading-7">
+                  {step.title}
+                </p>
+                {details.length > 0 ? (
+                  <ul className="mt-2 space-y-1 border-t border-[#5F7C8A]/10 pt-2">
+                    {details.map((item) => (
+                      <li
+                        key={`${step.title}-${item}`}
+                        className="text-xs leading-5 text-gray-600 md:text-sm md:leading-6"
+                      >
+                        - {item}
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+              </div>
+            );
+          })}
+        </div>
+      ) : block.keywordsStyle === 'boxes' ? (
+        <div className="mt-3 grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-2.5">
+          {keywords.map((keyword, keywordIndex) => (
+            <div
+              key={`${block.label}-${keyword}`}
+              className="rounded-xl border border-[#5F7C8A]/12 bg-white px-3 py-3"
+            >
+              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#5F7C8A]/60">
+                {String(keywordIndex + 1).padStart(2, '0')}
+              </p>
+              <p className="mt-1.5 text-sm font-medium leading-6 text-gray-800 md:text-[15px] md:leading-7">
+                {keyword}
+              </p>
+            </div>
+          ))}
+        </div>
+      ) : keywords.length > 0 ? (
+        <ul className="mt-3 space-y-0.5">
+          {keywords.map((keyword) => (
+            <li
+              key={`${block.label}-${keyword}`}
+              className="text-sm leading-6 text-gray-600 md:text-[15px] md:leading-7"
+            >
+              - {keyword.replace(/\s+/g, '')}
+            </li>
+          ))}
+        </ul>
+      ) : null}
+      {'note' in block && block.note ? (
+        <p className="mt-3 border-t border-[#5F7C8A]/10 pt-3 text-sm leading-7 text-[#5F7C8A] md:text-[15px] md:leading-8">
+          {block.note}
+        </p>
+      ) : null}
+    </article>
   );
 }
 
 function extractWonAmount(text: string) {
   const match = text.match(/[\d,]+원/);
-  return match ? match[0] : text.trim();
+  if (match) return match[0];
+  if (/별도\s*문의/.test(text)) return '별도 문의';
+  return text.trim();
 }
 
 function extractTierLabel(text: string, fallback: string) {
   if (/체크다이빙/.test(text) && /1인/.test(text)) return '1인 / 체크다이빙';
   if (/크로스오버/.test(text)) return '크로스오버';
   if (/기존 교육생/.test(text)) return '기존 교육생';
-  if (/1회/.test(text)) return '1회';
-  if (/2회/.test(text)) return '2회 이상';
+  if (/5회/.test(text) || /10회/.test(text) || /횟수권/.test(text)) return '5회 이상 횟수권 할인';
+  if (/(?<!\d)1회/.test(text)) return '1회';
+  if (/(?<!\d)2회/.test(text)) return '2회 이상';
   if (/1인/.test(text)) return '1인';
   if (/2인/.test(text)) return '2인 이상';
   return fallback;
 }
 
 function parseExtraPriceRows(footnote: string) {
-  if (!/원/.test(footnote)) return [];
+  if (!/원|별도\s*문의|횟수권/.test(footnote)) return [];
 
   return footnote
     .split(/[·\n]/)
@@ -157,10 +280,10 @@ function buildPriceRows(
     return { rows: [{ label: '', amount: extractWonAmount(price) }] };
   }
 
-  const priceHas1 = /1인|1회/.test(price);
-  const priceHas2 = /2인|2회/.test(price);
-  const noteHas1 = /1인|1회/.test(priceNote);
-  const noteHas2 = /2인|2회/.test(priceNote);
+  const priceHas1 = /1인|(?<!\d)1회/.test(price);
+  const priceHas2 = /2인|(?<!\d)2회/.test(price);
+  const noteHas1 = /1인|(?<!\d)1회/.test(priceNote);
+  const noteHas2 = /2인|(?<!\d)2회/.test(priceNote);
   const isTiered = (priceHas1 || noteHas1) && (priceHas2 || noteHas2);
 
   if (!isTiered) {
@@ -187,17 +310,17 @@ function buildPriceRows(
     .map((part) => part.trim())
     .filter(Boolean);
 
-  const oneFromNote = noteParts.find((part) => /1인|1회/.test(part));
-  const twoFromNote = noteParts.find((part) => /2인|2회/.test(part));
+  const oneFromNote = noteParts.find((part) => /1인|(?<!\d)1회/.test(part));
+  const twoFromNote = noteParts.find((part) => /2인|(?<!\d)2회/.test(part));
   const onePersonSource = priceHas1 ? price : (oneFromNote ?? priceNote);
   const twoPersonSource = priceHas2 ? price : (twoFromNote ?? priceNote);
   const rows = [
     {
-      label: extractTierLabel(onePersonSource, /1회/.test(onePersonSource) ? '1회' : '1인'),
+      label: extractTierLabel(onePersonSource, /(?<!\d)1회/.test(onePersonSource) ? '1회' : '1인'),
       amount: extractWonAmount(onePersonSource),
     },
     {
-      label: extractTierLabel(twoPersonSource, /2회/.test(twoPersonSource) ? '2회 이상' : '2인 이상'),
+      label: extractTierLabel(twoPersonSource, /(?<!\d)2회/.test(twoPersonSource) ? '2회 이상' : '2인 이상'),
       amount: extractWonAmount(twoPersonSource),
     },
   ];
@@ -320,16 +443,27 @@ function ExpandedPanel({ course }: { course: ProgramCourseLanding }) {
   return (
     <div
       id={`program-panel-${course.id}`}
-      className="border-t border-[#5F7C8A]/12 bg-white px-6 py-8 md:px-10 md:py-10"
+      className="border-t border-[#5F7C8A]/12 bg-white px-5 py-6 md:px-8 md:py-8"
     >
       <p className="text-sm font-medium text-[#5F7C8A] md:text-base">{course.duration}</p>
-      <p className="mt-5 max-w-3xl text-base leading-8 text-gray-700 md:text-lg md:leading-9">
-        {course.lead}
-      </p>
+      <ReadableText
+        text={course.lead}
+        className="mt-3 max-w-3xl"
+        gap="xs"
+        sentenceClassName="text-base leading-7 text-gray-700 md:text-lg md:leading-8"
+      />
 
-      <CourseBlocksGrid blocks={course.blocks} />
+      <CourseBlocksGrid blocks={course.blocks} layout={course.blocksLayout} />
+      {course.blocksNote ? (
+        <ReadableText
+          text={course.blocksNote}
+          className="mt-4 max-w-3xl"
+          gap="xs"
+          sentenceClassName="break-keep text-pretty text-base font-medium leading-7 text-gray-800 md:text-lg md:leading-8"
+        />
+      ) : null}
 
-      <div className="mt-10 border-t border-[#5F7C8A]/12 pt-8">
+      <div className="mt-6 border-t border-[#5F7C8A]/12 pt-5">
         {course.packagePricing ? (
           <PackagePricePanel pricing={course.packagePricing} />
         ) : (
@@ -338,7 +472,7 @@ function ExpandedPanel({ course }: { course: ProgramCourseLanding }) {
       </div>
 
       {!course.packagePricing && course.discounts && (
-        <div className="mt-6 divide-y divide-[#5F7C8A]/10 overflow-hidden rounded-[1rem] border border-[#5F7C8A]/10">
+        <div className="mt-4 divide-y divide-[#5F7C8A]/10 overflow-hidden rounded-[1rem] border border-[#5F7C8A]/10">
           {course.discounts.map((discount) => (
             <div
               key={discount.label}

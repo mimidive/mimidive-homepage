@@ -25,7 +25,7 @@ export const marketingImages = {
   programsAdvancedHero: '/programs-advanced-hero.png',
   programsExperienceHero: '/programs-experience-hero-v3.png',
   programsSpecialHero: '/programs-special-hero-v2.png',
-  accommodationHero: '/accommodation-hero.png',
+  accommodationHero: '/accommodation-hero-v2.jpg',
   homeHeroBg: '/home-hero-bg-v2.png',
 } as const;
 
@@ -69,7 +69,7 @@ export const imageAlt = {
   programsAdvancedHero: '인도어 수심 프리다이빙 트레이닝',
   programsExperienceHero: '제주 바다 체험·펀다이빙 수강 세션',
   programsSpecialHero: '제주 프리다이빙 스페셜 프로그램 수영장 교육',
-  accommodationHero: '제주 프리다이빙 교육 연동 숙소 공용 라운지',
+  accommodationHero: '미미다이브 제주 교육센터·연동 숙소 외관',
   homeHeroBg: '제주 바다 프리다이빙 수중 배경',
 } as const;
 
@@ -127,8 +127,37 @@ export const programSectionHero = {
     ],
   },
   'programs-special': {
-    image: marketingImages.programsSpecialHero,
-    alt: imageAlt.programsSpecialHero,
-    objectPosition: 'center 40%',
+    gallery: [
+      {
+        image: '/programs-special-hero-1.jpg',
+        alt: '미미다이브 제주 교육센터·숙소 외관',
+        objectPosition: 'center 40%',
+      },
+      {
+        image: '/programs-special-hero-2.jpg',
+        alt: '미미다이브 간판과 함께한 제주 체류 수강생',
+        objectPosition: 'center 30%',
+      },
+      {
+        image: '/programs-special-hero-3.jpg',
+        alt: '미미다이브 프리다이빙 센터 앞에서 함께한 수강생들',
+        objectPosition: 'center 35%',
+      },
+      {
+        image: '/programs-special-hero-4.jpg',
+        alt: '미미다이브 숙소에서 편안하게 머무는 수강생들',
+        objectPosition: 'center 25%',
+      },
+      {
+        image: '/programs-special-hero-5.jpg',
+        alt: '미미다이브 제주살기 수강생들의 즐거운 모임',
+        objectPosition: 'center 30%',
+      },
+      {
+        image: '/programs-special-hero-6.jpg',
+        alt: '미미다이브 간판을 든 제주 프리다이빙 수강생',
+        objectPosition: 'center 30%',
+      },
+    ],
   },
 } as const;

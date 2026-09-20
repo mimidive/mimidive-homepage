@@ -604,7 +604,7 @@ export const programs = [
     href: '/courses/training/depth',
     badge: '집중 코칭',
     price: '130,000원 (2회이상)',
-    priceNote: '150,000원 (1회)\n100,000원 (기존 교육생 대상 한정)',
+    priceNote: '150,000원 (1회) · 별도 문의 (5회 이상 횟수권 할인)',
   },
   {
     slug: 'intro-dive',
@@ -665,13 +665,13 @@ export const courseDetails = {
     level: 'Intro',
     price: '130,000원 (2인이상)',
     priceNote: '1인 150,000원',
-    duration: '2.5시간',
+    duration: '2시간',
     target: `프리다이빙이 궁금한 분
 자격증 과정이 부담스러운 분
 제주 여행 중 특별한 경험을 원하는 분
 바다를 좋아하는 분`,
     description:
-      '체험을 해보고 레벨교육을 받을 경우 이중으로 교육비를 지불하실 수도 있습니다. [[이왕 처음에 제대로 배우고 싶다면 체험보다는 레벨교육을 추천드립니다.]]',
+      '프리다이빙을 본격적으로 시작하기 전에, 한 번 가볍게 체험해보는 코스입니다. 체험 후 레벨교육을 이어가면 교육비가 이중으로 들 수 있으니, [[처음부터 제대로 배우고 싶다면 레벨교육을 추천드립니다.]] 물에 익숙하지 않거나 무서워하는 분은 Level 1 코스를 강력히 추천합니다.',
     curriculum: ['장비 착용 및 기본 안전 안내', '호흡과 이완 연습', '얕은 수심 적응', '수중 촬영 및 피드백'],
     includes: ['기본 장비 대여', '수중 촬영', '개인 피드백'],
   },
@@ -752,7 +752,7 @@ export const courseDetails = {
     title: '인도어*수심 트레이닝',
     level: 'Training',
     price: '130,000원 (2회이상)',
-    priceNote: '150,000원 (1회) · 100,000원 (기존 교육생 대상 한정)',
+    priceNote: '150,000원 (1회) · 별도 문의 (5회 이상 횟수권 할인)',
     duration: '1일 집중',
     target: '수심 정체 또는 자세 교정이 필요한 다이버',
     description:
@@ -764,7 +764,7 @@ export const courseDetails = {
     title: '인도어 트레이닝',
     level: 'Indoor',
     price: '130,000원 (2회이상)',
-    priceNote: '150,000원 (1회) · 100,000원 (기존 교육생 대상 한정)',
+    priceNote: '150,000원 (1회) · 별도 문의 (5회 이상 횟수권 할인)',
     duration: '1일 또는 정기 세션',
     target: '풀장에서 기술과 호흡을 점검하려는 수강생',
     description:
@@ -1143,7 +1143,7 @@ export const certCourseLandings = {
     price: string;
     priceNote?: string;
     lead: string;
-    blocks: readonly { label: string; body: string }[];
+    blocks: readonly { label: string; body: string; note?: string }[];
     includes: readonly string[];
     discounts?: readonly { label: string; value: string; note?: string }[];
     featured?: boolean;
@@ -1190,7 +1190,16 @@ export type ProgramCourseLanding = {
   price: string;
   priceNote?: string;
   lead: string;
-  blocks: readonly { label: string; body: string }[];
+  blocks: readonly {
+    label: string;
+    body: string;
+    note?: string;
+    stepLabel?: string;
+    keywordsStyle?: 'list' | 'boxes';
+    steps?: readonly { title: string; detail?: string; details?: readonly string[] }[];
+  }[];
+  blocksNote?: string;
+  blocksLayout?: 'stack' | 'row' | 'row-end';
   discounts?: readonly { label: string; value: string; note?: string }[];
   featured?: boolean;
   href: string;
@@ -1218,21 +1227,24 @@ export const advancedCourseLandings: Record<AdvancedCourseId, ProgramCourseLandi
     duration: '3섹션 (이론+실습 2회 2시간씩)',
     price: '450,000원 (2인이상)',
     priceNote: '550,000원 (1인)',
-    lead: '노핀 잠영 아시아 기록 보유자 김혜미 선수가 직접 교육하는 노하우 과정입니다. 핀 없이 진행하며, 몸의 정렬·추진 효율·리듬을 집중적으로 다룹니다. 초보·노핀 입문자는 수영장 코스를 이수한 후 바다 수업을 하실 수 있습니다.',
+    lead: '노핀 잠영 아시아 기록 보유자 김혜미 선수가 직접 교육하는 노하우 과정입니다. 핀 없이 몸의 정렬, 추진 효율, 글라이딩 리듬을 집중적으로 다룹니다. 이론으로 원리와 올바른 연습법을 정리한 뒤, 수영장에서 스트로크·킥·중성부력까지 반복하며 효율적인 노핀 잠영을 익힙니다.',
     blocks: [
       {
         label: '이론',
-        body: '노핀 원리 · 추진 효율 · 상승·하강 안전 · 호흡 · 이완',
+        body: '노핀 개념/원리 · 효율적인 자세 · 올바른 연습방법 · 이완 · 글라이딩 · 중성부력 세팅',
       },
       {
         label: '수영장',
-        body: '암풀 · 킥 리듬 · 수중 정렬 · 영상 피드백',
+        body: '스트로크 · 윕킥/웨지킥 · 글라이딩 · 킥스트로크 타이밍',
       },
       {
         label: '바다',
         body: '노핀 실전 · 개인 피드백 · 연습 과제',
+        stepLabel: '옵션 (상담후 진행)',
+        note: '** 바다 수업은 상담 후 학생분의 실력에 맞춰 협의 후 진행됩니다.',
       },
     ],
+    blocksLayout: 'row',
     href: '/courses/training/nofin',
     bookingLabel: '노핀 코스 문의',
   },
@@ -1242,22 +1254,25 @@ export const advancedCourseLandings: Record<AdvancedCourseId, ProgramCourseLandi
     badge: '추천',
     duration: '경험이 많은 선수·강사 트레이너에게 배우는 실전 노하우 · 1일 집중',
     price: '130,000원 (2회이상)',
-    priceNote: '150,000원 (1회) · 100,000원 (기존 교육생 한정)',
+    priceNote: '150,000원 (1회) · 별도 문의 (5회 이상 횟수권 할인)',
     lead: '설문지 작성·상담 후, 개인별 맞춤 체크다이빙을 거쳐 진행됩니다. 호흡부터 이퀄라이징, 자세, 이후 훈련·연습 방법까지 전반적인 부분을 점검하거나, 필요한 부분을 집중 코칭합니다.',
     blocks: [
       {
         label: '이론',
-        body: '설문지 · 상담 · 목표 확인 · 호흡 · 이퀄라이징 · 자세',
+        body: '설문지작성, 목표 방향성 설정 · 상담',
       },
       {
         label: '수영장',
-        body: '체크다이빙 · 호흡 · STA · DYN · 하강 자세 · 집중 코칭',
+        body: '체크다이빙 · 호흡 · 스테틱,다이나믹 · 중성부력 세팅 · 글라이딩',
+        stepLabel: '옵션1',
       },
       {
         label: '바다',
-        body: '수심 적응 · 하강 자세 · 이퀄라이징 · 훈련 방향 · 영상 분석',
+        body: '체크다이빙 · 수심 적응 · 하강 자세 · 이퀄라이징 · 훈련방향&영상분석',
+        stepLabel: '옵션2',
       },
     ],
+    blocksLayout: 'row-end',
     href: '/courses/training/depth',
     bookingLabel: '트레이닝 문의',
   },
@@ -1316,20 +1331,23 @@ export const experienceCourseLandings: Record<ExperienceCourseId, ProgramCourseL
   'intro-dive': {
     id: 'intro-dive',
     title: '체험다이빙',
-    duration: '2.5시간',
+    duration: '2시간',
     price: '130,000원 (2인이상)',
     priceNote: '1인 150,000원',
-    lead: '체험을 해보고 레벨교육을 받을 경우 이중으로 교육비를 지불하실 수도 있습니다. 이왕 처음에 제대로 배우고 싶다면 체험보다는 레벨교육을 추천드립니다.',
+    lead: '프리다이빙을 본격적으로 시작하기 전에, 한 번 가볍게 체험해보는 코스입니다.',
     blocks: [
       {
         label: '이론',
-        body: '호흡 · 장비 · 수면 안전 · 버디',
+        body: '프리다이빙 호흡법 · 안전교육 · 장비소개 · 압력평형(이퀄라이징)',
       },
       {
         label: '수심 적응',
-        body: '얕은 수심 · 호흡 · 이완 · 수중 적응 · 촬영 피드백',
+        body: '얕은 수심 체험 · 호흡과 이완 · 수중 적응 · 수중 촬영',
       },
     ],
+    blocksLayout: 'row',
+    blocksNote:
+      '[[물에 익숙하지 않거나 무서워하는 분은 Level 1 코스를 강력히 추천합니다]]. 체험 후 레벨교육을 이어가면 교육비가 이중으로 들 수 있으니, 처음부터 제대로 배우고 싶다면 레벨교육을 추천드립니다.',
     href: '/courses/intro-dive',
     bookingLabel: '체험다이빙 문의',
     extraCta: { label: '레벨1 교육 바로가기', href: '/courses/level/aida1' },
@@ -1340,17 +1358,30 @@ export const experienceCourseLandings: Record<ExperienceCourseId, ProgramCourseL
     duration: '2시간',
     price: '130,000원 (2인이상)',
     priceNote: '150,000원 (1인)',
-    lead: '자격 보유자를 위한 제주 펀다이빙 세션입니다. 바다 상황과 해양조건을 확인 후 안전한 장소를 선정해 진행합니다.',
+    lead: '프리다이빙 자격 보유자를 위한 제주 바다 펀다이빙 세션입니다. 교육이 아닌, 안전하게 바다를 즐기는 다이빙에 초점을 둡니다. 당일 바다·기상 상황을 확인한 뒤 안전한 포인트를 선정해 진행합니다.',
     blocks: [
       {
-        label: '브리핑',
-        body: '자격 확인 · 컨디션 · 포인트 안내 · 버디 체크',
-      },
-      {
-        label: '바다',
-        body: '제주 바다 · 펀다이빙 · 안전 범위',
+        label: '진행',
+        body: '',
+        keywordsStyle: 'boxes',
+        steps: [
+          {
+            title: '예약상담',
+            details: ['날짜·장소 선정', '바다 경험', '자격증 레벨 체크'],
+          },
+          {
+            title: '브리핑',
+            details: ['장비 체크', '바다 지형 소개', '안전 공지사항 안내'],
+          },
+          {
+            title: '바다',
+            details: ['펀다이빙'],
+          },
+        ],
       },
     ],
+    blocksNote:
+      '[[자격증이 없다면 체험다이빙 또는 레벨교육을 먼저 이용해 주세요.]]',
     href: '/courses/fun',
     bookingLabel: '펀다이빙 문의',
   },
@@ -1358,7 +1389,9 @@ export const experienceCourseLandings: Record<ExperienceCourseId, ProgramCourseL
 
 export const experienceCourseShared = {
   includesTitle: '포함 사항',
-  includes: ['기본 장비 대여', '안전 브리핑', '수중 촬영(과정별)', '개인 피드백'],
+  includes: [
+    '렌탈 장비 대여와 안전 브리핑이 포함됩니다. 수중 촬영은 수업에 방해되지 않는 선에서 진행하며, 다이빙 후 개인 피드백을 정리해 드립니다.',
+  ],
   faqTitle: '자주 묻는 질문',
   faqs: [
     {
@@ -1389,19 +1422,19 @@ export const specialCourseLandings: Record<SpecialCourseId, ProgramCourseLanding
     badge: '트레이닝+숙식',
     duration: '상담 후 확정',
     price: '별도 문의',
-    lead: '제주에 길게 여행 오시는 분들을 위한 패키지입니다. 프리다이빙 트레이닝과 숙식을 함께 구성해 교육 동선에 맞는 일정으로 진행합니다.',
+    lead: '제주로 여행오시는 분들을 위한 패키지입니다. 프리다이빙 트레이닝과 숙식을 함께 구성해 교육 동선에 맞는 일정으로 진행합니다.',
     blocks: [
       {
         label: '상담',
-        body: '체류 기간 · 목표 · 일정 · 맞춤 플랜',
+        body: '기간일정 · 다이빙목표설정 · 맞춤 플랜',
       },
       {
         label: '트레이닝',
         body: '레벨교육 · 심화 트레이닝 · 진도 피드백',
       },
       {
-        label: '숙식',
-        body: '숙소 · 식사 · 교육 동선 · 일정 조율',
+        label: '숙소 연계',
+        body: '단기/한달살기 · 연동 숙소 안내 · 인원/예산 상담',
       },
     ],
     href: '/courses/special/long-stay-package',
@@ -1417,15 +1450,15 @@ export const specialCourseLandings: Record<SpecialCourseId, ProgramCourseLanding
     blocks: [
       {
         label: '상담',
-        body: '회원권 유형 · 출석 빈도 · 목표 · 플랜 제안',
+        body: '회원권 유형 · 목표 · 플랜 제안',
       },
       {
         label: '정기 세션',
-        body: '월별 목표 · 정기 트레이닝 · 컨디션 · 진도 점검',
+        body: '월별 목표 · 정기 트레이닝 · 컨디션관리 & 피드백 제공',
       },
       {
         label: '회원 혜택',
-        body: '우선 예약 · 훈련 방향 · 회원 전용 혜택',
+        body: '우선 예약 · 다이빙 장비 할인구매',
       },
     ],
     href: '/courses/special/membership',
