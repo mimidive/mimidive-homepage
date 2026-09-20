@@ -138,18 +138,19 @@ export default function HomePage() {
     <>
       <section className="relative flex min-h-svh items-center justify-center overflow-hidden bg-[#FAFAF8] px-5 text-center">
         <motion.div
-          className="absolute inset-x-0 bottom-0 top-[4.5rem] relative"
+          className="pointer-events-none absolute inset-0"
           style={{ y: heroY, scale: heroScale }}
+          aria-hidden
         >
           <CoverImage
             src={oceanImages.hero}
-            alt={imageAlt.hero}
-            imageClassName="object-cover object-[center_45%]"
+            alt=""
+            imageClassName="scale-110 object-cover object-[center_40%] opacity-45 blur-[10px] md:blur-[14px]"
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-[#FAFAF8]/20" />
-          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#FAFAF8] via-[#FAFAF8]/65 to-transparent" />
+          <div className="absolute inset-0 bg-[#FAFAF8]/55" />
+          <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#FAFAF8] via-[#FAFAF8]/70 to-transparent" />
         </motion.div>
 
         <motion.div

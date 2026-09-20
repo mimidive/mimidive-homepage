@@ -603,8 +603,8 @@ export const programs = [
       '자세, 핀 영법, 이퀄라이징, 수심 적응 맞춤 트레이닝.',
     href: '/courses/training/depth',
     badge: '집중 코칭',
-    price: '120,000원 (2인이상)',
-    priceNote: '150,000원 (체크다이빙 or 1인 수업)\n100,000원 (기존 교육생 대상 한정)',
+    price: '130,000원 (2회이상)',
+    priceNote: '150,000원 (1회)\n100,000원 (기존 교육생 대상 한정)',
   },
   {
     slug: 'intro-dive',
@@ -682,7 +682,7 @@ export const courseDetails = {
     duration: '1일 과정',
     target: '프리다이빙 기초를 배우려는 입문자',
     description:
-      '프리다이빙의 기본 원리와 안전 개념을 배우는 입문 과정. 호흡, 이완, 버디 시스템, 기본 수중 적응을 다룹니다.',
+      '체계적으로 프리다이빙에 입문하고 싶은 분을 위한 전문 커리큘럼입니다. 수영을 못하거나 물이 무서워도 가능하며, 체험다이빙과 달리 이론부터 실습까지 꼼꼼한 맞춤 수업으로 기초를 탄탄히 다집니다.',
     curriculum: ['프리다이빙 이론', '호흡과 이완', '버디 안전', '제한수역 또는 얕은 수심 실습'],
     includes: [
       'AIDA 국제공인 자격증 발급',
@@ -751,8 +751,8 @@ export const courseDetails = {
   depth: {
     title: '인도어*수심 트레이닝',
     level: 'Training',
-    price: '120,000원 (2인이상)',
-    priceNote: '150,000원 (1인) · 100,000원 (기존 교육생 대상 한정)',
+    price: '130,000원 (2회이상)',
+    priceNote: '150,000원 (1회) · 100,000원 (기존 교육생 대상 한정)',
     duration: '1일 집중',
     target: '수심 정체 또는 자세 교정이 필요한 다이버',
     description:
@@ -763,8 +763,8 @@ export const courseDetails = {
   indoor: {
     title: '인도어 트레이닝',
     level: 'Indoor',
-    price: '120,000원 (2인이상)',
-    priceNote: '150,000원 (1인) · 100,000원 (기존 교육생 대상 한정)',
+    price: '130,000원 (2회이상)',
+    priceNote: '150,000원 (1회) · 100,000원 (기존 교육생 대상 한정)',
     duration: '1일 또는 정기 세션',
     target: '풀장에서 기술과 호흡을 점검하려는 수강생',
     description:
@@ -965,15 +965,15 @@ export const certCourseLandings = {
     badge: '입문',
     duration: '1일 과정 · 5m 수영장',
     price: '200,000원',
-    lead: '프리다이빙에 대한 기초 이론을 배우고, 실습하는 입문 과정입니다. 바다 수업 없이 수영장에서 안전하게 첫 발을 내딛습니다.',
+    lead: '체계적으로 프리다이빙에 입문하고 싶은 분을 위한 전문 커리큘럼입니다. 수영을 못하거나 물이 무서워도 가능하며, 체험다이빙과 달리 이론부터 실습까지 꼼꼼한 맞춤 수업으로 기초를 탄탄히 다집니다. 바다 수업 없이 5m 수영장에서 안전하게 진행됩니다.',
     blocks: [
       {
         label: '이론',
-        body: '프리다이빙 기본 원리, 호흡과 이완, 버디 시스템, 안전 개념을 체계적으로 학습합니다. 온라인 이론교재로 사전·복습이 가능합니다.',
+        body: '기본 원리 · 호흡 · 이완 · 버디 시스템 · 안전 · 온라인 교재',
       },
       {
         label: '수영장',
-        body: '5미터 수영장에서 호흡·이완 연습, STA 입문, 기본 수중 적응을 진행합니다. 차분한 피드백으로 첫 프리다이빙 경험을 완성합니다.',
+        body: '5m 풀 · 호흡 · 이완 · STA 입문 · 수중 적응 · 피드백',
       },
     ],
     includes: [
@@ -994,15 +994,15 @@ export const certCourseLandings = {
     blocks: [
       {
         label: '이론',
-        body: '개방수역 안전 절차, 버디 시스템, 구조 기초, 이퀄라이징 원리를 다룹니다. 바다 수업 전 컨디션과 준비 루틴을 정리합니다.',
+        body: '개방수역 안전 · 버디 시스템 · 구조 기초 · 이퀄라이징 · 준비 루틴',
       },
       {
         label: '수영장',
-        body: 'STA/DYN 기초, 하강 자세, 이퀄라이징 타이밍을 수영장에서 점검합니다. 바다 수업 전 기술을 안정화합니다.',
+        body: 'STA · DYN · 하강 자세 · 이퀄라이징 타이밍 · 기술 안정화',
       },
       {
         label: '바다',
-        body: '제주 개방수역에서 12~20m 수심을 경험합니다. 안전 범위 내 하강, 버디 체크, 수중 촬영 피드백으로 자격 요건을 완성합니다.',
+        body: '12~20m · 안전 하강 · 버디 체크 · 수중 촬영 · 자격 완성',
       },
     ],
     includes: ['AIDA 국제공인 자격증 발급', '수중 촬영', '개인 자세 피드백', '온라인 이론교재'],
@@ -1036,15 +1036,15 @@ export const certCourseLandings = {
     blocks: [
       {
         label: '이론',
-        body: 'Level 1·2 과정 내용을 단계별로 학습합니다.',
+        body: 'Level 1 · Level 2 · 단계별 학습',
       },
       {
         label: '수영장',
-        body: '물에서 뜨는 방법부터 호흡·이완·STA 기초를 익힙니다.',
+        body: '부력 · 호흡 · 이완 · STA 기초',
       },
       {
         label: '바다',
-        body: '제주 바다에서 12~20m 개방수역 자격 과정을 완성합니다. 입문부터 초급 자격까지 한 번에 이어갑니다.',
+        body: '12~20m · 개방수역 · 입문~초급 자격',
       },
     ],
     includes: [
@@ -1067,15 +1067,15 @@ export const certCourseLandings = {
     blocks: [
       {
         label: '이론',
-        body: '중급 이퀄라이징, 수심 적응 원리, 컨디션 관리, 안전 판단을 심화 학습합니다.',
+        body: '중급 이퀄라이징 · 수심 적응 · 컨디션 관리 · 안전 판단',
       },
       {
         label: '수영장',
-        body: '프리폴 자세, 호흡 루틴, DYN 연습으로 수중 효율을 점검합니다.',
+        body: '프리폴 · 호흡 루틴 · DYN · 수중 효율',
       },
       {
         label: '바다',
-        body: '더 깊은 수심에서 하강 자세, 이퀄라이징, 프리폴을 실전 적용합니다. 수중 영상 분석으로 개인별 과제를 정리합니다.',
+        body: '심화 수심 · 하강 자세 · 이퀄라이징 · 프리폴 · 영상 분석',
       },
     ],
     includes: ['AIDA 국제공인 자격증 발급', '수중 영상 분석', '개인별 과제 정리'],
@@ -1092,15 +1092,15 @@ export const certCourseLandings = {
     blocks: [
       {
         label: '이론',
-        body: '상급 안전 이론, 구조 시나리오, 버디 리드 원칙, 컨디션·수심 관리 전략을 다룹니다.',
+        body: '상급 안전 · 구조 시나리오 · 버디 리드 · 수심 관리',
       },
       {
         label: '수영장',
-        body: '구조 드릴, 호흡·STA 심화, 기술 점검 세션을 진행합니다.',
+        body: '구조 드릴 · 호흡 · STA 심화 · 기술 점검',
       },
       {
         label: '바다',
-        body: '실전 수심 환경에서 버디 리드, 구조 대응, 상급 다이빙 루틴을 훈련합니다.',
+        body: '버디 리드 · 구조 대응 · 상급 루틴',
       },
     ],
     includes: ['AIDA 국제공인 자격증 발급', '상급 안전 훈련', '기술 피드백', '다음 단계 상담'],
@@ -1118,15 +1118,15 @@ export const certCourseLandings = {
     blocks: [
       {
         label: '이론',
-        body: 'AIDA 강사 기준, 커리큘럼 구성, 브리핑 스크립트, 위험 상황 판단과 대응을 학습합니다.',
+        body: '강사 기준 · 커리큘럼 · 브리핑 · 위험 판단 · 대응',
       },
       {
         label: '수영장',
-        body: '모의 티칭, 구조 시나리오, 수강생 관찰 포인트를 풀장에서 반복 훈련합니다.',
+        body: '모의 티칭 · 구조 시나리오 · 수강생 관찰',
       },
       {
         label: '바다',
-        body: '실제 교육 상황에 가까운 브리핑·수업 운영·피드백 언어를 바다 세션에서 점검합니다.',
+        body: '브리핑 · 수업 운영 · 피드백 언어',
       },
     ],
     includes: ['강사 과정 준비 상담', '모의 티칭 피드백', '체크리스트 제공', '후속 상담'],
@@ -1213,22 +1213,24 @@ export const advancedCourseLandings: Record<AdvancedCourseId, ProgramCourseLandi
   nofin: {
     id: 'nofin',
     title: '노핀 코스',
+    badge: '인기',
+    featured: true,
     duration: '3섹션 (이론+실습 2회 2시간씩)',
     price: '450,000원 (2인이상)',
     priceNote: '550,000원 (1인)',
-    lead: '핀 없이 진행하는 노핀 특화 과정입니다. 몸의 정렬, 추진 효율, 리듬을 집중적으로 다룹니다.',
+    lead: '노핀 잠영 아시아 기록 보유자 김혜미 선수가 직접 교육하는 노하우 과정입니다. 핀 없이 진행하며, 몸의 정렬·추진 효율·리듬을 집중적으로 다룹니다.',
     blocks: [
       {
         label: '이론',
-        body: '노핀 기본 원리, 추진 효율, 상승·하강 안전, 호흡과 이완의 연결을 학습합니다.',
+        body: '노핀 원리 · 추진 효율 · 상승·하강 안전 · 호흡 · 이완',
       },
       {
         label: '수영장',
-        body: '암풀과 킥 리듬, 수중 정렬을 풀장에서 반복 연습합니다. 영상으로 자세를 확인합니다.',
+        body: '암풀 · 킥 리듬 · 수중 정렬 · 영상 피드백',
       },
       {
         label: '바다',
-        body: '제주 바다에서 노핀 다이빙을 실전 적용합니다. 개인별 피드백과 연습 과제를 정리합니다.',
+        body: '노핀 실전 · 개인 피드백 · 연습 과제',
       },
     ],
     href: '/courses/training/nofin',
@@ -1237,22 +1239,23 @@ export const advancedCourseLandings: Record<AdvancedCourseId, ProgramCourseLandi
   training: {
     id: 'training',
     title: '인도어·수심 트레이닝',
-    duration: '1일 집중',
-    price: '120,000원 (2인이상)',
-    priceNote: '150,000원 (체크다이빙 or 1인) · 100,000원 (기존 교육생 한정)',
-    lead: '상담 후 개인별 맞춤 코칭 섹션을 진행합니다.',
+    badge: '추천',
+    duration: '경험이 많은 선수·강사 트레이너에게 배우는 실전 노하우 · 1일 집중',
+    price: '130,000원 (2회이상)',
+    priceNote: '150,000원 (1회) · 100,000원 (기존 교육생 한정)',
+    lead: '설문지 작성·상담 후, 개인별 맞춤 체크다이빙을 거쳐 진행됩니다. 호흡부터 이퀄라이징, 자세, 이후 훈련·연습 방법까지 전반적인 부분을 점검하거나, 필요한 부분을 집중 코칭합니다.',
     blocks: [
       {
         label: '이론',
-        body: '목표와 현재 상태를 확인하고, 호흡·이퀄라이징·자세 교정 포인트를 브리핑합니다.',
+        body: '설문지 · 상담 · 목표 확인 · 호흡 · 이퀄라이징 · 자세',
       },
       {
         label: '수영장',
-        body: '호흡, STA/DYN, 하강 자세를 풀장에서 점검합니다. 인도어 세션으로 기술을 안정화합니다.',
+        body: '체크다이빙 · 호흡 · STA · DYN · 하강 자세 · 집중 코칭',
       },
       {
         label: '바다',
-        body: '수심 적응과 하강 자세, 이퀄라이징 타이밍을 바다에서 피드백합니다. 수중 영상 분석을 포함합니다.',
+        body: '수심 적응 · 하강 자세 · 이퀄라이징 · 훈련 방향 · 영상 분석',
       },
     ],
     href: '/courses/training/depth',
@@ -1267,15 +1270,15 @@ export const advancedCourseLandings: Record<AdvancedCourseId, ProgramCourseLandi
     blocks: [
       {
         label: '상담',
-        body: '목표와 현재 훈련 상태를 확인하고, 개인 맞춤 코칭 계획을 수립합니다.',
+        body: '목표 확인 · 훈련 상태 · 맞춤 코칭 계획',
       },
       {
         label: '드라이 훈련',
-        body: '호흡, 이완, 이퀄라이징 드라이 연습을 영상으로 점검하고 과제를 제공합니다.',
+        body: '호흡 · 이완 · 이퀄라이징 · 영상 점검 · 과제',
       },
       {
         label: '후속 점검',
-        body: '정기 피드백으로 훈련 방향을 조정합니다. 원격에서도 꾸준히 실력을 끌어올립니다.',
+        body: '정기 피드백 · 훈련 방향 · 원격 관리',
       },
     ],
     href: '/courses/online-coaching',
@@ -1320,11 +1323,11 @@ export const experienceCourseLandings: Record<ExperienceCourseId, ProgramCourseL
     blocks: [
       {
         label: '이론',
-        body: '호흡, 장비, 수면 안전, 버디 기본 개념을 가볍게 안내합니다.',
+        body: '호흡 · 장비 · 수면 안전 · 버디',
       },
       {
         label: '수심 적응',
-        body: '얕은 수심에서 호흡·이완 연습, 기본 수중 적응을 차분히 진행합니다. 수중 촬영 피드백을 포함합니다.',
+        body: '얕은 수심 · 호흡 · 이완 · 수중 적응 · 촬영 피드백',
       },
     ],
     href: '/courses/intro-dive',
@@ -1341,11 +1344,11 @@ export const experienceCourseLandings: Record<ExperienceCourseId, ProgramCourseL
     blocks: [
       {
         label: '브리핑',
-        body: '자격·컨디션 확인, 포인트 안내, 버디 체크를 진행합니다.',
+        body: '자격 확인 · 컨디션 · 포인트 안내 · 버디 체크',
       },
       {
         label: '바다',
-        body: '제주 바다에서 펀다이빙을 즐깁니다. 안전 범위 내에서 여유롭게 다이빙합니다.',
+        body: '제주 바다 · 펀다이빙 · 안전 범위',
       },
     ],
     href: '/courses/fun',
@@ -1390,15 +1393,15 @@ export const specialCourseLandings: Record<SpecialCourseId, ProgramCourseLanding
     blocks: [
       {
         label: '상담',
-        body: '체류 기간, 목표, 일정을 확인하고 맞춤 트레이닝 플랜을 구성합니다.',
+        body: '체류 기간 · 목표 · 일정 · 맞춤 플랜',
       },
       {
         label: '트레이닝',
-        body: '기간에 맞춰 레벨교육·심화 트레이닝 세션을 배정합니다. 진도별 피드백을 제공합니다.',
+        body: '레벨교육 · 심화 트레이닝 · 진도 피드백',
       },
       {
         label: '숙식',
-        body: '교육 동선에 맞는 숙소·식사 연계를 상담합니다. 제주살기 일정에 맞게 조율합니다.',
+        body: '숙소 · 식사 · 교육 동선 · 일정 조율',
       },
     ],
     href: '/courses/special/long-stay-package',
@@ -1414,15 +1417,15 @@ export const specialCourseLandings: Record<SpecialCourseId, ProgramCourseLanding
     blocks: [
       {
         label: '상담',
-        body: '회원권 유형, 출석 빈도, 목표를 확인하고 맞는 플랜을 제안합니다.',
+        body: '회원권 유형 · 출석 빈도 · 목표 · 플랜 제안',
       },
       {
         label: '정기 세션',
-        body: '월별 목표에 맞춰 정기 트레이닝 세션을 운영합니다. 컨디션과 진도를 꾸준히 점검합니다.',
+        body: '월별 목표 · 정기 트레이닝 · 컨디션 · 진도 점검',
       },
       {
         label: '회원 혜택',
-        body: '우선 예약, 개인 훈련 방향 관리, 회원 전용 혜택을 상담해 드립니다.',
+        body: '우선 예약 · 훈련 방향 · 회원 전용 혜택',
       },
     ],
     href: '/courses/special/membership',
