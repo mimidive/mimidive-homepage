@@ -1218,7 +1218,7 @@ export const advancedCourseLandings: Record<AdvancedCourseId, ProgramCourseLandi
     duration: '3섹션 (이론+실습 2회 2시간씩)',
     price: '450,000원 (2인이상)',
     priceNote: '550,000원 (1인)',
-    lead: '노핀 잠영 아시아 기록 보유자 김혜미 선수가 직접 교육하는 노하우 과정입니다. 핀 없이 진행하며, 몸의 정렬·추진 효율·리듬을 집중적으로 다룹니다.',
+    lead: '노핀 잠영 아시아 기록 보유자 김혜미 선수가 직접 교육하는 노하우 과정입니다. 핀 없이 진행하며, 몸의 정렬·추진 효율·리듬을 집중적으로 다룹니다. 초보·노핀 입문자는 수영장 코스를 이수한 후 바다 수업을 하실 수 있습니다.',
     blocks: [
       {
         label: '이론',
