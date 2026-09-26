@@ -42,6 +42,18 @@ export interface Application {
   createdAt: string;
 }
 
+export interface SafetyWaiver {
+  id: number;
+  name: string;
+  phone: string;
+  emergencyContact: string;
+  agreed: boolean;
+  signatureDataUrl: string;
+  emailSent: boolean;
+  emailError: string | null;
+  createdAt: string;
+}
+
 export interface LoginResponse {
   accessToken: string;
   user: User;

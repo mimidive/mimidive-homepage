@@ -8,6 +8,7 @@ import { NoticesModule } from './notices/notices.module';
 import { CoursesModule } from './courses/courses.module';
 import { ApplicationsModule } from './applications/applications.module';
 import { SchedulesModule } from './schedules/schedules.module';
+import { WaiversModule } from './waivers/waivers.module';
 import { JwtAuthGuard } from './common/guards/jwt-auth.guard';
 import { RolesGuard } from './common/guards/roles.guard';
 
@@ -27,6 +28,7 @@ import { RolesGuard } from './common/guards/roles.guard';
     CoursesModule,
     ApplicationsModule,
     SchedulesModule,
+    WaiversModule,
   ],
   providers: [
     { provide: APP_GUARD, useClass: JwtAuthGuard },

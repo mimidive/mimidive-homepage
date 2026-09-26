@@ -112,7 +112,8 @@ export function ProgramTabs() {
   }, []);
 
   useEffect(() => {
-    setMounted(true);
+    const frame = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   useEffect(() => {
@@ -142,15 +143,14 @@ export function ProgramTabs() {
         : null;
 
     const hashTarget = resolveHashTarget(hash);
-    if (hashTarget?.expandId) {
-      setExpandedSlug(hashTarget.expandId);
-    }
-
     const targetId = hashTarget?.sectionId || tabTarget;
     if (!targetId) return;
 
     hasScrolledFromUrl.current = true;
     requestAnimationFrame(() => {
+      if (hashTarget?.expandId) {
+        setExpandedSlug(hashTarget.expandId);
+      }
       scrollToSection(targetId);
       if (isAccordionSectionId(targetId) || targetId === 'programs-recommended') {
         setActiveNavId(targetId as ProgramNavId);
@@ -200,7 +200,7 @@ export function ProgramTabs() {
   useEffect(() => {
     if (!mounted) return;
 
-    updateActiveNav();
+    const frame = requestAnimationFrame(updateActiveNav);
     window.addEventListener('scroll', updateActiveNav, { passive: true });
     window.addEventListener('resize', updateActiveNav);
 
@@ -209,6 +209,7 @@ export function ProgramTabs() {
     if (nav) resizeObserver?.observe(nav);
 
     return () => {
+      cancelAnimationFrame(frame);
       window.removeEventListener('scroll', updateActiveNav);
       window.removeEventListener('resize', updateActiveNav);
       resizeObserver?.disconnect();

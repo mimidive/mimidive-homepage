@@ -6,6 +6,17 @@ import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { navigation } from '@/lib/navigation';
 
+function NavLabel({ href, label }: { href: string; label: string }) {
+  if (href !== '/notice') return <>{label}</>;
+
+  return (
+    <span className="flex flex-col items-center leading-tight">
+      <span className="text-[10px] font-semibold">수강생</span>
+      <span className="text-xs font-semibold">전용</span>
+    </span>
+  );
+}
+
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -19,10 +30,6 @@ export function Header() {
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
@@ -56,7 +63,7 @@ export function Header() {
                         : 'text-[#1A1A1A] hover:bg-white/70'
                     }`}
                   >
-                    {item.label}
+                    <NavLabel href={item.href} label={item.label} />
                   </Link>
                 );
               })}
@@ -96,15 +103,23 @@ export function Header() {
           <nav className="hidden items-center gap-1 lg:flex">
             {navigation.map((item) => {
               const isActive = pathname === item.href;
+              const isStudentLink = item.href === '/notice';
+
               return (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className={`px-3 py-2 text-sm font-medium transition ${
-                    isActive ? 'text-[#5F7C8A]' : 'text-[#6B7280] hover:text-[#5F7C8A]'
+                  className={`text-sm font-medium transition ${
+                    isStudentLink
+                      ? `ml-3 rounded-full bg-[#5F7C8A]/8 px-3 py-1.5 text-center ring-1 ring-[#5F7C8A]/12 ${
+                          isActive ? 'text-[#5F7C8A]' : 'text-[#5F7C8A] hover:bg-[#5F7C8A]/12'
+                        }`
+                      : `px-3 py-2 ${
+                          isActive ? 'text-[#5F7C8A]' : 'text-[#6B7280] hover:text-[#5F7C8A]'
+                        }`
                   }`}
                 >
-                  {item.label}
+                  <NavLabel href={item.href} label={item.label} />
                 </Link>
               );
             })}

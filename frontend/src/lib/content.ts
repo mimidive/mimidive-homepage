@@ -166,7 +166,7 @@ export const competitionHistory: readonly CompetitionYear[] = [
   },
   {
     year: 2025,
-    summary: '아시아 여자 신기록 경신 (DNF 180m) · JEJU Masters 여자 DNF 1위 · RAUM 시리즈',
+    summary: '아시아 기록 경신 · 한국 신기록 경신',
     entries: [
       { event: 'AIDA RAUM Pool Competition (2월)', result: '출전' },
       { event: 'AIDA RAUM Pool Competition (3월)', result: '출전' },
@@ -189,7 +189,7 @@ export const competitionHistory: readonly CompetitionYear[] = [
   },
   {
     year: 2024,
-    summary: 'AIDA·CMAS 월드챔피언십 국가대표 · CMAS 한국 신기록 (DNF·DYN) · JEJU Masters STA 1위',
+    summary: 'CMAS·AIDA 국가대표 · 한국 신기록 경신 (노핀 수심, 노핀 인도어)',
     entries: [
       {
         event: '32nd AIDA Freediving World Championship',
@@ -211,7 +211,7 @@ export const competitionHistory: readonly CompetitionYear[] = [
   },
   {
     year: 2023,
-    summary: 'AIDA Pool WC 국가대표 · Anilao·Panglao 한국 신기록',
+    summary: 'CMAS·AIDA 국가대표 · 한국 신기록 경신 (모노핀, 노핀 인도어)',
     entries: [
       {
         event: '9th AIDA Panglao Pool Games',

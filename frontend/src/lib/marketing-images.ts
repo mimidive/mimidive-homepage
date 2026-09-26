@@ -130,9 +130,14 @@ export const programSectionHero = {
 
 export const accommodationGallery = [
   {
-    image: '/programs-special-hero-1.jpg',
-    alt: '미미다이브 제주 교육센터·숙소 외관',
-    objectPosition: 'center 40%',
+    image: '/programs-special-hero-10.png',
+    alt: '미미다이브 제주 숙소 라운지 공간',
+    objectPosition: 'center center',
+  },
+  {
+    image: '/programs-special-hero-7.jpg',
+    alt: '밤의 미미다이브 제주 교육센터·숙소 입구',
+    objectPosition: 'center 30%',
   },
   {
     image: '/programs-special-hero-2.jpg',
@@ -157,11 +162,6 @@ export const accommodationGallery = [
   {
     image: '/programs-special-hero-6.jpg',
     alt: '미미다이브 간판을 든 제주 프리다이빙 수강생',
-    objectPosition: 'center 30%',
-  },
-  {
-    image: '/programs-special-hero-7.jpg',
-    alt: '밤의 미미다이브 제주 교육센터·숙소 입구',
     objectPosition: 'center 30%',
   },
 ] as const;

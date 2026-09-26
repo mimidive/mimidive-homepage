@@ -13,6 +13,8 @@ type HeroImage = {
   src: string;
   alt: string;
   objectPosition?: string;
+  aspectClassName?: string;
+  fit?: 'cover' | 'contain';
 };
 
 type Props = {
@@ -22,9 +24,10 @@ type Props = {
   ctas?: Cta[];
   compact?: boolean;
   image?: HeroImage;
+  secondaryImage?: HeroImage;
 };
 
-export function PageHero({ eyebrow, title, description, ctas, compact, image }: Props) {
+export function PageHero({ eyebrow, title, description, ctas, compact, image, secondaryImage }: Props) {
   const heroImage = image ?? {
     src: oceanImages.hero,
     alt: imageAlt.hero,
@@ -40,7 +43,13 @@ export function PageHero({ eyebrow, title, description, ctas, compact, image }: 
           : 'pb-20 pt-[calc(var(--header-h)+3rem)] md:pb-28 md:pt-[calc(var(--header-h)+4rem)]'
       }`}
     >
-      <div className="page-shell grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-12">
+      <div
+        className={
+          secondaryImage
+            ? 'page-shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-12'
+            : 'page-shell grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-12'
+        }
+      >
         <div className="min-w-0">
           {eyebrow && (
             <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-700">
@@ -75,17 +84,37 @@ export function PageHero({ eyebrow, title, description, ctas, compact, image }: 
             </div>
           )}
         </div>
-        <div className={`photo-card rounded-[2.25rem] p-4 sm:p-5 ${showImageOnMobile ? '' : 'hidden lg:block'}`}>
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[1.75rem] ring-1 ring-white/60 lg:aspect-[5/4]">
-            <Image
-              src={heroImage.src}
-              alt={heroImage.alt}
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 45vw"
-              className="object-cover"
-              style={{ objectPosition: heroImage.objectPosition ?? 'center center' }}
-            />
+        <div
+          className={`photo-card rounded-[2.25rem] p-4 sm:p-5 ${
+            secondaryImage ? 'mx-auto w-full max-w-3xl lg:mx-0 lg:max-w-none lg:justify-self-center' : ''
+          } ${showImageOnMobile ? '' : 'hidden lg:block'}`}
+        >
+          <div className={secondaryImage ? 'grid gap-3 md:grid-cols-[1fr_0.78fr] md:items-center' : ''}>
+            {[heroImage, secondaryImage].filter(Boolean).map((item, index) => {
+              const currentImage = item as HeroImage;
+
+              return (
+                <div
+                  key={currentImage.src}
+                  className={`relative w-full overflow-hidden rounded-[1.75rem] bg-white/35 ring-1 ring-white/60 ${
+                    currentImage.aspectClassName ??
+                    (secondaryImage
+                      ? 'aspect-[4/3] lg:aspect-[16/10]'
+                      : 'aspect-[4/3] lg:aspect-[5/4]')
+                  }`}
+                >
+                  <Image
+                    src={currentImage.src}
+                    alt={currentImage.alt}
+                    fill
+                    priority={index === 0}
+                    sizes={secondaryImage ? '(max-width: 1024px) 100vw, 45vw' : '(max-width: 1024px) 100vw, 45vw'}
+                    className={currentImage.fit === 'contain' ? 'object-contain' : 'object-cover'}
+                    style={{ objectPosition: currentImage.objectPosition ?? 'center center' }}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

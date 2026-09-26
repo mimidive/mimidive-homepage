@@ -4,7 +4,6 @@ import { useEffect, useRef } from 'react';
 import { ReadableText } from '@/components/ui/ReadableText';
 import {
   getAccordionAnchorId,
-  isAccordionCourseId,
   programSectionAccordions,
   type ProgramAccordionSectionId,
   type ProgramCourseLanding,

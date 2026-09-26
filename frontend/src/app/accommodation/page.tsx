@@ -11,7 +11,8 @@ export const metadata: Metadata = staticPageMetadata.accommodation;
 const heroDescription =
   '제주에 오시는 분들을 위한 공간을 소개해 드립니다.';
 
-const bodyCopy = `단기 체류부터 한달살기·장기 체류까지, 체류 기간·인원·예산·목표 과정을 카카오톡으로 편하게 알려주시면 맞춤 상담해 드립니다. 제주도 교육과 여행 동선도 함께 고려해 안내드리며, 객실·가격·예약은 문의 후 차근차근 알려드립니다.`;
+const bodyCopy =
+  '단기 체류부터 한달살기·장기 체류까지, 체류 기간·인원·예산·목표 과정을 카카오톡으로 편하게 알려주시면 맞춤 상담해 드립니다. 제주도 교육과 여행 동선도 함께 고려해 안내드리며, 객실·가격·예약은 문의 후 차근차근 알려드립니다.';
 
 export default function AccommodationPage() {
   const consultHref = getKakaoChatUrl() ?? '/booking';
@@ -28,18 +29,27 @@ export default function AccommodationPage() {
           src: marketingImages.accommodationHero,
           alt: imageAlt.accommodationHero,
           objectPosition: 'center center',
+          aspectClassName: 'aspect-[5/4]',
+          fit: 'contain',
+        }}
+        secondaryImage={{
+          src: '/programs-special-hero-10.png',
+          alt: '미미다이브 제주 숙소 라운지 공간',
+          objectPosition: 'center center',
+          aspectClassName: 'aspect-[3/4]',
+          fit: 'contain',
         }}
       />
 
       <section className="pb-20 pt-12 md:pb-28 md:pt-16">
         <div className="page-shell">
-          <ProgramSectionHero config={{ gallery: accommodationGallery }} />
-          <div className="prose-measure mx-auto mt-10 md:mt-14">
+          <div className="prose-measure mx-auto mb-10 md:mb-14">
             <ReadableText
               text={bodyCopy}
               sentenceClassName="text-base leading-8 text-gray-600 md:text-lg md:leading-9"
             />
           </div>
+          <ProgramSectionHero config={{ gallery: accommodationGallery }} />
         </div>
       </section>
     </>

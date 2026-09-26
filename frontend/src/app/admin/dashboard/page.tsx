@@ -4,9 +4,9 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuthStore } from '@/store/auth';
 import { api } from '@/lib/api';
-import type { Notice, Schedule, Application } from '@/lib/types';
+import type { Notice, Schedule, Application, SafetyWaiver } from '@/lib/types';
 
-type Tab = 'notices' | 'schedules' | 'applications';
+type Tab = 'notices' | 'schedules' | 'applications' | 'waivers';
 
 export default function AdminDashboard() {
   const router = useRouter();
@@ -15,6 +15,7 @@ export default function AdminDashboard() {
   const [notices, setNotices] = useState<Notice[]>([]);
   const [schedules, setSchedules] = useState<Schedule[]>([]);
   const [applications, setApplications] = useState<Application[]>([]);
+  const [waivers, setWaivers] = useState<SafetyWaiver[]>([]);
 
   useEffect(() => {
     if (!token || !isAdmin()) {
@@ -27,6 +28,7 @@ export default function AdminDashboard() {
     if (tab === 'notices') api.notices.list().then(setNotices);
     if (tab === 'schedules') api.schedules.list().then(setSchedules);
     if (tab === 'applications') api.applications.list(token).then(setApplications);
+    if (tab === 'waivers') api.waivers.list(token).then(setWaivers);
   }, [tab, token]);
 
   if (!token) return null;
@@ -52,6 +54,7 @@ export default function AdminDashboard() {
             ['notices', '공지사항'],
             ['schedules', '교육일정'],
             ['applications', '교육신청'],
+            ['waivers', '서약서'],
           ] as const
         ).map(([key, label]) => (
           <button
@@ -80,6 +83,13 @@ export default function AdminDashboard() {
             token={token}
             applications={applications}
             onRefresh={() => api.applications.list(token).then(setApplications)}
+          />
+        )}
+        {tab === 'waivers' && (
+          <WaiversAdmin
+            token={token}
+            waivers={waivers}
+            onRefresh={() => api.waivers.list(token).then(setWaivers)}
           />
         )}
       </div>
@@ -324,6 +334,71 @@ function ApplicationsAdmin({
                   onRefresh();
                 }}
                 className="text-xs text-red-400"
+              >
+                삭제
+              </button>
+            </div>
+          </div>
+        ))
+      )}
+    </div>
+  );
+}
+
+function WaiversAdmin({
+  token,
+  waivers,
+  onRefresh,
+}: {
+  token: string;
+  waivers: SafetyWaiver[];
+  onRefresh: () => void;
+}) {
+  return (
+    <div className="space-y-3">
+      {waivers.length === 0 ? (
+        <p className="text-white/50">제출된 서약서가 없습니다.</p>
+      ) : (
+        waivers.map((waiver) => (
+          <div key={waiver.id} className="glass-card rounded-xl p-6">
+            <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
+              <div className="min-w-0">
+                <div className="flex flex-wrap items-center gap-2">
+                  <h3 className="font-medium text-white">{waiver.name}</h3>
+                  <span
+                    className={`rounded-full px-2.5 py-1 text-xs ${
+                      waiver.emailSent
+                        ? 'bg-emerald-400/10 text-emerald-300'
+                        : 'bg-amber-400/10 text-amber-300'
+                    }`}
+                  >
+                    {waiver.emailSent ? '이메일 전송 완료' : '이메일 미전송'}
+                  </span>
+                </div>
+                <p className="mt-2 text-sm text-cyan-400">
+                  {waiver.phone} · 비상연락망 {waiver.emergencyContact}
+                </p>
+                <p className="mt-2 text-xs text-white/30">
+                  {new Date(waiver.createdAt).toLocaleString('ko-KR')}
+                </p>
+                {waiver.emailError && (
+                  <p className="mt-2 text-sm text-red-300">{waiver.emailError}</p>
+                )}
+                <div className="mt-4 max-w-sm rounded-xl bg-white p-3">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={waiver.signatureDataUrl}
+                    alt={`${waiver.name} 서명`}
+                    className="h-auto w-full"
+                  />
+                </div>
+              </div>
+              <button
+                onClick={async () => {
+                  await api.waivers.delete(waiver.id, token);
+                  onRefresh();
+                }}
+                className="self-start text-xs text-red-400"
               >
                 삭제
               </button>

@@ -90,4 +90,17 @@ export const api = {
     delete: (id: number, token: string) =>
       request<void>(`/applications/${id}`, { method: 'DELETE', token }),
   },
+  waivers: {
+    create: (data: {
+      name: string;
+      phone: string;
+      emergencyContact: string;
+      agreed: boolean;
+      signatureDataUrl: string;
+    }) => request<import('./types').SafetyWaiver>('/waivers', { method: 'POST', body: data }),
+    list: (token: string) =>
+      request<import('./types').SafetyWaiver[]>('/waivers', { token }),
+    delete: (id: number, token: string) =>
+      request<void>(`/waivers/${id}`, { method: 'DELETE', token }),
+  },
 };

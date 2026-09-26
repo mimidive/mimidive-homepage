@@ -58,6 +58,20 @@ model Application {
   @@map("applications")
 }
 
+model SafetyWaiver {
+  id               Int      @id @default(autoincrement())
+  name             String
+  phone            String
+  emergencyContact String   @map("emergency_contact")
+  agreed           Boolean  @default(false)
+  signatureDataUrl String   @map("signature_data_url") @db.LongText
+  emailSent        Boolean  @default(false) @map("email_sent")
+  emailError       String?  @map("email_error") @db.Text
+  createdAt        DateTime @default(now()) @map("created_at")
+
+  @@map("safety_waivers")
+}
+
 model Schedule {
   id          Int      @id @default(autoincrement())
   title       String

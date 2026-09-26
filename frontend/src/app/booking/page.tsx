@@ -49,16 +49,16 @@ export default function BookingPage() {
       <section id="faq" className="section-y">
         <div className="page-shell">
           <SectionTitle title="FAQ" description="교육 전 자주 묻는 질문입니다." />
-          <div className="mt-8 max-w-3xl space-y-3 md:mt-12 md:space-y-4">
+          <div className="mt-6 max-w-3xl space-y-2 md:mt-8 md:space-y-2.5">
             {faqs.map((faq) => (
-              <details key={faq.question} className="content-card group rounded-[1.75rem]">
-                <summary className="cursor-pointer list-none p-5 font-medium leading-7 text-gray-900 md:p-8">
+              <details key={faq.question} className="content-card group rounded-[1.35rem]">
+                <summary className="cursor-pointer list-none p-4 font-medium leading-7 text-gray-900 md:px-5 md:py-4">
                   <span className="flex items-start justify-between gap-4">
                     <span className="break-keep text-pretty [word-break:keep-all]">{faq.question}</span>
                     <span className="shrink-0 text-sky-700 transition group-open:rotate-45">+</span>
                   </span>
                 </summary>
-                <div className="px-5 pb-5 pt-1 md:px-8 md:pb-8">
+                <div className="px-4 pb-4 pt-0 md:px-5 md:pb-5">
                   <ReadableText
                     text={faq.answer}
                     gap="sm"
@@ -71,14 +71,14 @@ export default function BookingPage() {
         </div>
       </section>
 
-      <section id="kakao-consult" className="section-y bg-surface">
+      <section id="kakao-consult" className="bg-surface py-12 md:py-16">
         <div className="page-shell">
           <SectionTitle
             title="카카오톡 문의"
             description="채널로 연결해 편하게 상담해 주세요."
             align="center"
           />
-          <div className="mx-auto mt-8 max-w-2xl md:mt-12">
+          <div className="mx-auto mt-6 max-w-2xl md:mt-8">
             <KakaoConsultCard />
           </div>
         </div>

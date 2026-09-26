@@ -6,7 +6,7 @@ type Props = {
 
 export function FluorescentHighlight({ children }: Props) {
   return (
-    <span className="box-decoration-clone bg-[#FFF3B0] px-1 py-0.5 font-semibold text-gray-900 [box-decoration-break:clone]">
+    <span className="box-decoration-clone whitespace-nowrap bg-[#FFF3B0] px-1 py-0.5 font-semibold text-gray-900 [box-decoration-break:clone]">
       {children}
     </span>
   );

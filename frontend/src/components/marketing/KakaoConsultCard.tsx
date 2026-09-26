@@ -6,31 +6,31 @@ export function KakaoConsultCard() {
   const chatUrl = getKakaoChatUrl();
 
   return (
-    <div className="content-card rounded-[2rem] p-6 md:p-10">
+    <div className="content-card rounded-[1.5rem] p-5 md:p-7">
       <div className="mx-auto max-w-xl text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#5F7C8A]">
           Kakao Channel
         </p>
-        <h3 className="mt-4 break-keep text-pretty text-[clamp(1.375rem,4vw,1.875rem)] font-bold tracking-[-0.04em] text-zinc-900 [word-break:keep-all]">
+        <h3 className="mt-3 break-keep text-pretty text-[clamp(1.375rem,4vw,1.875rem)] font-bold tracking-[-0.04em] text-zinc-900 [word-break:keep-all]">
           {BRAND.kakao} 카카오톡 무료 상담
         </h3>
-        <p className="mt-4 text-base leading-8 text-zinc-600">
+        <p className="mt-2 text-base leading-7 text-zinc-600">
           아래 내용을 함께 남겨 주시면 더 빠르게 안내해드립니다.
         </p>
       </div>
 
-      <ul className="mx-auto mt-7 grid max-w-lg gap-3 sm:mt-8 sm:grid-cols-2">
+      <ul className="mx-auto mt-5 grid max-w-lg gap-2.5 sm:mt-6 sm:grid-cols-2">
         {kakaoConsultTopics.map((topic) => (
           <li
             key={topic}
-            className="rounded-2xl bg-white/55 px-4 py-3 text-sm leading-6 text-zinc-700 ring-1 ring-white/70"
+            className="rounded-2xl bg-white/55 px-3.5 py-2.5 text-sm leading-6 text-zinc-700 ring-1 ring-white/70"
           >
             {topic}
           </li>
         ))}
       </ul>
 
-      <div className="mt-7 flex flex-col items-center gap-4 md:mt-8">
+      <div className="mt-5 flex flex-col items-center gap-3 md:mt-6">
         <KakaoConsultButton fullWidth label="카카오톡 상담" />
         {!chatUrl && (
           <p className="text-center text-sm leading-6 text-zinc-500">
