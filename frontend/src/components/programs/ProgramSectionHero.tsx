@@ -25,7 +25,7 @@ export function ProgramSectionHero({ config }: { config: ProgramSectionHeroConfi
           : 'grid-cols-3';
 
     return (
-      <div className="mb-8 overflow-hidden rounded-[1.75rem] bg-[#FAFAF8] ring-1 ring-[#5F7C8A]/12 md:mb-10">
+      <div className="mb-6 overflow-hidden rounded-[1.75rem] bg-[#FAFAF8] ring-1 ring-[#5F7C8A]/12 md:mb-10">
         <div className={`grid ${gridCols} gap-1.5 p-1.5 md:gap-2 md:p-2`}>
           {config.gallery.map((item) => (
             <div

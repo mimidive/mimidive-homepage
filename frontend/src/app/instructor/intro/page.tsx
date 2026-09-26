@@ -52,9 +52,9 @@ export default function InstructorIntroPage() {
 
   return (
     <>
-      <section className="py-24 md:py-36">
-        <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:px-8">
-          <div className="photo-card rounded-[2.25rem] p-5">
+      <section className="pb-16 pt-[calc(var(--header-h)+2.5rem)] md:pb-24 md:pt-[calc(var(--header-h)+3.5rem)]">
+        <div className="page-shell grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:gap-14">
+          <div className="photo-card rounded-[2.25rem] p-4 sm:p-5">
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] ring-1 ring-white/60">
               <Image
                 src={oceanImages.instructor}
@@ -67,35 +67,35 @@ export default function InstructorIntroPage() {
             </div>
           </div>
 
-          <div>
+          <div className="min-w-0">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-400">
               Instructor
             </p>
-            <h1 className="mt-6 max-w-3xl">
-              <span className="block text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500 sm:text-sm md:text-base md:tracking-[0.18em]">
+            <h1 className="mt-5 max-w-3xl md:mt-6">
+              <span className="block break-keep text-pretty text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500 [word-break:keep-all] sm:text-sm md:text-base md:tracking-[0.18em]">
               AIDA · CMAS 대한민국 국가대표 선수
               </span>
-              <span className="mt-5 block text-5xl font-extrabold leading-[0.959] tracking-[-0.0625em] text-zinc-900 md:mt-6 md:text-7xl">
+              <span className="mt-4 block text-[clamp(2.25rem,8vw,4.5rem)] font-extrabold leading-[1.02] tracking-[-0.0625em] text-zinc-900 md:mt-6">
                 강사 트레이너
               </span>
-              <span className="mt-2 block text-3xl font-extrabold leading-[1.02] tracking-[-0.055em] text-zinc-900 md:text-5xl">
+              <span className="mt-2 block text-[clamp(1.75rem,5vw,3rem)] font-extrabold leading-[1.05] tracking-[-0.055em] text-zinc-900">
                 김혜미
               </span>
             </h1>
             <SocialLinks className="mt-6" align="start" />
-            <p className="mt-7 text-xl font-semibold leading-8 text-zinc-800 md:text-2xl">
+            <p className="mt-6 text-lg font-semibold leading-8 text-zinc-800 md:mt-7 md:text-2xl">
               <AchievementHighlights />
             </p>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <div className="cta-stack mt-8 md:mt-10">
               <Link
                 href="/booking"
-                className="cta-button rounded-full px-8 py-4 text-center text-sm font-semibold transition"
+                className="cta-button rounded-full px-8 py-3.5 text-center text-sm font-semibold transition"
               >
                 교육 문의하기
               </Link>
               <Link
                 href="/programs"
-                className="rounded-full bg-white/40 px-8 py-4 text-center text-sm font-semibold text-zinc-800 shadow-sm ring-1 ring-white/60 backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:scale-[1.018] hover:bg-white/70"
+                className="inline-flex min-h-11 items-center justify-center rounded-full bg-white/40 px-8 py-3.5 text-center text-sm font-semibold text-zinc-800 shadow-sm ring-1 ring-white/60 backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:scale-[1.018] hover:bg-white/70"
               >
                 수업 안내 보기
               </Link>
@@ -105,34 +105,34 @@ export default function InstructorIntroPage() {
         </div>
       </section>
 
-      <section className="py-24 md:py-36">
-        <div className="mx-auto max-w-5xl px-5 text-center lg:px-8">
-          <p className="text-7xl font-extrabold leading-none tracking-[-0.08em] text-zinc-900/10 md:text-9xl">
+      <section className="section-y">
+        <div className="mx-auto max-w-5xl px-[var(--page-gutter)] text-center">
+          <p className="text-6xl font-extrabold leading-none tracking-[-0.08em] text-zinc-900/10 md:text-9xl">
             “
           </p>
-          <h2 className="mx-auto -mt-6 max-w-4xl text-4xl font-extrabold leading-[1.05] tracking-[-0.06em] text-zinc-900 md:text-6xl">
+          <h2 className="mx-auto -mt-4 max-w-3xl break-keep text-pretty text-[clamp(1.75rem,4.5vw,3.75rem)] font-extrabold leading-[1.12] tracking-[-0.06em] text-zinc-900 [word-break:keep-all] md:-mt-6 md:leading-[1.05]">
             <ResponsiveText copy={instructorIntroCopy.quote} />
           </h2>
           <ReadableText
             text={`프리다이빙은 더 깊이 내려가는 스포츠이기도 하지만, 자신의 몸과 마음을 이해하는 과정이기도 합니다.\n\n미미다이브는 경쟁보다 성장, 결과보다 과정, 그리고 무엇보다 안전을 가장 중요하게 생각합니다.`}
-            className="mx-auto mt-8 max-w-3xl"
+            className="prose-measure mx-auto mt-7 md:mt-8"
             sentenceClassName="text-base leading-8 text-zinc-600 md:text-xl md:leading-10"
           />
         </div>
       </section>
 
-      <section className="py-24 md:py-36">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+      <section className="section-y">
+        <div className="page-shell">
           <InstructorIntroSectionPhoto
             src={marketingImages.instructorEducationTraining}
             alt={imageAlt.instructorEducationTraining}
           />
 
-          <div className="mt-12 max-w-3xl md:mt-14">
+          <div className="mt-10 max-w-3xl md:mt-14">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-400">
               Education
             </p>
-            <h2 className="mt-5 whitespace-nowrap text-[clamp(1.25rem,4.6vw,2.25rem)] font-extrabold leading-[1.02] tracking-[-0.06em] text-zinc-900 md:whitespace-normal md:text-6xl">
+            <h2 className="mt-4 break-keep text-pretty text-[clamp(1.5rem,4.6vw,3.75rem)] font-extrabold leading-[1.12] tracking-[-0.06em] text-zinc-900 [word-break:keep-all] md:mt-5 md:leading-[1.02]">
               왜 미미다이브의 교육이 다른가
             </h2>
           </div>
@@ -160,18 +160,18 @@ export default function InstructorIntroPage() {
         </div>
       </section>
 
-      <section className="py-24 md:py-36">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+      <section className="section-y">
+        <div className="page-shell">
           <InstructorIntroSectionPhoto
             src={marketingImages.instructorCareerCompetition}
             alt={imageAlt.instructorCareerCompetition}
           />
 
-          <div className="mt-12 max-w-3xl md:mt-14">
+          <div className="mt-10 max-w-3xl md:mt-14">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-400">
               Career
             </p>
-            <h2 className="mt-5 text-4xl font-extrabold leading-[1.02] tracking-[-0.06em] text-zinc-900 md:text-6xl">
+            <h2 className="mt-4 break-keep text-pretty text-[clamp(1.75rem,4.5vw,3.75rem)] font-extrabold leading-[1.12] tracking-[-0.06em] text-zinc-900 [word-break:keep-all] md:mt-5 md:leading-[1.02]">
               경력 및 활동
             </h2>
           </div>
@@ -179,17 +179,17 @@ export default function InstructorIntroPage() {
         </div>
       </section>
 
-      <section className="py-24 md:py-36">
-        <div className="mx-auto max-w-5xl px-5 lg:px-8">
-          <div className="content-card rounded-[2.5rem] p-8 md:p-12">
-            <h2 className="text-4xl font-extrabold leading-[1.02] tracking-[-0.06em] text-zinc-900 md:text-6xl">
+      <section className="section-y">
+        <div className="mx-auto max-w-5xl px-[var(--page-gutter)]">
+          <div className="content-card rounded-[2.5rem] p-6 md:p-12">
+            <h2 className="break-keep text-pretty text-[clamp(1.5rem,4vw,3.75rem)] font-extrabold leading-[1.15] tracking-[-0.06em] text-zinc-900 [word-break:keep-all] md:leading-[1.02]">
               안전은 절대 타협하지 않습니다.
             </h2>
-            <ul className="mt-10 grid gap-4 md:grid-cols-2">
+            <ul className="mt-8 grid gap-4 md:mt-10 md:grid-cols-2">
               {safetyPrinciples.map((item) => (
-                <li key={item} className="flex gap-4 text-sm leading-7 text-zinc-700 md:text-base">
-                  <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-zinc-300" />
-                  <span>{item}</span>
+                <li key={item} className="flex gap-4 text-base leading-7 text-zinc-700 md:text-base md:leading-8">
+                  <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-zinc-300" />
+                  <span className="break-keep [word-break:keep-all]">{item}</span>
                 </li>
               ))}
             </ul>
@@ -197,26 +197,26 @@ export default function InstructorIntroPage() {
         </div>
       </section>
 
-      <section className="py-24 md:py-36">
-        <div className="mx-auto max-w-4xl px-5 text-center lg:px-8">
-          <h2 className="text-5xl font-extrabold leading-[0.98] tracking-[-0.07em] text-zinc-900 md:text-7xl">
+      <section className="section-y">
+        <div className="mx-auto max-w-4xl px-[var(--page-gutter)] text-center">
+          <h2 className="break-keep text-pretty text-[clamp(1.875rem,5vw,4.5rem)] font-extrabold leading-[1.1] tracking-[-0.07em] text-zinc-900 [word-break:keep-all]">
             <ResponsiveText copy={instructorIntroCopy.closing} />
           </h2>
           <ReadableText
             text={`기록은 언제든 따라올 수 있습니다. 하지만 안전은 한 번도 타협할 수 없습니다.\n\n프리다이빙이 처음인 분부터, 선수와 강사를 목표로 하는 분까지. 안전하게 성장할 수 있도록 함께하겠습니다.`}
-            className="mx-auto mt-10 max-w-2xl"
+            className="prose-measure mx-auto mt-8 md:mt-10"
             sentenceClassName="text-base leading-8 text-zinc-600 md:text-lg md:leading-9"
           />
-          <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
+          <div className="cta-stack mx-auto mt-8 max-w-xs justify-center md:mt-10 md:max-w-none">
             <Link
               href="/booking"
-              className="cta-button rounded-full px-8 py-4 text-center text-sm font-semibold transition"
+              className="cta-button rounded-full px-8 py-3.5 text-center text-sm font-semibold transition"
             >
               교육 문의하기
             </Link>
             <Link
               href="/programs"
-              className="rounded-full bg-white/40 px-8 py-4 text-center text-sm font-semibold text-zinc-800 shadow-sm ring-1 ring-white/60 backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:scale-[1.018] hover:bg-white/70"
+              className="inline-flex min-h-11 items-center justify-center rounded-full bg-white/40 px-8 py-3.5 text-center text-sm font-semibold text-zinc-800 shadow-sm ring-1 ring-white/60 backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:scale-[1.018] hover:bg-white/70"
             >
               수업 안내 보기
             </Link>

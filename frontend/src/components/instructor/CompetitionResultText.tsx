@@ -60,7 +60,7 @@ function decorateToken(token: string, index: number): ReactNode {
           : 'font-semibold text-orange-700';
 
     return (
-      <span key={`${token}-${index}`} className="inline-flex items-center gap-0.5">
+      <span key={`${token}-${index}`} className="inline-flex items-center gap-0.5 whitespace-nowrap">
         <RankMedal rank={rank} />
         <span className={emphasisClass}>{token}</span>
       </span>
@@ -69,7 +69,7 @@ function decorateToken(token: string, index: number): ReactNode {
 
   if (token === '신기록') {
     return (
-      <span key={`${token}-${index}`} className="inline-flex items-center gap-0.5">
+      <span key={`${token}-${index}`} className="inline-flex items-center gap-0.5 whitespace-nowrap">
         <RecordStar />
         <span className="font-medium text-amber-600">{token}</span>
       </span>
@@ -78,7 +78,7 @@ function decorateToken(token: string, index: number): ReactNode {
 
   if (token === '국가대표') {
     return (
-      <span key={`${token}-${index}`} className="inline-flex items-center gap-0.5">
+      <span key={`${token}-${index}`} className="inline-flex items-center gap-0.5 whitespace-nowrap">
         <TaegeukMark />
         <span className="font-medium text-[#B91C1C]">{token}</span>
       </span>

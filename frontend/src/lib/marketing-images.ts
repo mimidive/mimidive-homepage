@@ -126,38 +126,42 @@ export const programSectionHero = {
       },
     ],
   },
-  'programs-special': {
-    gallery: [
-      {
-        image: '/programs-special-hero-1.jpg',
-        alt: '미미다이브 제주 교육센터·숙소 외관',
-        objectPosition: 'center 40%',
-      },
-      {
-        image: '/programs-special-hero-2.jpg',
-        alt: '미미다이브 간판과 함께한 제주 체류 수강생',
-        objectPosition: 'center 30%',
-      },
-      {
-        image: '/programs-special-hero-3.jpg',
-        alt: '미미다이브 프리다이빙 센터 앞에서 함께한 수강생들',
-        objectPosition: 'center 35%',
-      },
-      {
-        image: '/programs-special-hero-4.jpg',
-        alt: '미미다이브 숙소에서 편안하게 머무는 수강생들',
-        objectPosition: 'center 25%',
-      },
-      {
-        image: '/programs-special-hero-5.jpg',
-        alt: '미미다이브 제주살기 수강생들의 즐거운 모임',
-        objectPosition: 'center 30%',
-      },
-      {
-        image: '/programs-special-hero-6.jpg',
-        alt: '미미다이브 간판을 든 제주 프리다이빙 수강생',
-        objectPosition: 'center 30%',
-      },
-    ],
-  },
 } as const;
+
+export const accommodationGallery = [
+  {
+    image: '/programs-special-hero-1.jpg',
+    alt: '미미다이브 제주 교육센터·숙소 외관',
+    objectPosition: 'center 40%',
+  },
+  {
+    image: '/programs-special-hero-2.jpg',
+    alt: '미미다이브 간판과 함께한 제주 체류 수강생',
+    objectPosition: 'center 30%',
+  },
+  {
+    image: '/programs-special-hero-3.jpg',
+    alt: '미미다이브 프리다이빙 센터 앞에서 함께한 수강생들',
+    objectPosition: 'center 35%',
+  },
+  {
+    image: '/programs-special-hero-4.jpg',
+    alt: '미미다이브 숙소에서 편안하게 머무는 수강생들',
+    objectPosition: 'center 25%',
+  },
+  {
+    image: '/programs-special-hero-5.jpg',
+    alt: '미미다이브 제주살기 수강생들의 즐거운 모임',
+    objectPosition: 'center 30%',
+  },
+  {
+    image: '/programs-special-hero-6.jpg',
+    alt: '미미다이브 간판을 든 제주 프리다이빙 수강생',
+    objectPosition: 'center 30%',
+  },
+  {
+    image: '/programs-special-hero-7.jpg',
+    alt: '밤의 미미다이브 제주 교육센터·숙소 입구',
+    objectPosition: 'center 30%',
+  },
+] as const;

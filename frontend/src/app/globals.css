@@ -9,6 +9,13 @@
   --warm-white: #fafaf8;
   --subtext: #6b7280;
   --font-maru-buri: "MaruBuri", "Maru Buri";
+  --header-h: 4.5rem;
+  --page-gutter: clamp(1.25rem, 4vw, 2rem);
+  --section-y: clamp(4rem, 7vw, 6.5rem);
+  --section-y-tight: clamp(2.5rem, 5vw, 3.5rem);
+  --measure: 40rem;
+  --measure-wide: 42rem;
+  --content-max: 80rem;
 }
 
 @theme inline {
@@ -50,6 +57,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -57,6 +65,9 @@ body {
   color: var(--foreground);
   font-family: "Pretendard", var(--font-sans), system-ui, sans-serif;
   text-rendering: optimizeLegibility;
+  overflow-x: clip;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1,
@@ -123,7 +134,7 @@ body[data-mobile-menu-open] .floating-kakao {
 }
 
 .photo-card {
-  min-height: 18rem;
+  min-height: 0;
   overflow: hidden;
   border: 1px solid rgba(95, 124, 138, 0.1);
   background:
@@ -134,6 +145,10 @@ body[data-mobile-menu-open] .floating-kakao {
 }
 
 .cta-button {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
   border: 1px solid rgba(95, 124, 138, 0.18);
   background: #5f7c8a;
   color: #fafaf8 !important;
@@ -145,6 +160,55 @@ body[data-mobile-menu-open] .floating-kakao {
   transform: translateY(-2px) scale(1.02);
   background: #4f6e7c;
   box-shadow: none;
+}
+
+.page-shell {
+  margin-inline: auto;
+  width: 100%;
+  max-width: var(--content-max);
+  padding-inline: var(--page-gutter);
+}
+
+.section-y {
+  padding-block: var(--section-y);
+}
+
+.section-y-tight {
+  padding-block: var(--section-y-tight);
+}
+
+.prose-measure {
+  max-width: var(--measure);
+}
+
+.prose-measure-wide {
+  max-width: var(--measure-wide);
+}
+
+.cta-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .cta-stack {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+
+.cta-stack > a,
+.cta-stack > button {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .cta-stack > a,
+  .cta-stack > button {
+    width: auto;
+  }
 }
 
 .stat-card,

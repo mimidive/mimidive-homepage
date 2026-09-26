@@ -1,7 +1,8 @@
+import { ProgramSectionHero } from '@/components/programs/ProgramSectionHero';
 import { ReadableText } from '@/components/ui/ReadableText';
 import { PageHero } from '@/components/ui/PageHero';
 import { getKakaoChatUrl } from '@/lib/kakao';
-import { imageAlt, marketingImages } from '@/lib/marketing-images';
+import { accommodationGallery, imageAlt, marketingImages } from '@/lib/marketing-images';
 import type { Metadata } from 'next';
 import { staticPageMetadata } from '@/lib/seo';
 
@@ -30,12 +31,15 @@ export default function AccommodationPage() {
         }}
       />
 
-      <section className="py-24 md:py-32">
-        <div className="mx-auto max-w-3xl px-5 lg:px-8">
-          <ReadableText
-            text={bodyCopy}
-            sentenceClassName="text-base leading-8 text-gray-600 md:text-lg md:leading-9"
-          />
+      <section className="pb-20 pt-12 md:pb-28 md:pt-16">
+        <div className="page-shell">
+          <ProgramSectionHero config={{ gallery: accommodationGallery }} />
+          <div className="prose-measure mx-auto mt-10 md:mt-14">
+            <ReadableText
+              text={bodyCopy}
+              sentenceClassName="text-base leading-8 text-gray-600 md:text-lg md:leading-9"
+            />
+          </div>
         </div>
       </section>
     </>

@@ -131,7 +131,6 @@ export const instructorTimeline = [
 
 export const careerMilestones = [
   { label: '2016', title: '프리다이빙 시작' },
-  { label: '2017', title: '다수 대회 경험' },
   { label: 'National', title: 'AIDA·CMAS · 대한민국 노핀 국가대표' },
   { label: 'Record', title: '한국 신기록 12회 · 아시아 신기록' },
   { label: 'World', title: 'AIDA·CMAS 월드챔피언십 국가대표' },
@@ -162,54 +161,82 @@ export const competitionHistory: readonly CompetitionYear[] = [
   {
     year: 2026,
     entries: [
-      { event: 'AIDA Korea National Championship', result: '2위', highlight: true },
+      { event: 'AIDA Korea National Championship', result: 'DNF 노핀 2위', highlight: true },
     ],
   },
   {
     year: 2025,
-    summary: '아시아 여자 신기록 경신 · JEJU Masters · RAUM 시리즈',
+    summary: '아시아 여자 신기록 경신 (DNF 180m) · JEJU Masters 여자 DNF 1위 · RAUM 시리즈',
     entries: [
+      { event: 'AIDA RAUM Pool Competition (2월)', result: '출전' },
+      { event: 'AIDA RAUM Pool Competition (3월)', result: '출전' },
+      { event: '2nd AIDA WCS CUP', result: '출전' },
+      { event: 'AIDA Korea National Championship', result: '출전' },
       {
-        event: 'AIDA 월간 프리다이빙대회',
-        result: '아시아 여자 신기록 수립 (DNF 180m)',
+        event: 'AIDA 2025 3월 월간프리다이빙',
+        result: '아시아 여자 신기록 경신 (DNF 180m)',
         highlight: true,
       },
-      { event: 'AIDA Korea National Championship', result: '출전' },
-      { event: '2nd AIDA WCS CUP', result: '출전' },
-      { event: '2025 JEJU International Freediving Masters', result: '출전' },
-      { event: 'AIDA RAUM Pool Competition 2025', result: '2월~6월 시리즈' },
+      { event: 'AIDA RAUM ENC Pool Competition (4월)', result: '출전' },
+      { event: 'AIDA RAUM ENC Pool Competition (5월)', result: '출전' },
+      { event: 'AIDA RAUM ENC Pool Competition (6월)', result: '출전' },
+      {
+        event: '2025 JEJU International Freediving Masters',
+        result: '여자 DNF 1위 (144m)',
+        highlight: true,
+      },
     ],
   },
   {
     year: 2024,
-    summary: 'AIDA·CMAS 월드챔피언십 국가대표 · JEJU Masters STA 1위',
+    summary: 'AIDA·CMAS 월드챔피언십 국가대표 · CMAS 한국 신기록 (DNF·DYN) · JEJU Masters STA 1위',
     entries: [
-      { event: 'AIDA Freediving World Championship', result: '국가대표 출전', highlight: true },
-      { event: 'CMAS Freediving World Championship', result: '국가대표 출전', highlight: true },
-      { event: 'DNF 143m', result: '한국 여자 모노핀 신기록 수립', highlight: true },
-      { event: 'DYN 209.5m', result: '한국 여자 모노핀 신기록 수립', highlight: true },
-      { event: 'JEJU Freediving Masters AIDA Pool Competition', result: 'STA 1위', highlight: true },
-      { event: 'AIDA Panglao Pool Championship Season 4 Finale', result: '' },
-      { event: '3rd White Balance Pool Competition', result: '' },
+      {
+        event: '32nd AIDA Freediving World Championship',
+        result: '국가대표 출전',
+        highlight: true,
+      },
+      {
+        event: 'CMAS Freediving World Championship',
+        result:
+          '국가대표 출전 · DNF 143m 한국 여자 노핀 신기록 · DYN 209.5m 한국 여자 모노핀 신기록',
+        highlight: true,
+      },
+      {
+        event: 'JEJU Freediving Masters AIDA Pool Competition',
+        result: 'STA 1위 (5분 37초)',
+        highlight: true,
+      },
     ],
   },
   {
     year: 2023,
-    summary: 'Indoor WC 국가대표 · Panglao·Anilao 신기록',
+    summary: 'AIDA Pool WC 국가대표 · Anilao·Panglao 한국 신기록',
     entries: [
       {
-        event: '30th AIDA Indoor World Championship',
-        result: '국가대표 출전 · DNF 162m 국내 여자 노핀 신기록 · DYN 214m 국내 여자 모노핀 신기록',
+        event: '9th AIDA Panglao Pool Games',
+        result: 'DNF 135m 국내 여자 노핀 신기록',
         highlight: true,
       },
       {
         event: 'AIDA Anilao Freediving Pool Cup',
-        result: '종합 1위 · 여자부 1위 · 노핀 1위',
+        result: '종합 1위 · 여자부 1위 · 노핀 1위 · DNF 155m 국내 여자 노핀 신기록',
+        highlight: true,
+      },
+      {
+        event: '30th AIDA Pool World Championship',
+        result:
+          '국가대표 출전 · DNF 162m 국내 여자 노핀 신기록 · DYN 214m 국내 여자 모노핀 신기록',
         highlight: true,
       },
       {
         event: '14th AIDA Panglao Depth Games',
-        result: '한국 여자 신기록 연속 2회 수립 (CNF 54m, CNF 57m)',
+        result: '한국 여자 CNF 신기록 연속 2회 수립 (54m, 57m)',
+        highlight: true,
+      },
+      {
+        event: '15th AIDA Panglao Depth Games',
+        result: 'CWT 90m 기록',
         highlight: true,
       },
       {
@@ -217,22 +244,6 @@ export const competitionHistory: readonly CompetitionYear[] = [
         result: '여자 종합 1위 · DYN 202m 여자 1위 신기록 · DNF 142m 여자 1위 신기록',
         highlight: true,
       },
-      { event: '13th AIDA Panglao Depth Games', result: '' },
-      { event: 'AIDA Panglao Depth Championship', result: '' },
-      { event: '15th AIDA Panglao Depth Games', result: '' },
-    ],
-  },
-  {
-    year: 2022,
-    entries: [
-      {
-        event: '9th AIDA Panglao Pool Games',
-        result: 'DNF 135m 국내 여자 노핀 신기록',
-        highlight: true,
-      },
-      { event: 'AIDA Panglao Pool Championship', result: '' },
-      { event: 'AIDA Panglao Pool Championship S03E04', result: '' },
-      { event: 'AIDA Panglao Pool Championship S03 Finale', result: '' },
     ],
   },
   {

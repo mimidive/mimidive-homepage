@@ -92,25 +92,27 @@ export async function CoursePageView({ slug, fallbackTitle }: Props) {
 
   return (
     <>
-      <section className="ocean-hero py-24 md:py-32">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+      <section className="ocean-hero pb-16 pt-[calc(var(--header-h)+2.75rem)] md:pb-24 md:pt-[calc(var(--header-h)+3.5rem)]">
+        <div className="page-shell">
           {course.level && (
             <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-700">
               {course.level}
             </span>
           )}
-          <h1 className="mt-5 max-w-4xl text-4xl font-semibold leading-[1.12] tracking-[-0.04em] text-gray-900 md:text-6xl">{course.title}</h1>
+          <h1 className="mt-5 max-w-3xl break-keep text-pretty text-[clamp(2rem,5vw,3.75rem)] font-semibold leading-[1.16] tracking-[-0.04em] text-gray-900 [word-break:keep-all] md:leading-[1.1]">
+            {course.title}
+          </h1>
         </div>
       </section>
 
-      <section className="py-24 md:py-32">
-        <div className="mx-auto max-w-3xl px-5 lg:px-8">
-          <div className="content-card rounded-[2rem] p-8 md:p-12">
+      <section className="section-y">
+        <div className="mx-auto max-w-3xl px-[var(--page-gutter)]">
+          <div className="content-card rounded-[2rem] p-6 md:p-12">
             <h2 className="text-lg font-semibold text-sky-700">과정 안내</h2>
             <ReadableText
               text={course.description}
-              className="mt-7"
-              sentenceClassName="leading-8 text-gray-700 md:text-lg md:leading-9"
+              className="mt-5 md:mt-7"
+              sentenceClassName="text-base leading-8 text-gray-700 md:text-lg md:leading-9"
             />
           </div>
           {course.detail && (
@@ -209,16 +211,16 @@ export async function CoursePageView({ slug, fallbackTitle }: Props) {
             </section>
           )}
           {slug !== 'fun' && (
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+          <div className="cta-stack mt-8 md:mt-10">
             <Link
               href="/booking"
-              className="cta-button rounded-full px-8 py-4 text-center text-sm font-semibold transition"
+              className="cta-button rounded-full px-8 py-3.5 text-center text-sm font-semibold transition"
             >
               교육 문의
             </Link>
             <Link
               href="/programs"
-              className="rounded-full bg-white/40 px-8 py-4 text-center text-sm font-semibold text-zinc-800 shadow-sm ring-1 ring-white/60 backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:scale-[1.018] hover:bg-white/70"
+              className="inline-flex min-h-11 items-center justify-center rounded-full bg-white/40 px-8 py-3.5 text-center text-sm font-semibold text-zinc-800 shadow-sm ring-1 ring-white/60 backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:scale-[1.018] hover:bg-white/70"
             >
               다른 과정 보기
             </Link>

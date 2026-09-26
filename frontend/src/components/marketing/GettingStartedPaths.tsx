@@ -251,8 +251,8 @@ export function GettingStartedPathGalleries({ embedded = false }: { embedded?: b
 
   return (
     <div className={embedded ? 'space-y-12 md:space-y-16' : undefined}>
-      <div className={embedded ? undefined : 'relative overflow-hidden bg-[#FAFAF8] py-28 md:py-40'}>
-        <div className={embedded ? undefined : 'mx-auto max-w-7xl px-5 lg:px-8'}>
+      <div className={embedded ? undefined : 'relative overflow-hidden bg-[#FAFAF8] py-20 md:py-28 lg:py-32'}>
+        <div className={embedded ? undefined : 'page-shell'}>
           <motion.div
             initial={reduceMotion || embedded ? false : 'hidden'}
             whileInView={reduceMotion || embedded ? undefined : 'show'}

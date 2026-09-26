@@ -10,6 +10,7 @@ import {
 } from '@/components/marketing/ReviewMomentCard';
 import { SocialLinks } from '@/components/marketing/SocialLinks';
 import { CoverImage } from '@/components/ui/CoverImage';
+import { FluorescentHighlight } from '@/components/ui/FluorescentHighlight';
 import { ResponsiveText } from '@/components/ui/ResponsiveText';
 import { homeCta } from '@/lib/content';
 import {
@@ -136,7 +137,7 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="relative flex min-h-svh items-center justify-center overflow-hidden bg-[#FAFAF8] px-5 text-center">
+      <section className="relative flex min-h-svh items-center justify-center overflow-hidden bg-[#FAFAF8] px-5 text-center sm:px-6">
         <motion.div
           className="pointer-events-none absolute inset-0"
           style={{ y: heroY, scale: heroScale }}
@@ -154,7 +155,7 @@ export default function HomePage() {
         </motion.div>
 
         <motion.div
-          className="relative z-10 mx-auto max-w-5xl pt-20"
+          className="relative z-10 mx-auto max-w-5xl pt-[calc(var(--header-h)+1.5rem)]"
           initial={{ opacity: 0, y: 28, filter: 'blur(12px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 1, ease: softEase }}
@@ -162,7 +163,7 @@ export default function HomePage() {
           <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-[#5F7C8A]">
             {homeHeroCopy.eyebrow}
           </p>
-          <h1 className="mt-8 text-[2.75rem] font-semibold leading-[1.05] tracking-[-0.06em] text-[#1A1A1A] md:text-7xl lg:text-[5.5rem]">
+          <h1 className="mt-6 text-[clamp(2.25rem,8vw,5.5rem)] font-semibold leading-[1.08] tracking-[-0.06em] text-[#1A1A1A] md:mt-8 md:leading-[1.05]">
             <span className="break-keep text-pretty [word-break:keep-all] [overflow-wrap:normal] md:hidden">
               <span className="text-[#5F7C8A]">대한민국 국가대표</span>와
               <br />
@@ -172,21 +173,21 @@ export default function HomePage() {
               <span className="text-[#5F7C8A]">대한민국 국가대표</span>와 함께하는 프리다이빙
             </span>
           </h1>
-          <p className="mx-auto mt-10 max-w-3xl font-serif text-[clamp(1.25rem,3.2vw,2rem)] font-semibold leading-snug tracking-[-0.03em] md:mt-12 md:leading-tight">
+          <p className="mx-auto mt-8 max-w-xl font-serif text-[clamp(1.2rem,3.2vw,2rem)] font-semibold leading-snug tracking-[-0.03em] md:mt-12 md:max-w-3xl md:leading-tight">
             <span className="box-decoration-clone bg-white/30 px-2.5 py-1 text-[#1A1A1A] [box-decoration-break:clone]">
               <ResponsiveText copy={homeHeroCopy.lead} />
             </span>
           </p>
           <p className="mt-5 text-sm font-medium leading-7 text-[#6B7280] md:text-base">
-            <ResponsiveText copy={homeHeroCopy.tagline} className="whitespace-nowrap" />
+            <ResponsiveText copy={homeHeroCopy.tagline} />
           </p>
           <SocialLinks className="mt-4" />
-          <div className="mt-11 flex justify-center">
+          <div className="mt-10 flex justify-center md:mt-11">
             <Link
               href={homeCta.programsEntry.href}
-              className="rounded-full bg-[#5F7C8A] px-8 py-4 text-center text-sm font-semibold leading-snug text-[#FAFAF8] transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-[#4f6e7c]"
+              className="inline-flex min-h-11 w-full max-w-xs items-center justify-center rounded-full bg-[#5F7C8A] px-8 py-3.5 text-center text-sm font-semibold leading-snug text-[#FAFAF8] transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-[#4f6e7c] sm:w-auto"
             >
-              <ResponsiveText copy={homeCtaCopy.programsEntry} className="whitespace-nowrap" />
+              <ResponsiveText copy={homeCtaCopy.programsEntry} />
             </Link>
           </div>
         </motion.div>
@@ -200,23 +201,23 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      <section className="bg-[#FAFAF8] py-10 md:py-14">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <motion.div {...reveal} className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end lg:gap-6">
-            <h2 className="text-4xl font-semibold leading-[1.08] tracking-[-0.055em] text-[#1A1A1A] md:text-6xl lg:text-7xl">
+      <section className="bg-[#FAFAF8] py-12 md:py-16">
+        <div className="page-shell">
+          <motion.div {...reveal} className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:gap-10">
+            <h2 className="text-[clamp(1.875rem,4.5vw,3.75rem)] font-semibold leading-[1.12] tracking-[-0.055em] text-[#1A1A1A] md:leading-[1.08]">
               <ResponsiveText balance copy={homeTruthCopy.title} />
             </h2>
             <ResponsiveText
               as="p"
-              className="text-base leading-7 text-[#6B7280] md:text-lg md:leading-8"
+              className="max-w-xl text-base leading-8 text-[#6B7280] md:text-lg md:leading-8 lg:justify-self-end"
               copy={homeTruthCopy.body}
             />
           </motion.div>
         </div>
       </section>
 
-      <section className="bg-[#FAFAF8] py-28 md:py-40">
-        <div className="mx-auto grid max-w-7xl gap-16 px-5 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:px-8">
+      <section className="bg-[#FAFAF8] py-20 md:py-28 lg:py-32">
+        <div className="page-shell grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:gap-16">
           <motion.div {...reveal} className="relative aspect-[4/5] overflow-hidden">
             <motion.div
               className="relative h-full w-full"
@@ -232,7 +233,7 @@ export default function HomePage() {
             </motion.div>
           </motion.div>
           <motion.div
-            className="lg:pl-10"
+            className="min-w-0 lg:pl-6 xl:pl-10"
             initial={reduceMotion ? false : 'hidden'}
             whileInView={reduceMotion ? undefined : 'show'}
             viewport={{ once: true, margin: '-12% 0px' }}
@@ -246,30 +247,30 @@ export default function HomePage() {
             </motion.p>
             <motion.h2
               variants={instructorHeadingStagger}
-              className="mt-6 text-4xl font-semibold leading-[1.06] tracking-[-0.055em] text-[#1A1A1A] md:text-6xl"
+              className="mt-5 text-[clamp(1.875rem,4.5vw,3.75rem)] font-semibold leading-[1.12] tracking-[-0.055em] text-[#1A1A1A] md:mt-6 md:leading-[1.06]"
             >
               <ResponsiveText balance as="span" copy={homeInstructorCopy.title} />
             </motion.h2>
-            <motion.div variants={instructorLine} className="mt-9 max-w-2xl">
+            <motion.div variants={instructorLine} className="mt-7 max-w-xl md:mt-9">
               <ResponsiveText
                 as="p"
                 className="text-base leading-8 text-[#6B7280] md:text-lg md:leading-9"
                 copy={homeInstructorCopy.body}
               />
             </motion.div>
-            <div className="mt-12 space-y-8">
+            <div className="mt-10 space-y-7 md:mt-12 md:space-y-8">
               {homeInstructorCopy.storyMarks.map((mark) => (
                 <motion.div
                   key={mark.year}
                   variants={instructorRow}
-                  className="relative pt-7 md:grid md:grid-cols-[10rem_1fr] md:gap-4"
+                  className="relative pt-6 md:grid md:grid-cols-[10rem_1fr] md:gap-4 md:pt-7"
                 >
                   <motion.div
                     variants={instructorRule}
                     className="absolute inset-x-0 top-0 h-px origin-left bg-[#5F7C8A]/16"
                     aria-hidden="true"
                   />
-                  <motion.div variants={instructorLine} className="grid gap-4 md:contents">
+                  <motion.div variants={instructorLine} className="grid gap-3 md:contents md:gap-4">
                     <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#5F7C8A]">
                       {mark.year}
                     </p>
@@ -282,25 +283,27 @@ export default function HomePage() {
                 </motion.div>
               ))}
             </div>
-            <motion.div variants={instructorLine} className="mt-12 pl-6">
+            <motion.div variants={instructorLine} className="mt-10 md:mt-12 md:pl-6">
               <Link
                 href="/instructor/intro"
-                className="inline-block break-keep text-sm font-bold text-[#5F7C8A] underline decoration-[#5F7C8A]/35 underline-offset-8 transition hover:text-[#4f6e7c]"
+                className="group inline-block break-keep text-base font-bold leading-7 tracking-[-0.02em] text-[#1A1A1A] transition hover:opacity-90 md:text-lg"
               >
-                <ResponsiveText copy={homeInstructorCopy.link} className="whitespace-nowrap" />
+                <FluorescentHighlight>
+                  <ResponsiveText copy={homeInstructorCopy.link} />
+                </FluorescentHighlight>
               </Link>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      <section className="bg-[#DCECEF] py-28 md:py-40">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <motion.div {...reveal} className="max-w-4xl">
+      <section className="bg-[#DCECEF] py-20 md:py-28 lg:py-32">
+        <div className="page-shell">
+          <motion.div {...reveal} className="max-w-3xl">
             <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-[#5F7C8A]">
               Before the depth
             </p>
-            <h2 className="mt-6 text-4xl font-semibold leading-[1.06] tracking-[-0.055em] text-[#1A1A1A] md:text-6xl">
+            <h2 className="mt-5 text-[clamp(1.875rem,4.5vw,3.75rem)] font-semibold leading-[1.12] tracking-[-0.055em] text-[#1A1A1A] md:mt-6 md:leading-[1.06]">
               <ResponsiveText balance copy={homeConcernsCopy.title} />
             </h2>
           </motion.div>
@@ -309,10 +312,10 @@ export default function HomePage() {
             whileInView={reduceMotion ? undefined : 'show'}
             viewport={{ once: true, margin: '-12% 0px' }}
             variants={instructorStagger}
-            className="mt-16 grid gap-x-12 gap-y-7 md:grid-cols-2 lg:mt-24"
+            className="mt-12 grid gap-x-10 gap-y-6 sm:grid-cols-2 md:mt-16 md:gap-y-7 lg:mt-20 lg:gap-x-12"
           >
             {homeConcernsCopy.items.map((item) => (
-              <motion.div key={item.desktop} variants={instructorRow} className="relative pb-7">
+              <motion.div key={item.desktop} variants={instructorRow} className="relative pb-6 md:pb-7">
                 <motion.div
                   variants={instructorRule}
                   className="absolute inset-x-0 bottom-0 h-px origin-left bg-[#5F7C8A]/18"
@@ -320,9 +323,9 @@ export default function HomePage() {
                 />
                 <motion.p
                   variants={instructorLine}
-                  className="text-2xl font-semibold leading-tight tracking-[-0.045em] text-[#1A1A1A] md:text-4xl"
+                  className="text-[clamp(1.25rem,3.5vw,2.25rem)] font-semibold leading-snug tracking-[-0.045em] text-[#1A1A1A]"
                 >
-                  <ResponsiveText balance copy={item} className="whitespace-nowrap" />
+                  <ResponsiveText balance copy={item} />
                 </motion.p>
               </motion.div>
             ))}
@@ -332,7 +335,7 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
             viewport={{ once: true, margin: '-14% 0px' }}
             transition={{ duration: 1, ease: softEase }}
-            className="relative mt-20 max-w-2xl pl-6 text-base leading-8 text-[#6B7280] md:text-lg md:leading-9"
+            className="relative mt-14 max-w-2xl pl-5 text-base leading-8 text-[#6B7280] md:mt-20 md:pl-6 md:text-lg md:leading-9"
           >
             <motion.span
               className="absolute left-0 top-1 h-full w-px origin-top bg-[#5F7C8A]"
@@ -342,18 +345,18 @@ export default function HomePage() {
               transition={{ duration: 1, delay: 0.25, ease: softEase }}
               aria-hidden="true"
             />
-            <ResponsiveText as="div" copy={homeConcernsCopy.bridge} className="whitespace-nowrap" />
+            <ResponsiveText as="div" copy={homeConcernsCopy.bridge} />
           </motion.div>
         </div>
       </section>
 
-      <section className="overflow-hidden bg-[#FAFAF8] py-28 md:py-40">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+      <section className="overflow-hidden bg-[#FAFAF8] py-20 md:py-28 lg:py-32">
+        <div className="page-shell">
           <motion.div {...reveal} className="max-w-2xl">
             <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-[#5F7C8A]">
               {homeMomentsCopy.eyebrow}
             </p>
-            <h2 className="mt-6 text-4xl font-semibold leading-[1.06] tracking-[-0.055em] text-[#1A1A1A] md:text-6xl">
+            <h2 className="mt-5 text-[clamp(1.875rem,4.5vw,3.75rem)] font-semibold leading-[1.12] tracking-[-0.055em] text-[#1A1A1A] md:mt-6 md:leading-[1.06]">
               <ResponsiveText balance copy={homeMomentsCopy.title} />
             </h2>
             <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2">
@@ -366,7 +369,7 @@ export default function HomePage() {
             </div>
             <ResponsiveText
               as="p"
-              className="mt-2 text-sm leading-7 text-[#6B7280] md:text-base md:leading-8"
+              className="mt-2 max-w-xl text-sm leading-7 text-[#6B7280] md:text-base md:leading-8"
               copy={homeMomentsCopy.summary}
             />
           </motion.div>
@@ -377,7 +380,7 @@ export default function HomePage() {
             whileInView={reduceMotion ? undefined : 'show'}
             viewport={{ once: true, margin: '-10% 0px' }}
             variants={reviewStagger}
-            className="mt-16 space-y-20 md:mt-24 md:space-y-28"
+            className="mt-12 space-y-14 md:mt-20 md:space-y-24 lg:mt-24 lg:space-y-28"
           >
             {moments.map((moment, index) => (
               <motion.div key={moment.category} variants={reviewRow}>
@@ -388,50 +391,56 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="relative flex min-h-[72vh] items-center overflow-hidden bg-[#FAFAF8] py-28 md:py-40">
-        <div className="absolute inset-y-16 right-0 hidden w-[42vw] opacity-80 lg:block relative">
-          <CoverImage
-            src={oceanImages.breathing}
-            alt={imageAlt.breathing}
-            imageClassName="object-cover object-center"
-            sizes="42vw"
-          />
-        </div>
-        <motion.div {...reveal} className="relative z-10 mx-auto max-w-[780px] px-5 text-center">
-          <h2 className="text-4xl font-semibold leading-[1.06] tracking-[-0.055em] text-[#1A1A1A] md:text-6xl">
-            <ResponsiveText balance copy={homeClosingCopy.title} />
-          </h2>
-          <div className="mx-auto mt-9 max-w-[640px] space-y-2 text-base leading-8 text-[#6B7280] md:mt-9 md:text-lg md:leading-9">
-            {homeClosingCopy.lines.map((line) => (
-              <ResponsiveText key={line.desktop} as="p" copy={line} />
-            ))}
-          </div>
-          <div className="mt-10 flex flex-col items-center gap-4 md:mt-12">
-            {homeCta.freeConsultation.href.startsWith('http') ? (
-              <a
-                href={homeCta.freeConsultation.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block rounded-full bg-[#5F7C8A] px-9 py-4 text-center text-sm font-semibold leading-snug text-[#FAFAF8] transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-[#4f6e7c]"
-              >
-                <ResponsiveText copy={homeCtaCopy.freeConsultation} className="whitespace-nowrap" />
-              </a>
-            ) : (
+      <section className="relative overflow-hidden bg-[#FAFAF8] py-20 md:py-28 lg:py-32">
+        <div className="page-shell grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+          <motion.div {...reveal} className="relative z-10 mx-auto w-full max-w-xl text-center lg:mx-0 lg:max-w-none lg:text-left">
+            <h2 className="text-[clamp(1.875rem,4.5vw,3.75rem)] font-semibold leading-[1.12] tracking-[-0.055em] text-[#1A1A1A] md:leading-[1.06]">
+              <ResponsiveText balance copy={homeClosingCopy.title} />
+            </h2>
+            <div className="mx-auto mt-7 max-w-xl space-y-2 text-base leading-8 text-[#6B7280] md:mt-9 md:text-lg md:leading-9 lg:mx-0">
+              {homeClosingCopy.lines.map((line) => (
+                <ResponsiveText key={line.desktop} as="p" copy={line} />
+              ))}
+            </div>
+            <div className="cta-stack mx-auto mt-9 max-w-xs items-stretch md:mt-12 md:max-w-none md:items-center md:justify-center lg:mx-0 lg:justify-start">
+              {homeCta.freeConsultation.href.startsWith('http') ? (
+                <a
+                  href={homeCta.freeConsultation.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#5F7C8A] px-9 py-3.5 text-center text-sm font-semibold leading-snug text-[#FAFAF8] transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-[#4f6e7c]"
+                >
+                  <ResponsiveText copy={homeCtaCopy.freeConsultation} />
+                </a>
+              ) : (
+                <Link
+                  href={homeCta.freeConsultation.href}
+                  className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#5F7C8A] px-9 py-3.5 text-center text-sm font-semibold leading-snug text-[#FAFAF8] transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-[#4f6e7c]"
+                >
+                  <ResponsiveText copy={homeCtaCopy.freeConsultation} />
+                </Link>
+              )}
               <Link
-                href={homeCta.freeConsultation.href}
-                className="inline-block rounded-full bg-[#5F7C8A] px-9 py-4 text-center text-sm font-semibold leading-snug text-[#FAFAF8] transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-[#4f6e7c]"
+                href={homeCta.packageInquiry.href}
+                className="inline-flex min-h-11 items-center justify-center px-2 text-center text-sm font-semibold leading-snug text-[#5F7C8A] underline decoration-[#5F7C8A]/35 underline-offset-8 transition hover:text-[#4f6e7c]"
               >
-                <ResponsiveText copy={homeCtaCopy.freeConsultation} className="whitespace-nowrap" />
+                <ResponsiveText copy={homeCtaCopy.packageInquiry} />
               </Link>
-            )}
-            <Link
-              href={homeCta.packageInquiry.href}
-              className="text-center text-sm font-semibold leading-snug text-[#5F7C8A] underline decoration-[#5F7C8A]/35 underline-offset-8 transition hover:text-[#4f6e7c]"
-            >
-              <ResponsiveText copy={homeCtaCopy.packageInquiry} className="whitespace-nowrap" />
-            </Link>
-          </div>
-        </motion.div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            {...reveal}
+            className="relative mx-auto hidden aspect-[4/5] w-full max-w-md overflow-hidden lg:mx-0 lg:block lg:max-w-none"
+          >
+            <CoverImage
+              src={oceanImages.breathing}
+              alt={imageAlt.breathing}
+              imageClassName="object-cover object-center"
+              sizes="(max-width: 1024px) 0vw, 40vw"
+            />
+          </motion.div>
+        </div>
       </section>
     </>
   );

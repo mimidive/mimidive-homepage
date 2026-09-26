@@ -6,14 +6,14 @@ export function Footer() {
   const kakaoChatUrl = getKakaoChatUrl();
   return (
     <footer className="bg-white text-zinc-600">
-      <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
-        <div className="grid gap-14 md:grid-cols-3">
+      <div className="page-shell py-14 md:py-20">
+        <div className="grid gap-10 md:grid-cols-3 md:gap-14">
           <div>
             <p className="text-lg font-semibold text-zinc-900">
               {BRAND.name}
               <span className="ml-2 text-sm font-medium text-sky-200">{BRAND.nameEn}</span>
             </p>
-            <p className="mt-4 text-sm leading-relaxed">
+            <p className="mt-4 text-sm leading-7">
               제주 프리다이빙 전문 교육 센터
               <br />
               입문 · 자격증 · 트레이닝 · 강사 과정

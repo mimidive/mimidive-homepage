@@ -286,14 +286,14 @@ export function ProgramTabs() {
             >
               {hero ? <ProgramSectionHero config={hero} /> : null}
 
-              <div className="mb-7 max-w-2xl">
+              <div className="mb-6 max-w-2xl md:mb-7">
                 <h2
                   id={`${section.id}-heading`}
-                  className="text-2xl font-semibold tracking-[-0.04em] text-[#1A1A1A] md:text-3xl"
+                  className="break-keep text-pretty text-[clamp(1.375rem,3.5vw,1.875rem)] font-semibold tracking-[-0.04em] text-[#1A1A1A] [word-break:keep-all]"
                 >
                   {section.title}
                 </h2>
-                <p className="mt-2 text-sm leading-7 text-gray-600 md:text-base md:leading-8">
+                <p className="mt-2 text-base leading-7 text-gray-600 md:leading-8">
                   {section.subtitle}
                 </p>
               </div>

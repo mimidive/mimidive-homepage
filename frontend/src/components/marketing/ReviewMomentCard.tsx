@@ -76,7 +76,7 @@ export function ReviewMomentRow({
 }) {
   return (
     <figure
-      className={`flex flex-col gap-8 md:flex-row md:items-center md:gap-12 lg:gap-16 ${
+      className={`flex flex-col gap-6 md:flex-row md:items-center md:gap-12 lg:gap-16 ${
         reverse ? 'md:flex-row-reverse' : ''
       }`}
     >
@@ -89,17 +89,17 @@ export function ReviewMomentRow({
           sizes="(max-width: 768px) 100vw, 42vw"
         />
       </div>
-      <figcaption className="flex flex-1 flex-col justify-center md:py-4">
+      <figcaption className="flex min-w-0 flex-1 flex-col justify-center md:py-4">
         <span className="inline-block w-fit rounded-md bg-[#DCECEF] px-2.5 py-1 text-[10px] font-semibold tracking-[0.08em] text-[#5F7C8A]">
           {moment.category}
         </span>
-        <div className="mt-4 flex items-center gap-3">
+        <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 md:mt-4">
           <StarRating />
           <span className="text-[11px] font-medium tracking-[0.04em] text-[#6B7280]">
             {moment.profile}
           </span>
         </div>
-        <blockquote className="mt-6 break-keep text-pretty font-serif text-xl font-semibold leading-[1.6] tracking-[-0.02em] text-[#1A1A1A] [overflow-wrap:normal] [word-break:keep-all] md:mt-8 md:text-2xl md:leading-[1.5] lg:text-[1.75rem] lg:leading-[1.55]">
+        <blockquote className="mt-5 break-keep text-pretty font-serif text-[clamp(1.125rem,3.5vw,1.75rem)] font-semibold leading-[1.55] tracking-[-0.02em] text-[#1A1A1A] [overflow-wrap:normal] [word-break:keep-all] md:mt-8 md:leading-[1.5]">
           <HighlightedQuote quote={moment.quote} highlight={moment.highlight} />
         </blockquote>
       </figcaption>
